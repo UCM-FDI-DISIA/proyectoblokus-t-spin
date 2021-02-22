@@ -5,7 +5,7 @@
 - Andrés
 - Carolina
 - Daniel
-- Mauricio
+- Mauricio Calderón Barazorda
 - Luis Solis Redondo
 - Roberto
 - Sofia
