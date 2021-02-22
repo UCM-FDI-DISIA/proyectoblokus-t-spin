@@ -16,5 +16,5 @@
 - Mauricio Calderón Barazorda
 - Luis Solis Redondo
 - Roberto Tejedor Moreno
-- Sofia
+- Sofía Capmany Fernández
 
