@@ -10,8 +10,8 @@
 |||||
 
 ## Integrantes
-- Andrés
-- Carolina
+- Andrés Felipe Yunda Castillo
+- Alexandra Carolina Molina Ospina
 - Daniel Prieto Remacha
 - Mauricio Calderón Barazorda
 - Luis Solis Redondo
