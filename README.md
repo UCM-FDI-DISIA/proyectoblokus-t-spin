@@ -12,7 +12,7 @@
 ## Integrantes
 - Andrés
 - Carolina
-- Daniel
+- Daniel Prieto Remacha
 - Mauricio Calderón Barazorda
 - Luis Solis Redondo
 - Roberto
