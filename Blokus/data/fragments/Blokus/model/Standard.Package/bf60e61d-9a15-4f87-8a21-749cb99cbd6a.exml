@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="blokus" version="4">
+  <OBJECT>
+    <ID name="blokus" mc="Standard.Package" uid="bf60e61d-9a15-4f87-8a21-749cb99cbd6a"/>
+    <PID name="Blokus" mc="Standard.Project" uid="89ed5f11-3920-4128-8f0b-c3d7baa0a81e"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[blokus]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Jugador" mc="Standard.Class" uid="9ac8b751-0c40-47aa-886f-43cbfafb2bea"/>
+        <COMPID name="CommandGenerator" mc="Standard.Class" uid="85d75018-d7ef-4e65-89f2-c26ba525b3a5"/>
+        <COMPID name="Game" mc="Standard.Class" uid="d0b358f7-a456-4243-b16c-299fc978402c"/>
+        <COMPID name="GamePrinter" mc="Standard.Class" uid="e5e5ca29-6ed2-4d17-92a4-1eb939a9c5d8"/>
+        <COMPID name="AnadirFicha" mc="Standard.Class" uid="08336d5f-41cf-48d1-a8c2-f3de3625c89e"/>
+        <COMPID name="Ficha" mc="Standard.Class" uid="22c03fa6-1ced-49d1-a1b5-9c05a583f81f"/>
+        <COMPID name="Casilla" mc="Standard.Class" uid="86858419-29c4-4471-8465-390bfa9b4be9"/>
+        <COMPID name="Controller" mc="Standard.Class" uid="0e94501e-420a-4e83-9584-597731fbbe87"/>
+        <COMPID name="Command" mc="Standard.Class" uid="41dc92c0-168f-4319-b031-d22f172f09f7"/>
+        <COMPID name="Main" mc="Standard.Class" uid="297cf234-aee0-4ee8-ba25-09575d3dfd72"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+      <COMP relation="Product">
+        <COMPID name="blokus Class diagram" mc="Standard.ClassDiagram" uid="dc56d3ba-81a5-4f53-bdbe-2db7bf1fec46"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

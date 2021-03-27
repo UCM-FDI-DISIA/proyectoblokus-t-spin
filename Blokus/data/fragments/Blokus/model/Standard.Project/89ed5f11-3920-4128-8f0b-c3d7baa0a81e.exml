@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Blokus" version="4">
+  <OBJECT>
+    <ID name="Blokus" mc="Standard.Project" uid="89ed5f11-3920-4128-8f0b-c3d7baa0a81e"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[Blokus]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="blokus" mc="Standard.Package" uid="bf60e61d-9a15-4f87-8a21-749cb99cbd6a"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="Blokus" mc="Infrastructure.DiagramSet" uid="d2c1e461-5bf0-4291-a11b-6f8f493e77d7"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
