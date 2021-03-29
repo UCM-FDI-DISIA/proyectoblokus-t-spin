@@ -1,14 +1,12 @@
 
 public class GamePrinter {
-    private Game game;
+    
+	public GamePrinter() {
+	}
 
-    public String dibujar() {
+    public String toString(Game game) {
+    	return null;
     }
 
-    public String toString() {
-    }
-
-    public GamePrinter(Game game) {
-    }
 
 }
