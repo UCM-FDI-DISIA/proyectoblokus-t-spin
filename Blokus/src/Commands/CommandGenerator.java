@@ -25,8 +25,7 @@ public class CommandGenerator {
 			};
 
 	
-	 public static void main(String[ ] commandWords) {
-		 System.out.println("Bienvenido, introduce un comando: ");
+	 /*public static void main(String[ ] commandWords) {
 		 Scanner scanner=new Scanner(System.in);
 		String s = scanner.nextLine();
 		
@@ -37,7 +36,7 @@ public class CommandGenerator {
 		 
 		  
 		 
-	 }
+	 }*/
 
 	public static Command parse(String[ ] commandWords) throws CommandParseException {
 		
