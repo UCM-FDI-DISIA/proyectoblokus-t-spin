@@ -8,13 +8,55 @@ public class Game {
 	public final static int DIM_BOARD = 20;
 	
 	private boolean juegoTerminado = false;
+private boolean primeraRonda = true;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
     private HashMap<Integer[], String> mapaCasillas = new HashMap<Integer[], String>();
 
     public Game() {
     
     }
+
+    public void ejecutaJuego() {
+    	if(primeraRonda) {
+    		jugarPrimeraRonda();
+    		primeraRonda = false;
+    	}
+    	else {
+    		for(Jugador j : jugadores) {
+    			if(jugadorPuedeColocar(j)) {
+    				anadirFicha(/*j.getFicha()*/);// algo similar para ver que ficha coloca
+    			}
+    		}
+    	}
+    }
     
+    public void jugarPrimeraRonda() {
+    	for(Jugador j : jugadores) {
+    		if(jugadorPuedeColocar(j) && checkEsquinas(/*j.getFicha()*/)) {
+    			anadirFicha(/*j.getFicha()*/);
+    		}
+    	}
+    }
+    
+    public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
+    	Integer[] esquina1 = {0, 0}, esquina2 = {19, 0}, 
+    			esquina3 = {0, 19}, esquina4 = {19, 19};
+    	
+    	Integer[] casilla = {0, 0};
+    	
+    	for(int i = 0; i < ficha.getNumCasillas(); i++) {
+    		casilla[0] = ficha.getFichaX(i);
+    		casilla[1] = ficha.getFichaY(i);
+    		if(casilla == esquina1 || casilla == esquina2 || casilla == esquina3 || casilla == esquina4) {
+    			return true;
+    		}
+    	}
+    	
+    	
+    	return false;
+    }
+
+
     public void anadirFicha(Ficha ficha) {  
     	
     	Integer[] posicion = {0,0};
