@@ -8,7 +8,8 @@ public class Ficha {
 
     private List<Casilla> arrayCasillas = new ArrayList<Casilla> ();
 
-    public Ficha(List<Integer> forma, List<Casilla> arrayCasillas) {
+    public Ficha(int[][] forma, List<Casilla> arrayCasillas) {
+   
     }
     
     public void rotar(int rotacion) {

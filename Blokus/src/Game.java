@@ -25,7 +25,7 @@ public class Game {
     			mapaCasillas.put(posicion, ficha.getEquipo());	
     		}
     		//Llamar a jugardor para quitarle la ficha que acaba de colocar
-    		jugadores.get(1).borrarPieza(1);
+    		jugadores.get(1).borrarPieza(1); //esta linea está mal, arreglar
     	}    	
     }
     
