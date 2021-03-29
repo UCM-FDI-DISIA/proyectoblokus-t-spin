@@ -14,8 +14,18 @@ public class Game {
     
     }
     
-    public void anadirFicha(Integer[] posicion, String equipo) {
-    	mapaCasillas.put(posicion, equipo);
+    public void anadirFicha(Ficha ficha) {  
+    	
+    	Integer[] posicion = {0,0};
+    	
+    	if(cumpleReglas(ficha)) {
+    		for(int i = 0; i < ficha.getNumCasillas(); i++){
+    			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
+    			mapaCasillas.put(posicion, ficha.getEquipo());	
+    		}
+    		//Llamar a jugardor para quitarle la ficha que acaba de colocar
+    		jugadores.get(1).borrarPieza(1);
+    	}    	
     }
     
     public boolean jugadorPuedeColocar() {
