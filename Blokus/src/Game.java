@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.HashMap;
 
 public class Game {
-    private boolean juegoTerminado = false;
-
-    private List<Jugador> jugadores = new ArrayList<Jugador> ();
     
+	public final static int DIM_BOARD = 20;
+	
+	private boolean juegoTerminado = false;
+    private List<Jugador> jugadores = new ArrayList<Jugador> ();  
     private HashMap<Integer[], String> mapaCasillas = new HashMap<Integer[], String>();
 
     public Game() {
@@ -127,5 +128,11 @@ public class Game {
     }
 
 
+	public String positionToString(int x, int y) {
+		
+		Integer[] pos = {x,y};
+		return (mapaCasillas.containsKey(pos)) ? mapaCasillas.get(pos) : " ";
+		
+	}
 
 }
