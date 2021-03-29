@@ -26,12 +26,12 @@ public class Ficha {
     
     public int getFichaX(int i) {
     	
-    	return arrayCasillas[i].getX();
+    	return arrayCasillas.get(i).getX();
     }
     
     public int getFichaY(int i) {
     	
-    	return arrayCasillas[i].getY();
+    	return arrayCasillas.get(i).getY();
     }
     
     public int getNumCasillas() {

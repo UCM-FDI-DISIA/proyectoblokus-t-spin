@@ -6,8 +6,6 @@ import java.util.HashMap;
 public class Game {
     private boolean juegoTerminado = false;
 
-    private GamePrinter gamePrinter;
-
     private List<Jugador> jugadores = new ArrayList<Jugador> ();
     
     private HashMap<Integer[], String> mapaCasillas = new HashMap<Integer[], String>();
@@ -42,15 +40,52 @@ public class Game {
     }
     
     private boolean checkDiagonal(Integer[]pos, String equipo) {
-    	/*boolean casillaValida = false;
+    	boolean casillaValida = false;
+
+    	
+    	//	|1| |2|
+    	//	| |P| |
+    	//	|3| |4|
+    	
     	Integer[] auxPos = pos;
+    	auxPos[0] -= 1; auxPos[1] += 1;
+    	if(mapaCasillas.get(pos) != null) { //1
+    		casillaValida = true;
+    	}
+    	
+    	auxPos = pos;
     	auxPos[0] += 1; auxPos[1] += 1;
-    	if(mapaCasillas.get(pos) != null) {
-    		
-    	}*/
+    	if(mapaCasillas.get(pos) != null) { //2
+    		casillaValida = true;
+    	}
+    	
+    	auxPos = pos;
+    	auxPos[0] -= 1; auxPos[1] -= 1;
+    	if(mapaCasillas.get(pos) != null) { //3
+    		casillaValida = true;
+    	}
+    	
+    	auxPos = pos;
+    	auxPos[0] += 1; auxPos[1] -= 1; 	
+    	if(mapaCasillas.get(pos) != null) { //4
+    		casillaValida = true;
+    	}
     	return casillaValida;
     }
 
+    private boolean checkContiguaNoDiagonal(Integer[]pos, String equipo) {
+    	boolean casillaValida = false;
+
+    	
+    	//	| |1| |
+    	//	|4|P|2|
+    	//	| |3| |
+    	
+    	Integer[] auxPos = pos;
+    	
+    	return casillaValida;
+    	
+    }
     public void obtenerPuntuacion() {
     	//Llama a player getPuntuacion
     }
