@@ -4,12 +4,13 @@ import java.util.List;
 public class Ficha {
     private String equipo;
 
-    private int[] forma;
+    private int[][] forma;
 
     private List<Casilla> arrayCasillas = new ArrayList<Casilla> ();
 
     public Ficha(int[][] forma, List<Casilla> arrayCasillas) {
-   
+    	this.forma = forma;
+    	this.arrayCasillas = arrayCasillas;
     }
     
     public void rotar(int rotacion) {

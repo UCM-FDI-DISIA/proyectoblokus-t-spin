@@ -4,7 +4,7 @@ import java.util.List;
 public class Main {
     //private Controller controller;
 
-    public void main() {
+	public static void main(String[] args)  {
     	System.out.print("hola mundo");
     	//TEST ZONE
     	Game game = new Game();
@@ -17,7 +17,7 @@ public class Main {
     	arrayCasillas.add(new Casilla(0,0));
     	ficha = new Ficha(forma, arrayCasillas);
     	game.anadirFicha(ficha);
-    	
+    	System.out.print("adios mundo");
     	//TEST ZONE
     }
 
