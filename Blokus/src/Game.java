@@ -126,17 +126,15 @@ public class Game {
     	return casillaValida;
     	
     }
+    
     public void obtenerPuntuacion() {
     	//Llama a player getPuntuacion
     }
-
-
 
     public boolean getJuegoTerminado() {
     	//bucle lista jugadores puedeColocar()
     	return true;
     }
-
 
 	public String positionToString(int x, int y) {
 		
