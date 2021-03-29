@@ -10,6 +10,10 @@ public class Game {
     
     private HashMap<Integer[], String> mapaCasillas = new HashMap<Integer[], String>();
 
+    public Game() {
+    
+    }
+    
     public void anadirFicha(Integer[] posicion, String equipo) {
     	mapaCasillas.put(posicion, equipo);
     }
@@ -32,9 +36,14 @@ public class Game {
     			return false;
     		}
     		
-    		if(!checkDiagonal(pos, equipo)) {
+    		if(!checkDiagonal(pos, equipo)) { //Si no tiene casillas del equipo en diagonal
     			return false;
     		}
+    		
+    		if(!checkContiguaNoDiagonal(pos, equipo)) { //Si tiene casillas del equipo contiguas no diagonales
+    			return false;
+    		}
+    		
     	}
 		return true;
     }
@@ -49,40 +58,60 @@ public class Game {
     	
     	Integer[] auxPos = pos;
     	auxPos[0] -= 1; auxPos[1] += 1;
-    	if(mapaCasillas.get(pos) != null) { //1
+    	if(mapaCasillas.get(auxPos) != null && mapaCasillas.get(auxPos) == equipo) { //1
     		casillaValida = true;
     	}
     	
     	auxPos = pos;
     	auxPos[0] += 1; auxPos[1] += 1;
-    	if(mapaCasillas.get(pos) != null) { //2
+    	if(mapaCasillas.get(auxPos) != null && mapaCasillas.get(auxPos) == equipo) { //2
     		casillaValida = true;
     	}
     	
     	auxPos = pos;
     	auxPos[0] -= 1; auxPos[1] -= 1;
-    	if(mapaCasillas.get(pos) != null) { //3
+    	if(mapaCasillas.get(auxPos) != null && mapaCasillas.get(auxPos) == equipo) { //3
     		casillaValida = true;
     	}
     	
     	auxPos = pos;
     	auxPos[0] += 1; auxPos[1] -= 1; 	
-    	if(mapaCasillas.get(pos) != null) { //4
+    	if(mapaCasillas.get(auxPos) != null && mapaCasillas.get(auxPos) == equipo) { //4
     		casillaValida = true;
     	}
     	return casillaValida;
     }
 
     private boolean checkContiguaNoDiagonal(Integer[]pos, String equipo) {
-    	boolean casillaValida = false;
-
-    	
+    	boolean casillaValida = true;
+   	
     	//	| |1| |
     	//	|4|P|2|
     	//	| |3| |
     	
     	Integer[] auxPos = pos;
+    	auxPos[1] += 1;
+    	if(mapaCasillas.get(auxPos) == equipo) { //1
+    		casillaValida = false;
+    	}
     	
+    	auxPos = pos;
+    	auxPos[0] += 1;
+    	if(mapaCasillas.get(auxPos) == equipo) { //2
+    		casillaValida = false;
+    	}
+    	
+    	auxPos = pos;
+    	auxPos[1] -= 1;
+    	if(mapaCasillas.get(auxPos) == equipo) { //3
+    		casillaValida = false;
+    	}
+    	
+    	auxPos = pos;
+    	auxPos[0] -= 1; 	
+    	if(mapaCasillas.get(auxPos) == equipo) { //4
+    		casillaValida = false;
+    	}
     	return casillaValida;
     	
     }
@@ -97,7 +126,6 @@ public class Game {
     	return true;
     }
 
-    public Game() {
-    }
+
 
 }
