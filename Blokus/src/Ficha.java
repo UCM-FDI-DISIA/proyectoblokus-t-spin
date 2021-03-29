@@ -2,42 +2,89 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ficha {
-    private String equipo;
-
+    
+	private String equipo;
     private int[][] forma;
-
-    private List<Casilla> arrayCasillas = new ArrayList<Casilla> ();
+    private List<Casilla> listaCasillas = new ArrayList<Casilla> ();
 
     public Ficha(int[][] forma, List<Casilla> arrayCasillas) {
     	this.forma = forma;
-    	this.arrayCasillas = arrayCasillas;
+    	this.listaCasillas = arrayCasillas;
     }
     
-    public void rotar(int rotacion) {
-    }
+	public void rotar(int rotacion) {
+		if(rotacion == 1) {
+			for(int i = 0; i < listaCasillas.size()-1; i++) {
+				if(forma[i][0] == 0) {
+					forma[i][0] = -1;
+				}
+				else {
+					forma[i][0] = 0;
+				}
+				if(forma[i][1] == 0) {
+					forma[i][1] = -1;
+				}
+				else {
+					forma[i][1] = 0;
+				}
+				if(forma[i][0] == 0 && forma[i][1] == 0) {
+					forma[i][0] = 1;
+					forma[i][1] = -1;
+				}
+				
+			}	
+		}
+		else if(rotacion == 2) {
+			for(int i = 0; i < listaCasillas.size()-1; i++) {
+				forma[i][0] = -forma[i][0];
+				forma[i][1] = -forma[i][1];
+			}	
+		}
+		else if(rotacion == 3) {
+			for(int i = 0; i < listaCasillas.size()-1; i++) {
+				if(forma[i][0] == 0) {
+					forma[i][0] = 1;
+				}
+				else {
+					forma[i][0] = 0;
+				}
+				if(forma[i][1] == 0) {
+					forma[i][1] = 1;
+				}
+				else {
+					forma[i][1] = 0;
+				}	
+			}	
+		}
+		
+		setForma();
+	}
+	
+	public void setForma() {
+		for(int i = 1; i < listaCasillas.size(); i++) {
+			listaCasillas.get(i).setX(listaCasillas.get(i-1).getX()- forma[i-1][1]);
+			listaCasillas.get(i).setY(listaCasillas.get(i-1).getY()+ forma[i-1][0]);
+		}
+	}
+	
 
-    public void setForma() {
-    }
 
-
-    
-    //-----
     public String getEquipo() {
     	return equipo;
     }
     
     public int getFichaX(int i) {
     	
-    	return arrayCasillas.get(i).getX();
+    	return listaCasillas.get(i).getX();
     }
     
     public int getFichaY(int i) {
     	
-    	return arrayCasillas.get(i).getY();
+    	return listaCasillas.get(i).getY();
     }
     
     public int getNumCasillas() {
-    	return arrayCasillas.size();
+    	return listaCasillas.size();
     }
-//-----
+
 }
