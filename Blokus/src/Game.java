@@ -27,11 +27,13 @@ public class Game {
     	//checkea si vacia y contiguas
     	
     	for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
-    		//Comprueba si está vacía
-    		Integer[] auxPos = {valueOf(ficha.getFichaX(i)), valueOf(ficha.getFichaY(i))};
-    		if(mapaCasillas.get(a) != null) {
+    		
+    		pos[0] = Integer.valueOf(ficha.getFichaX(i)); pos[1] = Integer.valueOf(ficha.getFichaY(i));
+    		
+    		if(mapaCasillas.get(pos) != null) { //Si está ocupada
     			return false;
     		}
+    		
     		if(!checkDiagonal(pos, equipo)) {
     			return false;
     		}
@@ -40,12 +42,12 @@ public class Game {
     }
     
     private boolean checkDiagonal(Integer[]pos, String equipo) {
-    	boolean casillaValida = false;
+    	/*boolean casillaValida = false;
     	Integer[] auxPos = pos;
     	auxPos[0] += 1; auxPos[1] += 1;
     	if(mapaCasillas.get(pos) != null) {
     		
-    	}
+    	}*/
     	return casillaValida;
     }
 
