@@ -7,8 +7,9 @@ public class Ficha {
     private int[][] forma;
     private List<Casilla> listaCasillas = new ArrayList<Casilla> ();
 
-    public Ficha(int[][] forma, List<Casilla> arrayCasillas) {
+    public Ficha(int[][] forma, List<Casilla> arrayCasillas, String equipo) {
     	this.forma = forma;
+    	this.equipo = equipo;
     	this.listaCasillas = arrayCasillas;
     }
     
@@ -60,6 +61,12 @@ public class Ficha {
 		setForma();
 	}
 	
+    public void moverFicha(int x, int y) {
+    	listaCasillas.get(0).setX(x);
+    	listaCasillas.get(0).setY(y);
+    	setForma();	
+    }
+
 	public void setForma() {
 		for(int i = 1; i < listaCasillas.size(); i++) {
 			listaCasillas.get(i).setX(listaCasillas.get(i-1).getX()- forma[i-1][1]);
@@ -67,6 +74,9 @@ public class Ficha {
 		}
 	}
 	
+	public int[][] getForma(){
+		return forma;
+	}
 
 
     public String getEquipo() {
@@ -86,5 +96,7 @@ public class Ficha {
     public int getNumCasillas() {
     	return listaCasillas.size();
     }
+    
+
 
 }
