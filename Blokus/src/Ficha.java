@@ -24,12 +24,12 @@ public class Ficha {
     	return equipo;
     }
     
-    public int[] getFichaX(int i) {
+    public int getFichaX(int i) {
     	
     	return arrayCasillas[i].getX();
     }
     
-    public int[] getFichaY(int i) {
+    public int getFichaY(int i) {
     	
     	return arrayCasillas[i].getY();
     }

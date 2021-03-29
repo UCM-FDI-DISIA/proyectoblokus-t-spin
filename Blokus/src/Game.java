@@ -28,8 +28,8 @@ public class Game {
     	
     	for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
     		//Comprueba si está vacía
-    		getFichaPos
-    		if(mapaCasillas.get(pos) != null) {
+    		Integer[] auxPos = {valueOf(ficha.getFichaX(i)), valueOf(ficha.getFichaY(i))};
+    		if(mapaCasillas.get(a) != null) {
     			return false;
     		}
     		if(!checkDiagonal(pos, equipo)) {
