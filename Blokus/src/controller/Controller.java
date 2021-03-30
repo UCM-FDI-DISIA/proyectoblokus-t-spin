@@ -16,7 +16,8 @@ public class Controller {
 	
     public Controller(Game game, Scanner scanner) {
     	this.game = game;
-		in = scanner;    	   	
+		in = scanner;
+		game.jugarPrimeraRonda(1,1,1);
     }
    
 	public void run() {

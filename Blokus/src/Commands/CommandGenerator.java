@@ -10,10 +10,11 @@ public class CommandGenerator {
 
 	private static int posicion;
 	private static int angulo;
+	private static int ficha;
 	private static int fila;
 	private static int columna;
 	private static Command[] availableCommands = {
-			new AddCommand(fila, columna),
+			new AddCommand(ficha, fila, columna),
 			new HelpCommand(),
 			new ResetCommand(),
 			new ExitCommand(),

@@ -30,7 +30,6 @@ public class Game {
     		
     	List<Ficha> arrayFichas = new ArrayList<Ficha>();
     	arrayFichas.add(ficha);
-    	arrayFichas.add(ficha);
     	//
     	Jugador jugador = new Jugador(arrayFichas);
     	for(int i = 0; i < numJugadores; i++) {
@@ -86,7 +85,7 @@ public class Game {
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
     	
-    	if(cumpleReglas(ficha)) {
+    	if(!cumpleReglas(ficha)) {
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	

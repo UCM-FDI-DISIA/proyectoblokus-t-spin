@@ -16,7 +16,7 @@ public class AddCommand extends Command{
 	private int ficha;
 	
 	
-	public AddCommand(int fila, int columna) {
+	public AddCommand(int ficha, int fila, int columna) {
 		super(nombre, shortcut,  help);
 		this.fila = fila;
 		this.columna = columna;
@@ -47,11 +47,11 @@ public class AddCommand extends Command{
 		
 		if (shortcut.equals(commandWords[0]) || nombre.equals(commandWords[0])) {
 			if(commandWords.length == 4) {
-				if(isNumeric(commandWords[1]) && isNumeric(commandWords[2])) {
-					this.ficha = Integer.parseInt(commandWords[2]);
+				if(isNumeric(commandWords[1]) && isNumeric(commandWords[2]) && isNumeric(commandWords[3])) {
+					this.ficha = Integer.parseInt(commandWords[1]);
 					this.fila = Integer.parseInt(commandWords[2]);
 					this.columna = Integer.parseInt(commandWords[3]);
-					return new AddCommand(fila, columna);	
+					return new AddCommand(ficha, fila, columna);	
 				}
 				else {
 					
