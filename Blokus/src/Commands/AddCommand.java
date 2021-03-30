@@ -3,7 +3,6 @@ package Commands;
 import Exception.CommandExecuteException;
 import Exception.CommandParseException;
 import model.Game;
-import objects.Ficha;
 
 
 
@@ -28,16 +27,23 @@ public class AddCommand extends Command{
 	public boolean execute(Game game) throws CommandExecuteException {
 		if(this.columna>=0 && this.columna < 20&& this.fila>=0 && this.fila<20) {
 			
-			game.anadirFicha(ficha, fila, columna);
+			if(game.getPrimeraRonda()) {
+				game.jugarPrimeraRonda(ficha, fila, columna);
+			}
+			else {
+				if(game.anadirFicha(ficha, fila, columna)) {
+					game.update();
+				}
+			}
 		}
 		else {
 			throw new CommandExecuteException("Posicion fuera de rango", "add new piece");
 			
 		}
 		
-		if(!game.getJuegoTerminado()) {
+		/*if(!game.getJuegoTerminado()) {
 			game.update();
-		}
+		}*/
 		
 		return true;
 	}
