@@ -18,10 +18,8 @@ public class Game {
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
     private int currentPlayer = 0;
-    public int turno;
 
     public Game(int numJugadores) {
-	this.turno=0;
     	Ficha ficha;
     	List<Casilla> arrayCasillas = new ArrayList<Casilla> ();
     	arrayCasillas.add(new Casilla(0,0));
@@ -235,7 +233,8 @@ public class Game {
 	}
 		
 	public void PasarTurno() {
-		turno++;
+               currentPlayer++;
+
 	}
 	
 	public void Reset() {
