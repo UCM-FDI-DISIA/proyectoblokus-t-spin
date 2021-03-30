@@ -41,11 +41,11 @@ public class Game {
     public void update() {
     	currentPlayer++;
     	if(currentPlayer >= jugadores.size()) {
-			currentPlayer = 0;
-			
+			currentPlayer = 0;			
 		}	
     }
-    public void ejecutaJuego(int ficha, int x, int y) {
+    
+    /*public void ejecutaJuego(int ficha, int x, int y) {
     	if(primeraRonda) {
     		jugarPrimeraRonda(ficha, x, y);
     	}
@@ -55,13 +55,13 @@ public class Game {
     			
     		}
     		currentPlayer++;
-    		/*for(Jugador j : jugadores) {
+    		for(Jugador j : jugadores) {
     			if(jugadorPuedeColocar(j)) {
     				anadirFicha(ficha, x, y);
     			}
-    		}*/
+    		}
     	}
-    }
+    }*/
     
     public void jugarPrimeraRonda(int ficha, int x, int y) {
     	for(Jugador j : jugadores) {
@@ -233,8 +233,7 @@ public class Game {
 	}
 		
 	public void PasarTurno() {
-               currentPlayer++;
-
+               //currentPlayer++;
 	}
 	
 	public void Reset() {
