@@ -22,7 +22,7 @@ public class Main {
     	controller = new Controller(game, scanner);
     	controller.run(); //Ejecuta el juego
     	
-    	System.out.print("adios mundo");
+    	System.out.print("Game closed.");
     	//TEST ZONE
     	/*
  	
