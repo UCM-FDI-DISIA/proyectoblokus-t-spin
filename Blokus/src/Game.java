@@ -23,44 +23,34 @@ public class Game {
     }
     
     //------------------------
-    public void ejecutaJuego() {
+    public void ejecutaJuego(Ficha ficha, int x, int y) {
     	if(primeraRonda) {
-    		jugarPrimeraRonda();
-    		primeraRonda = false;
+    		jugarPrimeraRonda(ficha, x, y);
     	}
     	else {
     		for(Jugador j : jugadores) {
     			if(jugadorPuedeColocar(j)) {
-    				anadirFicha(/*j.getFicha()*/);// algo similar para ver que ficha coloca
+    				anadirFicha(ficha, x, y);
     			}
     		}
     	}
     }
     
-    public void jugarPrimeraRonda() {
+    public void jugarPrimeraRonda(Ficha ficha, int x, int y) {
     	for(Jugador j : jugadores) {
-    		if(jugadorPuedeColocar(j) && checkEsquinas(/*j.getFicha()*/)) {
-    			anadirFicha(/*j.getFicha()*/);
+    		if(jugadorPuedeColocar(j) && checkEsquinas(x, y)) {
+    			anadirFicha(ficha, x, y);
     		}
     	}
+    	primeraRonda = false;
     }
     
-    public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
+    public boolean checkEsquinas(int x, int y) {// comprueba que la ficha se coloca en alguna de las esquinas
     	Integer[] esquina1 = {0, 0}, esquina2 = {DIM_BOARD-1, 0}, 
     			esquina3 = {0, DIM_BOARD-1}, esquina4 = {DIM_BOARD-1, DIM_BOARD-1};
-    	
-    	Integer[] casilla = {0, 0};
-    	
-    	for(int i = 0; i < ficha.getNumCasillas(); i++) {
-    		casilla[0] = ficha.getFichaX(i);
-    		casilla[1] = ficha.getFichaY(i);
-    		if(casilla == esquina1 || casilla == esquina2 || casilla == esquina3 || casilla == esquina4) {
-    			return true;
-    		}
-    	}
-    	
-    	
-    	return false;
+    	Integer[] casilla = {x, y};
+    	return casilla == esquina1 || casilla == esquina2 
+    			|| casilla == esquina3 || casilla == esquina4;
     }
     //------------
  
