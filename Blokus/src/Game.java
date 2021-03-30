@@ -189,7 +189,13 @@ public class Game {
 
     public boolean getJuegoTerminado() {
     	//bucle lista jugadores puedeColocar()
-    	return true;
+    	juegoTerminado = true;
+    	for(Jugador j : jugadores) {// si el bucle termina y ninguno puede colocar el juego ha terminado
+    		if(jugadorPuedeColocar(j)) {
+    			juegoTerminado = false;
+    		}
+    	}
+    	return juegoTerminado;
     }
 
 	public String positionToString(int x, int y) {
