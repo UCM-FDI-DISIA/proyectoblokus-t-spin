@@ -35,9 +35,9 @@ public class Game {
     	}    	
     }
     
-    public boolean jugadorPuedeColocar() {
+    public boolean jugadorPuedeColocar(int jugador) {
     	//llama a jugador para ver si tiene piezas y ver si puede colocar
-		return true;
+    	return jugadores.get(jugador).puedeJugar();
     }
 
     public boolean cumpleReglas(Ficha ficha) {
@@ -137,8 +137,10 @@ public class Game {
     	
     }
     
-    public void obtenerPuntuacion() {
+    public void obtenerPuntuacion(int jugador) {
     	//Llama a player getPuntuacion
+    	int punt = jugadores.get(jugador).getPuntuacion();
+    	System.out.println(punt);
     }
 
     public boolean getJuegoTerminado() {
