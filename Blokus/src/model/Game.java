@@ -38,6 +38,13 @@ public class Game {
     }
     
     //------------------------
+    public void update() {
+    	currentPlayer++;
+    	if(currentPlayer >= jugadores.size()) {
+			currentPlayer = 0;
+			
+		}	
+    }
     public void ejecutaJuego(int ficha, int x, int y) {
     	if(primeraRonda) {
     		jugarPrimeraRonda(ficha, x, y);

@@ -35,6 +35,11 @@ public class AddCommand extends Command{
 			throw new CommandExecuteException("Posicion fuera de rango", "add new piece");
 			
 		}
+		
+		if(!game.getJuegoTerminado()) {
+			game.update();
+		}
+		
 		return true;
 	}
 	
@@ -63,6 +68,8 @@ public class AddCommand extends Command{
 				throw new CommandParseException("Command add :Incorrect number of arguments");
 				
 			}
+			
+			
 		}
 		return null;
 	
