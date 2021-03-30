@@ -246,7 +246,7 @@ public class Game {
 	
 	public void Rotate(int numFicha, int rotacion) {
 		
-		jugadores.get(currentPlayer).get(numFicha).rotar(rotacion);
+		jugadores.get(currentPlayer).getFicha(numFicha).rotar(rotacion);
 
 	}
 
