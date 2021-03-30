@@ -45,7 +45,7 @@ public class CommandGenerator {
 			
 			if(availableCommands[i].parse(commandWords) != comando) {
 				 comando=availableCommands[i].parse(commandWords);
-				 comando.execute();
+				 //comando.execute(game);
 				 return comando;
 			}
 		}

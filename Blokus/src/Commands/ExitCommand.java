@@ -1,6 +1,7 @@
 package Commands;
 
 import Exception.CommandParseException;
+import model.Game;
 
 
 public class ExitCommand extends Command{
@@ -14,9 +15,8 @@ public class ExitCommand extends Command{
 	}
 
 	@Override
-	public boolean execute() {
-		System.out.println("LLega a exit");
-		//game.exit();
+	public boolean execute(Game game) {
+		game.exit();
 		
 		return true;
 	}

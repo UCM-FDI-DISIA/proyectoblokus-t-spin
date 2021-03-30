@@ -2,6 +2,11 @@ package model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import objects.Casilla;
+import objects.Ficha;
+import objects.Jugador;
+
 import java.util.HashMap;
 
 public class Game {
@@ -207,6 +212,11 @@ public class Game {
 		
 		Integer[] pos = {x,y};
 		return (mapaCasillas.containsKey(pos)) ? mapaCasillas.get(pos) : " ";
+		
+	}
+
+	public void exit() {
+		juegoTerminado = true;
 		
 	}
 

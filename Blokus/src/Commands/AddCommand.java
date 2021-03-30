@@ -27,7 +27,7 @@ public class AddCommand extends Command{
 	@Override
 	public boolean execute(Game game) throws CommandExecuteException {
 		if(this.columna>=0 && this.columna < 20&& this.fila>=0 && this.fila<20) {
-			game.anadirFicha(fila, columna);
+			game.anadirFicha(ficha, fila, columna);
 			System.out.println("LLega a add");
 		}
 		else {
@@ -81,6 +81,6 @@ public class AddCommand extends Command{
 
 
 
-	@Override
+	
 	
 }

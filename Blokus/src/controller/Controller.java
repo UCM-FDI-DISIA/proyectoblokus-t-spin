@@ -1,10 +1,13 @@
+package controller;
 import java.util.Scanner;
 
 import Commands.Command;
 import Commands.CommandGenerator;
+import model.Game;
+import view.GamePrinter;
 
 public class Controller {
-    private Game game;
+    private model.Game game;
     private Scanner in;
 	GamePrinter printer;
 	
