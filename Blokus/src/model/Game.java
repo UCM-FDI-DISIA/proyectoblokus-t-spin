@@ -231,6 +231,11 @@ public class Game {
 		juegoTerminado = true;
 		
 	}
+		
+	public void PasarTurno() {
+		turno++;
+	}
+	
 	public void Reset() {
 		turno=0;
 		mapaCasillas.clear();	
