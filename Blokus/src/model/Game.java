@@ -99,7 +99,7 @@ public class Game {
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
     		}
     		//Llamar a jugardor para quitarle la ficha que acaba de colocar
-    		//jugadores.get(1).borrarPieza(1); //esta linea est· mal, arreglar
+    		//jugadores.get(1).borrarPieza(1); //esta linea est√° mal, arreglar
     	}    	
     }
     
@@ -116,7 +116,7 @@ public class Game {
     			return false;
     		}
     		
-    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si est· ocupada
+    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si est√° ocupada
     			return false;
     		}
     		
@@ -230,6 +230,10 @@ public class Game {
 	public void exit() {
 		juegoTerminado = true;
 		
+	}
+	public void Reset() {
+		turno=0;
+		mapaCasillas.clear();	
 	}
 
 }
