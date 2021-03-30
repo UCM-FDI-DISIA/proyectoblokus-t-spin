@@ -232,12 +232,8 @@ public class Game {
 		
 	}
 		
-	public void PasarTurno() {
-               //currentPlayer++;
-	}
-	
 	public void Reset() {
-		  currentPlayer=0;
+		currentPlayer=0;
 		mapaCasillas.clear();	
 	}
 

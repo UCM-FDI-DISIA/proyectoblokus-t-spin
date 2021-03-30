@@ -17,8 +17,7 @@ public class Pasar extends Command{
 
 	@Override
 	public boolean execute(Game game) {
-		System.out.println("LLega a pass");
-		game.PasarTurno();
+		game.update();
 		
 		return true;
 	}

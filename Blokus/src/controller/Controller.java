@@ -49,7 +49,7 @@ public class Controller {
 				printGame = false;
 			}
 			
-			System.out.println("Turno > "+ game.currentPlayer);
+			
 			
 			   
 
@@ -58,7 +58,8 @@ public class Controller {
 
     private void draw() {
 		// TODO Auto-generated method stub
-		System.out.println(printer.toString(game));
+    	System.out.println("Turno > "+ game.currentPlayer);
+    	System.out.println(printer.toString(game));
 		
 	}
 
