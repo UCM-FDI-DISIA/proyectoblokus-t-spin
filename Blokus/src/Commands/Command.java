@@ -1,8 +1,9 @@
-package control.Commands;
+package Commands;
 
 
 
 import Exception.*;
+import model.Game;
 
 
 public abstract class Command {
@@ -20,7 +21,7 @@ public abstract class Command {
 	    this.help = help;
 	  }
 	  
-	  public abstract boolean execute()throws CommandExecuteException;
+	  public abstract boolean execute(Game game)throws CommandExecuteException;
 	  
 	  public abstract Command parse(String[] commandWords) throws CommandParseException;
 	  

@@ -1,4 +1,4 @@
-package control.Commands;
+package Commands;
 
 import java.util.Scanner;
 

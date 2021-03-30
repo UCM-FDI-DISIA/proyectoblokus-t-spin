@@ -1,7 +1,10 @@
-package control.Commands;
+package Commands;
 
 import Exception.CommandExecuteException;
 import Exception.CommandParseException;
+import model.Game;
+import objects.Ficha;
+
 
 
 public class AddCommand extends Command{
@@ -10,20 +13,21 @@ public class AddCommand extends Command{
 	private static final String help = "Add a new piece.";//--------------------------------------------------------
 	private int fila;
 	private int columna;
+	private Ficha ficha;
 	
 	
 	public AddCommand(int fila, int columna) {
 		super(nombre, shortcut,  help);
 		this.fila = fila;
 		this.columna = columna;
+		this.ficha = ficha;
 	}
 		
 
-	
 	@Override
-	public boolean execute() {
+	public boolean execute(Game game) throws CommandExecuteException {
 		if(this.columna>=0 && this.columna < 20&& this.fila>=0 && this.fila<20) {
-			//Game.anadirFicha();
+			game.anadirFicha(fila, columna);
 			System.out.println("LLega a add");
 		}
 		else {
@@ -32,6 +36,7 @@ public class AddCommand extends Command{
 		}
 		return true;
 	}
+	
 
 	
 	//add 2 3
@@ -69,4 +74,13 @@ public class AddCommand extends Command{
 			return false;
 		}
 	}
+
+
+
+
+
+
+
+	@Override
+	
 }

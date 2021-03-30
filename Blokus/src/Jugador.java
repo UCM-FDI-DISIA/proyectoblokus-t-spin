@@ -6,6 +6,10 @@ public class Jugador {
 
     private List<Ficha> arrayFichas = new ArrayList<Ficha> ();
 
+    public Jugador(List<Ficha> arrayFichas) {
+    	this.arrayFichas = arrayFichas;
+    }
+    
     public int getPuntuacion() {
     	// Buscamos si faltan casillas o no. 
     	// Si faltan restamos, sino sumamos puntos
@@ -35,10 +39,6 @@ public class Jugador {
     	else {
     		return false;
     	}
-    }
-
-    public Jugador(List<Ficha> arrayFichas) {
-    	this.arrayFichas = arrayFichas;
     }
     
     public int getNumFichas() {

@@ -1,13 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-    private Controller controller;
 
 	public static void main(String[] args)  {
-    	System.out.print("hola mundo");
+    	    	
+    	Controller controller;
+    	Game game;
+    	Scanner scanner;
+    	   
+    	scanner = new Scanner(System.in);
+    	game = new Game(2);
+    	controller = new Controller(game, scanner);
+    	controller.run(); //Ejecuta el juego
+    	
+    	System.out.print("adios mundo");
     	//TEST ZONE
-    	//Game game = new Game();
+    	/*
+
+    	
     	Ficha ficha;
     	Ficha ficha2;
     	
@@ -27,7 +39,7 @@ public class Main {
     	ficha = new Ficha(forma, arrayCasillas, "A");
     	
     	game.anadirFicha(ficha, 1, 1);
-    	System.out.print(" adios mundo");
+    	System.out.print(" adios mundo");*/
     	//TEST ZONE
     }
 

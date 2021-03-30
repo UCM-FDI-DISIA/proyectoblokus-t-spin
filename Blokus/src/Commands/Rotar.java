@@ -1,4 +1,4 @@
-package control.Commands;
+package Commands;
 
 import Exception.CommandExecuteException;
 import Exception.CommandParseException;
