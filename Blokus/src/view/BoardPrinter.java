@@ -1,5 +1,7 @@
 package view;
 
+import model.Game;
+
 public class BoardPrinter extends GamePrinter {
 	
 	private int numRows;

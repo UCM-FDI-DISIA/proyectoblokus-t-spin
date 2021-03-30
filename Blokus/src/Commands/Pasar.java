@@ -1,6 +1,7 @@
 package Commands;
 
 import Exception.CommandParseException;
+import model.Game;
 
 
 public class Pasar extends Command{
@@ -15,7 +16,7 @@ public class Pasar extends Command{
 	}
 
 	@Override
-	public boolean execute() {
+	public boolean execute(Game game) {
 		System.out.println("LLega a pass");
 		//game.pasar();
 		

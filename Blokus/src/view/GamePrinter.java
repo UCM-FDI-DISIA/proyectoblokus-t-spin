@@ -1,5 +1,7 @@
 package view;
 
+import model.Game;
+
 public class GamePrinter {
     
 	public GamePrinter() {

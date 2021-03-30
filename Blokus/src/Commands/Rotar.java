@@ -2,6 +2,7 @@ package Commands;
 
 import Exception.CommandExecuteException;
 import Exception.CommandParseException;
+import model.Game;
 
 
 public class Rotar extends Command{
@@ -21,7 +22,7 @@ public class Rotar extends Command{
 
 	
 	@Override
-	public boolean execute() {
+	public boolean execute(Game game) {
 		if(this.posicion>=0 && this.posicion < 90 && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
 			//Game.anadirFicha();
 			System.out.println("LLega a rotar");

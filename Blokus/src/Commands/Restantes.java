@@ -1,6 +1,7 @@
 package Commands;
 
 import Exception.CommandParseException;
+import model.Game;
 
 
 public class Restantes extends Command{
@@ -14,7 +15,7 @@ public class Restantes extends Command{
 	}
 
 	@Override
-	public boolean execute() {
+	public boolean execute(Game game) {
 		System.out.println("LLega a restantes");
 		//game.remaining();
 		

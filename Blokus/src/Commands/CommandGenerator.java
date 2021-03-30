@@ -19,24 +19,8 @@ public class CommandGenerator {
 			new ExitCommand(),
 			new Restantes(),
 			new Rotar(posicion,angulo),
-			new Pasar(),
-			
-			
+			new Pasar(),			
 			};
-
-	
-	 /*public static void main(String[ ] commandWords) {
-		 Scanner scanner=new Scanner(System.in);
-		String s = scanner.nextLine();
-		
- 		String[] parameters = s.toLowerCase().trim().split(" ");
- 		System.out.println("[DEBUG] Executing: " + s);
- 		parse(parameters);
-		
-		 
-		  
-		 
-	 }*/
 
 	public static Command parse(String[ ] commandWords) throws CommandParseException {
 		

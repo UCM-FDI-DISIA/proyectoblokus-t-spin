@@ -4,12 +4,13 @@ import java.util.Scanner;
 import Commands.Command;
 import Commands.CommandGenerator;
 import model.Game;
+import view.BoardPrinter;
 import view.GamePrinter;
 
 public class Controller {
     private model.Game game;
     private Scanner in;
-	GamePrinter printer;
+	BoardPrinter printer = new BoardPrinter();
 	
     //public Command command;
 	boolean printGame = true;
@@ -53,6 +54,14 @@ public class Controller {
     private void draw() {
 		// TODO Auto-generated method stub
 		System.out.println("AAAAA");
+		
+		//System.out.println(game.toString());
+		
+		
+		/*Pinta el tablero*/
+		//printer.toString(game);
+		System.out.println(printer.toString(game));
+		
 	}
 
 

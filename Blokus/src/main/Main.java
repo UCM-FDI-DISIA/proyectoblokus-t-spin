@@ -15,7 +15,7 @@ public class Main {
     	Scanner scanner;
     	   
     	scanner = new Scanner(System.in);
-    	game = new Game(2);
+    	game = new Game(1);
     	controller = new Controller(game, scanner);
     	controller.run(); //Ejecuta el juego
     	
