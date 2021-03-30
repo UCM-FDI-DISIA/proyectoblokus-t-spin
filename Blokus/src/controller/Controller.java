@@ -22,7 +22,8 @@ public class Controller {
 		}
 		
     }
-   
+    
+    
 	public void run() {
 		while(!game.getJuegoTerminado()) {
 			if(printGame)

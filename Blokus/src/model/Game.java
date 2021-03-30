@@ -38,11 +38,10 @@ public class Game {
     	}
     }
     
-    //------------------------
     public void update() {
     	currentPlayer++;
     	if(currentPlayer >= jugadores.size()) {
-			currentPlayer = 0;			
+			currentPlayer = 0;
 		}	
     }
     
@@ -65,10 +64,8 @@ public class Game {
     }*/
     
     public void jugarPrimeraRonda(int ficha, int x, int y) {
-    	for(Jugador j : jugadores) {
-    		if(jugadorPuedeColocar(j) && checkEsquinas(x, y)) {
+    	if(jugadorPuedeColocar(currentPlayer) && checkEsquinas(x, y)) {
     			anadirFicha(ficha, x, y);
-    		}
     	}
     	primeraRonda = false;
     }
@@ -77,31 +74,33 @@ public class Game {
     	Integer[] esquina1 = {0, 0}, esquina2 = {DIM_BOARD-1, 0}, 
     			esquina3 = {0, DIM_BOARD-1}, esquina4 = {DIM_BOARD-1, DIM_BOARD-1};
     	Integer[] casilla = {x, y};
-    	return casilla == esquina1 || casilla == esquina2 
+    	return casilla.equals(esquina1) || casilla == esquina2 
     			|| casilla == esquina3 || casilla == esquina4;
     }
     //------------
  
-    public boolean jugadorPuedeColocar(Jugador jugador) {
+    public boolean jugadorPuedeColocar(int jugador) {
     	//llama a jugador para ver si tiene piezas y ver si puede colocar
-    	return jugador.puedeJugar();
+    	return jugadores.get(jugador).puedeJugar();
     }
     
-    public void anadirFicha(int f, int x, int y) {
+    public boolean anadirFicha(int f, int x, int y) {
     	Ficha ficha;
     	ficha = jugadores.get(currentPlayer).getFicha(f);
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
+    	boolean fichaAnadida = false;
     	
  
-    	if(!cumpleReglas(ficha)) {
+    	if(fichaAnadida = cumpleReglas(ficha)) {
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
     		}
     		//Llamar a jugardor para quitarle la ficha que acaba de colocar
     		//jugadores.get(1).borrarPieza(1); //esta linea está mal, arreglar
-    	}    	
+    	}   
+    	return fichaAnadida;
     }
     
     public boolean cumpleReglas(Ficha ficha) {
@@ -209,8 +208,8 @@ public class Game {
 
     public boolean getJuegoTerminado() {
     	//bucle lista jugadores puedeColocar() 	
-    	for(Jugador j : jugadores) {// si el bucle termina y ninguno puede colocar el juego ha terminado
-    		if(!jugadorPuedeColocar(j)) {
+    	for(int i = 0; i < jugadores.size(); i++) {// si el bucle termina y ninguno puede colocar el juego ha terminado
+    		if(!jugadores.get(i).puedeJugar()) {
     			juegoTerminado = true;
     		}
     	}
@@ -226,6 +225,10 @@ public class Game {
 
 	public int getNumJugadores() {
 		return jugadores.size();
+	}
+	
+	public boolean getPrimeraRonda() {
+		return primeraRonda;
 	}
 	
 	public void exit() {
