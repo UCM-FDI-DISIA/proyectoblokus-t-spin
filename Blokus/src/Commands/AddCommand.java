@@ -29,7 +29,6 @@ public class AddCommand extends Command{
 		if(this.columna>=0 && this.columna < 20&& this.fila>=0 && this.fila<20) {
 			
 			game.anadirFicha(ficha, fila, columna);
-			System.out.println("LLega a add");
 		}
 		else {
 			throw new CommandExecuteException("Posicion fuera de rango", "add new piece");

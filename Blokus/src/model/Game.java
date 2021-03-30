@@ -92,6 +92,7 @@ public class Game {
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
     	
+ 
     	if(!cumpleReglas(ficha)) {
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
@@ -206,11 +207,10 @@ public class Game {
     }
 
     public boolean getJuegoTerminado() {
-    	//bucle lista jugadores puedeColocar()
-    	juegoTerminado = true;
+    	//bucle lista jugadores puedeColocar() 	
     	for(Jugador j : jugadores) {// si el bucle termina y ninguno puede colocar el juego ha terminado
-    		if(jugadorPuedeColocar(j)) {
-    			juegoTerminado = false;
+    		if(!jugadorPuedeColocar(j)) {
+    			juegoTerminado = true;
     		}
     	}
     	return juegoTerminado;
@@ -223,6 +223,10 @@ public class Game {
 		
 	}
 
+	public int getNumJugadores() {
+		return jugadores.size();
+	}
+	
 	public void exit() {
 		juegoTerminado = true;
 		

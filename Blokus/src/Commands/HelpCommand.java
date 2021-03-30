@@ -13,13 +13,13 @@ public class HelpCommand extends Command{
 	public static final String helpMsg = String.format(//Mensaje de ayuda para introducir una opcion
 			
 			"Comandos disponibles: %n" +
-			"[a]dd <x> <y>: add a token in position x, y %n" +
+			"[a]dd <token> <x> <y>: add a token in position x, y %n" +
 			"[h]elp: show this help%n" + 
 			"[r]eset: reset game%n" + 
 			"[e]xit: exit game%n"+ 
-			"[re]remaining tokens%n"+
-			"[ro]rotate: rotate the token%n"+
-			"[p]pass%n"
+			"[re]maining tokens%n"+
+			"[ro]tate: rotate the token%n"+
+			"[p]ass%n"
 			);
 	
 	public HelpCommand() {

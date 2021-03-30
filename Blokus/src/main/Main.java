@@ -11,9 +11,14 @@ public class Main {
     	Controller controller;
     	Game game;
     	Scanner scanner;
-    	   
+    	//TEST
+    	if(Integer.parseInt(args[0]) < 2 || Integer.parseInt(args[0]) > 4)
+    	{
+    		args[0] = "2";
+    	}
+    	//TEST
     	scanner = new Scanner(System.in);
-    	game = new Game(1);
+    	game = new Game(Integer.parseInt(args[0]));
     	controller = new Controller(game, scanner);
     	controller.run(); //Ejecuta el juego
     	
