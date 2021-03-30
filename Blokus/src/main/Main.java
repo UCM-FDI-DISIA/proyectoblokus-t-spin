@@ -9,7 +9,7 @@ import model.Game;
 public class Main {
 
 	public static void main(String[] args)  {
-    	    	
+    		
     	Controller controller;
     	Game game;
     	Scanner scanner;
@@ -22,8 +22,7 @@ public class Main {
     	System.out.print("adios mundo");
     	//TEST ZONE
     	/*
-
-    	
+ 	
     	Ficha ficha;
     	Ficha ficha2;
     	

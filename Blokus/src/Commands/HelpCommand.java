@@ -32,7 +32,7 @@ public class HelpCommand extends Command{
 	public boolean execute(Game game) {
 		
 		System.out.println(helpMsg);
-		return true;
+		return false;
 	}
 
 	@Override

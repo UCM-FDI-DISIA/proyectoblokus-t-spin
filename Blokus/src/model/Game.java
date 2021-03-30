@@ -17,6 +17,7 @@ public class Game {
 	private boolean juegoTerminado = false;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
+    private int currentPlayer = 0;
 
     public Game(int numJugadores) {
     	Ficha ficha;
@@ -35,28 +36,28 @@ public class Game {
     	for(int i = 0; i < numJugadores; i++) {
     		jugadores.add(jugador);
     	}
-    	//TEST
-    	//mapaCasillas.put("[0, 0]", ficha.getEquipo());
-    	//mapaCasillas.put("[1, 0]", ficha.getEquipo());
-    	
-    	//TEST
     }
     
     //------------------------
-    public void ejecutaJuego(Ficha ficha, int x, int y) {
+    public void ejecutaJuego(int ficha, int x, int y) {
     	if(primeraRonda) {
     		jugarPrimeraRonda(ficha, x, y);
     	}
     	else {
-    		for(Jugador j : jugadores) {
+    		if(currentPlayer >=4) {
+    			currentPlayer = 0;
+    			
+    		}
+    		currentPlayer++;
+    		/*for(Jugador j : jugadores) {
     			if(jugadorPuedeColocar(j)) {
     				anadirFicha(ficha, x, y);
     			}
-    		}
+    		}*/
     	}
     }
     
-    public void jugarPrimeraRonda(Ficha ficha, int x, int y) {
+    public void jugarPrimeraRonda(int ficha, int x, int y) {
     	for(Jugador j : jugadores) {
     		if(jugadorPuedeColocar(j) && checkEsquinas(x, y)) {
     			anadirFicha(ficha, x, y);
@@ -79,8 +80,9 @@ public class Game {
     	return jugador.puedeJugar();
     }
     
-    public void anadirFicha(Ficha ficha, int x, int y) {
-    	
+    public void anadirFicha(int f, int x, int y) {
+    	Ficha ficha;
+    	ficha = jugadores.get(currentPlayer).getFicha(f);
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
     	
@@ -211,7 +213,7 @@ public class Game {
 	public String positionToString(int x, int y) {
 		
 		Integer[] pos = {x,y};
-		return (mapaCasillas.containsKey(pos)) ? mapaCasillas.get(pos) : " ";
+		return (mapaCasillas.containsKey(Arrays.toString(pos))) ? mapaCasillas.get(Arrays.toString(pos)) : " ";
 		
 	}
 
