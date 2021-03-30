@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    //private Controller controller;
+    private Controller controller;
 
 	public static void main(String[] args)  {
     	System.out.print("hola mundo");
@@ -27,7 +27,7 @@ public class Main {
     	ficha = new Ficha(forma, arrayCasillas, "A");
     	
     	game.anadirFicha(ficha, 1, 1);
-    	System.out.print("adios mundo");
+    	System.out.print(" adios mundo");
     	//TEST ZONE
     }
 

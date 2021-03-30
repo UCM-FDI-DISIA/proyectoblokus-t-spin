@@ -7,6 +7,7 @@ public class Game {
     
 	public final static int DIM_BOARD = 20;
 	
+	private boolean primeraRonda = true;
 	private boolean juegoTerminado = false;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
@@ -15,9 +16,57 @@ public class Game {
     	
     }
     public Game(Ficha ficha) {
-    	//test
+    	//TEST
     	mapaCasillas.put("[0, 0]", ficha.getEquipo());
     	//mapaCasillas.put("[1, 0]", ficha.getEquipo());
+    	//TEST
+    }
+    
+    //------------------------
+    public void ejecutaJuego() {
+    	if(primeraRonda) {
+    		jugarPrimeraRonda();
+    		primeraRonda = false;
+    	}
+    	else {
+    		for(Jugador j : jugadores) {
+    			if(jugadorPuedeColocar(j)) {
+    				anadirFicha(/*j.getFicha()*/);// algo similar para ver que ficha coloca
+    			}
+    		}
+    	}
+    }
+    
+    public void jugarPrimeraRonda() {
+    	for(Jugador j : jugadores) {
+    		if(jugadorPuedeColocar(j) && checkEsquinas(/*j.getFicha()*/)) {
+    			anadirFicha(/*j.getFicha()*/);
+    		}
+    	}
+    }
+    
+    public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
+    	Integer[] esquina1 = {0, 0}, esquina2 = {DIM_BOARD-1, 0}, 
+    			esquina3 = {0, DIM_BOARD-1}, esquina4 = {DIM_BOARD-1, DIM_BOARD-1};
+    	
+    	Integer[] casilla = {0, 0};
+    	
+    	for(int i = 0; i < ficha.getNumCasillas(); i++) {
+    		casilla[0] = ficha.getFichaX(i);
+    		casilla[1] = ficha.getFichaY(i);
+    		if(casilla == esquina1 || casilla == esquina2 || casilla == esquina3 || casilla == esquina4) {
+    			return true;
+    		}
+    	}
+    	
+    	
+    	return false;
+    }
+    //------------
+ 
+    public boolean jugadorPuedeColocar(Jugador jugador) {
+    	//llama a jugador para ver si tiene piezas y ver si puede colocar
+    	return jugador.puedeJugar();
     }
     
     public void anadirFicha(Ficha ficha, int x, int y) {
@@ -35,11 +84,6 @@ public class Game {
     	}    	
     }
     
-    public boolean jugadorPuedeColocar(int jugador) {
-    	//llama a jugador para ver si tiene piezas y ver si puede colocar
-    	return jugadores.get(jugador).puedeJugar();
-    }
-
     public boolean cumpleReglas(Ficha ficha) {
     	Integer[] pos = {0,0};
     	String equipo = ficha.getEquipo();
