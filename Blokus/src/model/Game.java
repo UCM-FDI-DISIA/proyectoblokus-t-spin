@@ -17,7 +17,7 @@ public class Game {
 	private boolean juegoTerminado = false;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
-    private int currentPlayer = 0;
+    public int currentPlayer = 0;
 
     public Game(int numJugadores) {
     	Ficha ficha;
