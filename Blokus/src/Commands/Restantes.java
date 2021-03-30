@@ -16,8 +16,8 @@ public class Restantes extends Command{
 
 	@Override
 	public boolean execute(Game game) {
-		System.out.println("LLega a restantes");
-		//game.remaining();
+		
+		game.Remaining();
 		
 		return true;
 	}

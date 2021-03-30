@@ -3,6 +3,7 @@ package Commands;
 import Exception.CommandExecuteException;
 import Exception.CommandParseException;
 import model.Game;
+import objects.Jugador;
 
 
 public class Rotar extends Command{
@@ -17,15 +18,20 @@ public class Rotar extends Command{
 		super(nombre, shortcut,  help);
 		this.posicion=posicion;
 		this.angulo=angulo;
+
 	}
 		
 
 	
 	@Override
 	public boolean execute(Game game) {
-		if(this.posicion>=0 && this.posicion < 90 && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
-			//Game.anadirFicha();
-			System.out.println("LLega a rotar");
+		if(this.posicion>=0 && this.posicion < 90  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
+		
+			if (this.angulo==90 || this.angulo==180 || this.angulo==270) {
+				//game.Rotate(angulo);
+			}else {
+				System.out.println("Angulo no valido");
+			}
 		}
 		else {
 			throw new CommandExecuteException("No ha sido posible rotar", "rotate token");

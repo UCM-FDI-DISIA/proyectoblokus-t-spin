@@ -16,6 +16,7 @@ public class Game {
 	private boolean primeraRonda = true;
 	private boolean juegoTerminado = false;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
+    private List<Ficha> token=new ArrayList<Ficha>();
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
     public int currentPlayer = 0;
 
@@ -235,6 +236,15 @@ public class Game {
 	public void Reset() {
 		currentPlayer=0;
 		mapaCasillas.clear();	
+	}
+	public void Remaining() {
+		jugadores.get(currentPlayer).getNumFichas();
+	}
+	
+	public void Rotate(int numFicha, int rotacion) {
+		
+		jugadores.get(currentPlayer).get(numFicha).rotar(rotacion);
+
 	}
 
 }

@@ -15,7 +15,7 @@ public class ResetCommand extends Command{
 
 	@Override
 	public boolean execute(Game game) {
-		System.out.println("LLega a reset");
+		
 		game.Reset();
 		
 		return true;
