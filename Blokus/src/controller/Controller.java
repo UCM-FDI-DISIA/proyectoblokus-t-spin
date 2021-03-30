@@ -47,7 +47,10 @@ public class Controller {
 			{
 				System.out.format("Comando desconocido.");
 				printGame = false;
-			}	
+			}
+			
+			System.out.println("Turno > "+game.turno);
+			game.turno++;
 		}
     }
 
