@@ -16,7 +16,6 @@ public class Game {
 	private boolean primeraRonda = true;
 	private boolean juegoTerminado = false;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
-    private List<Ficha> token=new ArrayList<Ficha>();
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
     public int currentPlayer = 0;
 

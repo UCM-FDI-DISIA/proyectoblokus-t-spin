@@ -1,5 +1,8 @@
 package Commands;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Exception.CommandExecuteException;
 import Exception.CommandParseException;
 import model.Game;
@@ -10,13 +13,13 @@ public class Rotar extends Command{
 	private static final String nombre = "rotate";
 	private static final String shortcut = "ro";
 	private static final String help = "rotate the angle the token";//--------------------------------------------------------
-	private int posicion;
+	private int numFicha;
 	private int angulo;
 	
 	
 	public Rotar(int posicion, int angulo) {
 		super(nombre, shortcut,  help);
-		this.posicion=posicion;
+		this.numFicha=numFicha;
 		this.angulo=angulo;
 
 	}
@@ -25,10 +28,10 @@ public class Rotar extends Command{
 	
 	@Override
 	public boolean execute(Game game) {
-		if(this.posicion>=0 && this.posicion < 90  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
+		if(this.numFicha>=0 && this.numFicha <   && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
 		
 			if (this.angulo==90 || this.angulo==180 || this.angulo==270) {
-				//game.Rotate(angulo);
+				game.Rotate(numFicha,angulo);
 			}else {
 				System.out.println("Angulo no valido");
 			}
@@ -49,9 +52,9 @@ public class Rotar extends Command{
 		if (shortcut.equals(commandWords[0]) || nombre.equals(commandWords[0])) {
 			if(commandWords.length == 3) {
 				if(isNumeric(commandWords[1]) && isNumeric(commandWords[2])) {
-					this.posicion = Integer.parseInt(commandWords[1]);
+					this.numFicha = Integer.parseInt(commandWords[1]);
 					this.angulo = Integer.parseInt(commandWords[2]);
-					return new Rotar(posicion, angulo);	
+					return new Rotar(numFicha, angulo);	
 				}
 				else {
 					
