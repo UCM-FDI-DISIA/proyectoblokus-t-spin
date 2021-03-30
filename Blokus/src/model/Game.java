@@ -238,7 +238,7 @@ public class Game {
 	}
 	
 	public void Reset() {
-		turno=0;
+		  currentPlayer=0;
 		mapaCasillas.clear();	
 	}
 
