@@ -49,8 +49,10 @@ public class Controller {
 				printGame = false;
 			}
 			
-			System.out.println("Turno > "+game.turno);
-			game.turno++;
+			System.out.println("Turno > "+game.currentPlayer);
+			game.currentPlayer++;
+			   
+
 		}
     }
 
