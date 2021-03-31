@@ -27,9 +27,11 @@ public class AddCommand extends Command{
 	public boolean execute(Game game) throws CommandExecuteException {
 		if(this.columna>=0 && this.columna < 20&& this.fila>=0 && this.fila<20) {
 			
-			if(game.getPrimeraRonda()) {
-				game.update();
-				game.jugarPrimeraRonda(ficha, fila, columna);
+			if(game.getPrimeraRonda()) {				
+				if(game.jugarPrimeraRonda(ficha, fila, columna)) {
+					game.update();	
+				}
+				
 			}
 			else {
 				if(game.anadirFicha(ficha, fila, columna)) {

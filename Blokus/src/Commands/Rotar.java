@@ -19,7 +19,7 @@ public class Rotar extends Command{
 	
 	public Rotar(int posicion, int angulo) {
 		super(nombre, shortcut,  help);
-		this.numFicha=numFicha;
+		this.numFicha = numFicha;
 		this.angulo=angulo;
 
 	}
@@ -28,7 +28,7 @@ public class Rotar extends Command{
 	
 	@Override
 	public boolean execute(Game game) {
-		if(this.numFicha >=0 && this.numFicha <game.dim()  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
+		if(this.numFicha >=0 && this.numFicha < game.dim(numFicha)  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
 		
 			if (this.angulo==90 || this.angulo==180 || this.angulo==270) {
 				game.Rotate(numFicha,angulo);

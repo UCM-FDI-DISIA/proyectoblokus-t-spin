@@ -17,26 +17,45 @@ public class Game {
 	private boolean primeraRonda = true;
 	private boolean juegoTerminado = false;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
- 	private List<Ficha> arrayFichas = new ArrayList<Ficha>();
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
     public int currentPlayer = 0;
 
     public Game(int numJugadores) {
+    	//CONSTRUCTOR DE PRUBA, FICHAS CARGADAS DE FORMA MANUAL
     	Ficha ficha;
+    	Ficha ficha2;
     	List<Casilla> arrayCasillas = new ArrayList<Casilla> ();
+    	List<Casilla> arrayCasillas2 = new ArrayList<Casilla> ();
+    	List<Ficha> arrayFichas = new ArrayList<Ficha>();
+    	List<Ficha> arrayFichas2 = new ArrayList<Ficha>();
     	arrayCasillas.add(new Casilla(0,0));
     	arrayCasillas.add(new Casilla(0,0));
     	arrayCasillas.add(new Casilla(0,0));
+    	arrayCasillas2.add(new Casilla(0,0));
+    	arrayCasillas2.add(new Casilla(0,0));
+    	arrayCasillas2.add(new Casilla(0,0));
     	int[][] forma = {{1,0},{1,0}};
+    	Jugador jugador;
+    	Jugador jugador2;
+    	
     	ficha = new Ficha(forma, arrayCasillas, "A");
-    		
-   
-    	arrayFichas.add(ficha);
-    	//
-    	Jugador jugador = new Jugador(arrayFichas);
-    	for(int i = 0; i < numJugadores; i++) {
-    		jugadores.add(jugador);
+    	for(int i = 0; i < 10; i++) {
+    		arrayFichas.add(ficha);	
     	}
+    	jugador = new Jugador(arrayFichas);
+    	jugadores.add(jugador);
+    	
+    	
+    	ficha2 = new Ficha(forma, arrayCasillas2, "B");
+    	for(int i = 0; i < 10; i++) {
+    		arrayFichas2.add(ficha2);	
+    	}    	
+    	jugador2 = new Jugador(arrayFichas2);
+    	jugadores.add(jugador2);
+    	
+    	/*for(int i = 0; i < numJugadores; i++) {
+    		jugadores.add(jugador);
+    	}*/
     }
     
     public void update() {
@@ -48,7 +67,8 @@ public class Game {
     
     
     
-    public void jugarPrimeraRonda(int f, int x, int y) {
+    public boolean jugarPrimeraRonda(int f, int y, int x) {
+    	boolean fichaAnadida = false;
     	Ficha ficha;
     	ficha = jugadores.get(currentPlayer).getFicha(f);
     	ficha.moverFicha(x, y);
@@ -59,13 +79,16 @@ public class Game {
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
     		}
+    		jugadores.get(currentPlayer).borrarPieza(f);
+    		fichaAnadida = true;
     	}
     	else {
     		throw new GameException("La primera ficha debe colocarse en una de las esquinas\n");
     	}
-    	if(currentPlayer >= jugadores.size()) {
+    	if(currentPlayer >= jugadores.size()-1) {
     		primeraRonda = false;
     	}
+    	return fichaAnadida;
     }
     
     public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
@@ -94,7 +117,7 @@ public class Game {
     	return jugadores.get(jugador).puedeJugar();
     }
     
-    public boolean anadirFicha(int f, int x, int y) {
+    public boolean anadirFicha(int f, int y, int x) {
     	Ficha ficha;
     	ficha = jugadores.get(currentPlayer).getFicha(f);
     	ficha.moverFicha(x, y);
@@ -112,7 +135,10 @@ public class Game {
     			jugadores.get(currentPlayer).puntUltimoCuadrado();
     		}
 			jugadores.get(currentPlayer).borrarPieza(f);
-    	}   
+    	} 
+    	else {
+    		throw new GameException("Posición no válida.\n");
+    	}
     	return fichaAnadida;
     }
     
@@ -263,8 +289,8 @@ public class Game {
 
 	}
 	
-	public int dim () {
-		return arrayFichas.size();
+	public int dim (int i) {
+		return jugadores.get(currentPlayer).getNumCasillas(i);
 	}
 
 }
