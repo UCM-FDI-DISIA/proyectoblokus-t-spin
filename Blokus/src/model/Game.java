@@ -116,11 +116,13 @@ public class Game {
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
     		}
-    		//Llamar a jugardor para quitarle la ficha que acaba de colocar
-    		if (jugadores.get(currentPlayer).getNumFichas() == 1) {
+    		
+    		if ((jugadores.get(currentPlayer).getNumFichas() == 1) && (ficha.getNumCasillas() == 1)) {
     			jugadores.get(currentPlayer).puntUltimoCuadrado();
     		}
-			jugadores.get(currentPlayer).borrarPieza(f);
+		
+		//Llamar a jugardor para quitarle la ficha que acaba de colocar
+		jugadores.get(currentPlayer).borrarPieza(f);
     	}   
     	return fichaAnadida;
     }
