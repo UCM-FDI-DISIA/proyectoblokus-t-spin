@@ -60,7 +60,7 @@ public class Controller {
 
     private void draw() {
 		// TODO Auto-generated method stub
-    	System.out.println("Turno > "+ game.currentPlayer);
+    	System.out.println("Turno jugador "+ (game.currentPlayer+1) + "/" + game.getNumJugadores());
     	System.out.println(printer.toString(game));
 		
 	}
