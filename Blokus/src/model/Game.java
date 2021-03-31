@@ -117,7 +117,10 @@ public class Game {
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
     		}
     		//Llamar a jugardor para quitarle la ficha que acaba de colocar
-    		//jugadores.get(1).borrarPieza(1); //esta linea está mal, arreglar
+    		if (jugadores.get(currentPlayer).getNumFichas() == 1) {
+    			jugadores.get(currentPlayer).puntUltimoCuadrado();
+    		}
+			jugadores.get(currentPlayer).borrarPieza(f);
     	}   
     	return fichaAnadida;
     }

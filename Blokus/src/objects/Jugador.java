@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Jugador {
     private int puntuacion = 0;
-
+    private boolean ultimoCuadrado = false;
     private List<Ficha> arrayFichas = new ArrayList<Ficha> ();
 
     public Jugador(List<Ficha> arrayFichas) {
@@ -28,9 +28,17 @@ public class Jugador {
     	}
     	else {
     		puntuacion += 15;
+    		
+    		if (ultimoCuadrado) {
+    			puntuacion += 5;
+    		}
     	}
     	
     	return puntuacion;
+    }
+    
+    public void puntUltimoCuadrado() {
+    	ultimoCuadrado = true;
     }
 
     public void borrarPieza(int pieza) {
