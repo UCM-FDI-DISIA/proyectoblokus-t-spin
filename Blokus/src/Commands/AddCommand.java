@@ -37,13 +37,8 @@ public class AddCommand extends Command{
 			}
 		}
 		else {
-			throw new CommandExecuteException("Posicion fuera de rango", "add new piece");
-			
+			throw new CommandExecuteException("Posicion fuera de rango", "add new piece");	
 		}
-		
-		/*if(!game.getJuegoTerminado()) {
-			game.update();
-		}*/
 		
 		return true;
 	}

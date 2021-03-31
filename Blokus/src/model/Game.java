@@ -62,9 +62,17 @@ public class Game {
     	}
     }*/
     
-    public void jugarPrimeraRonda(int ficha, int x, int y) {
-    	if(jugadorPuedeColocar(currentPlayer) && checkEsquinas(x, y)) {
-    			anadirFicha(ficha, x, y);
+    public void jugarPrimeraRonda(int f, int x, int y) {
+    	Ficha ficha;
+    	ficha = jugadores.get(currentPlayer).getFicha(f);
+    	ficha.moverFicha(x, y);
+    	Integer[] posicion = {0,0};
+    	
+    	if(jugadorPuedeColocar(currentPlayer) /*&& checkEsquinas(x, y)*/) {
+    		for(int i = 0; i < ficha.getNumCasillas(); i++){
+    			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
+    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
+    		}
     	}
     	primeraRonda = false;
     }
@@ -73,8 +81,8 @@ public class Game {
     	Integer[] esquina1 = {0, 0}, esquina2 = {DIM_BOARD-1, 0}, 
     			esquina3 = {0, DIM_BOARD-1}, esquina4 = {DIM_BOARD-1, DIM_BOARD-1};
     	Integer[] casilla = {x, y};
-    	return casilla.equals(esquina1) || casilla == esquina2 
-    			|| casilla == esquina3 || casilla == esquina4;
+    	return Arrays.toString(casilla) == Arrays.toString(esquina1) || Arrays.toString(casilla) == Arrays.toString(esquina2) 
+    			|| Arrays.toString(casilla) == Arrays.toString(esquina3) || Arrays.toString(casilla) == Arrays.toString(esquina4);
     }
     //------------
  
