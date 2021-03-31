@@ -35,18 +35,16 @@ public class Controller {
 			System.out.print("Command > ");
 			String[] words = in.nextLine().toLowerCase().trim().split("\\s+");
 			
-			Command command = CommandGenerator.parse(words);
-			
-			if (command != null)
-			{
-				if (!command.execute(game))
-				{
-					printGame = false;
+			try {
+				Command command = CommandGenerator.parse(words);
+
+				if (command != null) {
+					if (!command.execute(game)) {
+						printGame = false;
+					}
 				}
-			}
-			else
-			{
-				System.out.format("Comando desconocido.");
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
 				printGame = false;
 			}
 			
