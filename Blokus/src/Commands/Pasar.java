@@ -29,7 +29,7 @@ public class Pasar extends Command{
 			if(commandWords.length == 1)
 				return new Pasar();
 			else {
-				throw new CommandParseException("Command Reset: Incorrect number of arguments");
+				throw new CommandParseException("Command Reset: Incorrect number of arguments\n");
 			}
 			
 		}

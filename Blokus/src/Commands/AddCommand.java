@@ -37,7 +37,7 @@ public class AddCommand extends Command{
 			}
 		}
 		else {
-			throw new CommandExecuteException("Posicion fuera de rango", "add new piece");	
+			throw new CommandExecuteException("Posicion fuera de rango", "add new piece\n");	
 		}
 		
 		return true;
@@ -60,12 +60,12 @@ public class AddCommand extends Command{
 				}
 				else {
 					
-					throw new CommandParseException ("NumberFormatException");
+					throw new CommandParseException ("NumberFormatException\n");
 					
 				}
 			}
 			else {
-				throw new CommandParseException("Command add :Incorrect number of arguments");
+			throw new CommandParseException("Command add :Incorrect number of arguments\n");
 				
 			}
 			
