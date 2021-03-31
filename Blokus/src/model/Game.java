@@ -16,6 +16,7 @@ public class Game {
 	private boolean primeraRonda = true;
 	private boolean juegoTerminado = false;
     private List<Jugador> jugadores = new ArrayList<Jugador> ();  
+ 	private List<Ficha> arrayFichas = new ArrayList<Ficha>();
     private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
     public int currentPlayer = 0;
 
@@ -28,7 +29,7 @@ public class Game {
     	int[][] forma = {{1,0},{1,0}};
     	ficha = new Ficha(forma, arrayCasillas, "A");
     		
-    	List<Ficha> arrayFichas = new ArrayList<Ficha>();
+   
     	arrayFichas.add(ficha);
     	//
     	Jugador jugador = new Jugador(arrayFichas);
@@ -77,25 +78,13 @@ public class Game {
     	primeraRonda = false;
     }
     
-    public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
-		Integer[] esquina1 = { 0, 0 }, esquina2 = { DIM_BOARD - 1, 0 }, esquina3 = { 0, DIM_BOARD - 1 },
-				esquina4 = { DIM_BOARD - 1, DIM_BOARD - 1 };
-		Integer[] casilla = { 0, 0 };
-		for (int i = 0; i < ficha.getNumCasillas(); ++i) {
-			casilla[0] = ficha.getFichaX(i);
-			casilla[1] = ficha.getFichaY(i);
-			if (casilla[0] == esquina1[0] && casilla[1] == esquina1[1]) {
-				return true;
-			} else if (casilla[0] == esquina2[0] && casilla[1] == esquina2[1]) {
-				return true;
-			} else if (casilla[0] == esquina3[0] && casilla[1] == esquina3[1]) {
-				return true;
-			} else if (casilla[0] == esquina4[0] && casilla[1] == esquina4[1]) {
-				return true;
-			}
-		}
-		return false;
-	}
+    public boolean checkEsquinas(int x, int y) {// comprueba que la ficha se coloca en alguna de las esquinas
+    	Integer[] esquina1 = {0, 0}, esquina2 = {DIM_BOARD-1, 0}, 
+    			esquina3 = {0, DIM_BOARD-1}, esquina4 = {DIM_BOARD-1, DIM_BOARD-1};
+    	Integer[] casilla = {x, y};
+    	return Arrays.toString(casilla) == Arrays.toString(esquina1) || Arrays.toString(casilla) == Arrays.toString(esquina2) 
+    			|| Arrays.toString(casilla) == Arrays.toString(esquina3) || Arrays.toString(casilla) == Arrays.toString(esquina4);
+    }
     //------------
  
     public boolean jugadorPuedeColocar(int jugador) {
@@ -117,10 +106,7 @@ public class Game {
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
     		}
     		//Llamar a jugardor para quitarle la ficha que acaba de colocar
-    		if (jugadores.get(currentPlayer).getNumFichas() == 1) {
-    			jugadores.get(currentPlayer).puntUltimoCuadrado();
-    		}
-			jugadores.get(currentPlayer).borrarPieza(f);
+    		//jugadores.get(1).borrarPieza(1); //esta linea está mal, arreglar
     	}   
     	return fichaAnadida;
     }
@@ -270,6 +256,10 @@ public class Game {
 		
 		jugadores.get(currentPlayer).getFicha(numFicha).rotar(rotacion);
 
+	}
+	
+	public int dim () {
+		return arrayFichas.size();
 	}
 
 }

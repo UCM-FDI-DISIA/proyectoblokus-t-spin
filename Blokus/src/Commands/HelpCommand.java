@@ -46,7 +46,7 @@ public class HelpCommand extends Command{
 				
 				
 			else {
-				throw new CommandParseException("Command Help: Incorrect number of arguments");
+				throw new CommandParseException("Command Help: Incorrect number of arguments\n");
 			}
 			
 		}

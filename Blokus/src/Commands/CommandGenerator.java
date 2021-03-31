@@ -7,7 +7,7 @@ import Exception.*;
 public class CommandGenerator {
 	
 
-	private static int posicion;
+	private static int numFicha;
 	private static int angulo;
 	private static int ficha;
 	private static int fila;
@@ -18,25 +18,25 @@ public class CommandGenerator {
 			new ResetCommand(),
 			new ExitCommand(),
 			new Restantes(),
-			new Rotar(posicion,angulo),
+			new Rotar(numFicha,angulo),
 			new Pasar(),			
 			};
-
-	public static Command parse(String[ ] commandWords) throws CommandParseException {
-		
-		Command comando=null;
-		for(int i=0;i<availableCommands.length;i++) {
-			
-			if(availableCommands[i].parse(commandWords) != comando) {
-				 comando=availableCommands[i].parse(commandWords);
-				 //comando.execute(game);
-				 return comando;
-			}
-		}
-			 throw new CommandParseException("unknownCommandMsg");
-
 	
-	}
+	public static Command parse(String[ ] commandWords) throws CommandParseException {
+
+        Command comando=null;
+        for(int i=0;i<availableCommands.length;i++) {
+
+            if(availableCommands[i].parse(commandWords) != comando) {
+                 comando=availableCommands[i].parse(commandWords);
+                 //break;
+                 return comando;
+            }
+        }
+             throw new CommandParseException("Unknown command\n");
+
+
+    }
 	
 	public static String commandHelp() {
 		String help = null;

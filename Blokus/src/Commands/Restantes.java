@@ -29,7 +29,7 @@ public class Restantes extends Command{
 			if(commandWords.length == 1)
 				return new Restantes();
 			else {
-				throw new CommandParseException("Command Remaining: Incorrect number of arguments");
+				throw new CommandParseException("Command Remaining: Incorrect number of arguments\n");
 			}
 			
 		}

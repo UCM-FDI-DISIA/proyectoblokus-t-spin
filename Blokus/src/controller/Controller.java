@@ -25,6 +25,7 @@ public class Controller {
     
     
 	public void run() {
+		
 		while(!game.getJuegoTerminado()) {
 			if(printGame)
 			{
@@ -34,26 +35,28 @@ public class Controller {
 			
 			System.out.print("Command > ");
 			String[] words = in.nextLine().toLowerCase().trim().split("\\s+");
+			try { 
+			Command command = CommandGenerator.parse(words);
 			
-			try {
-				Command command = CommandGenerator.parse(words);
-
-				if (command != null) {
-					if (!command.execute(game)) {
-						printGame = false;
-					}
+			if (command != null)
+			{
+				if (!command.execute(game))
+				{
+					printGame = false;
 				}
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
+			}
+		
+			}catch(Exception e) {
+				System.out.format(e.getMessage());
 				printGame = false;
 			}
-			
-			
-			
+
+				
+			}			
 			   
 
 		}
-    }
+    
 
     private void draw() {
 		// TODO Auto-generated method stub

@@ -28,7 +28,7 @@ public class ExitCommand extends Command{
 			if(commandWords.length == 1)
 				return new ExitCommand();
 			else {
-				throw new CommandParseException("Command exit: Incorrect number of arguments");
+				throw new CommandParseException("Command exit: Incorrect number of arguments\n");
 			}
 			
 		}

@@ -28,7 +28,7 @@ public class ResetCommand extends Command{
 			if(commandWords.length == 1)
 				return new ResetCommand();
 			else {
-				throw new CommandParseException("Command Reset: Incorrect number of arguments");
+				throw new CommandParseException("Command Reset: Incorrect number of arguments\n");
 			}
 			
 		}

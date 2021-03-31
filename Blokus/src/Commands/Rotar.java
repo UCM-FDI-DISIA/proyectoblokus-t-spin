@@ -28,7 +28,7 @@ public class Rotar extends Command{
 	
 	@Override
 	public boolean execute(Game game) {
-		if(this.numFicha >=0 && this.numFicha < game.  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
+		if(this.numFicha >=0 && this.numFicha <game.dim()  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
 		
 			if (this.angulo==90 || this.angulo==180 || this.angulo==270) {
 				game.Rotate(numFicha,angulo);
@@ -37,7 +37,7 @@ public class Rotar extends Command{
 			}
 		}
 		else {
-			throw new CommandExecuteException("No ha sido posible rotar", "rotate token");
+			throw new CommandExecuteException("No ha sido posible rotar", "rotate token\n");
 			
 		}
 		return true;
@@ -58,12 +58,12 @@ public class Rotar extends Command{
 				}
 				else {
 					
-					throw new CommandParseException ("NumberFormatException");
+					throw new CommandParseException ("NumberFormatException\n");
 					
 				}
 			}
 			else {
-				throw new CommandParseException("Command add :Incorrect number of arguments");
+				throw new CommandParseException("Command add :Incorrect number of arguments\n");
 				
 			}
 		}
