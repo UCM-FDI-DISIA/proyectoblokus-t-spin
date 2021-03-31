@@ -28,6 +28,7 @@ public class AddCommand extends Command{
 		if(this.columna>=0 && this.columna < 20&& this.fila>=0 && this.fila<20) {
 			
 			if(game.getPrimeraRonda()) {
+				game.update();
 				game.jugarPrimeraRonda(ficha, fila, columna);
 			}
 			else {

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import Exception.GameException;
 import objects.Casilla;
 import objects.Ficha;
 import objects.Jugador;
@@ -45,23 +46,7 @@ public class Game {
 		}	
     }
     
-    /*public void ejecutaJuego(int ficha, int x, int y) {
-    	if(primeraRonda) {
-    		jugarPrimeraRonda(ficha, x, y);
-    	}
-    	else {
-    		if(currentPlayer >=4) {
-    			currentPlayer = 0;
-    			
-    		}
-    		currentPlayer++;
-    		for(Jugador j : jugadores) {
-    			if(jugadorPuedeColocar(j)) {
-    				anadirFicha(ficha, x, y);
-    			}
-    		}
-    	}
-    }*/
+    
     
     public void jugarPrimeraRonda(int f, int x, int y) {
     	Ficha ficha;
@@ -69,22 +54,39 @@ public class Game {
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
     	
-    	if(jugadorPuedeColocar(currentPlayer) /*&& checkEsquinas(x, y)*/) {
+    	if(jugadorPuedeColocar(currentPlayer) && checkEsquinas(ficha)) {
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
     		}
     	}
-    	primeraRonda = false;
+    	else {
+    		throw new GameException("La primera ficha debe colocarse en una de las esquinas\n");
+    	}
+    	if(currentPlayer >= jugadores.size()) {
+    		primeraRonda = false;
+    	}
     }
     
-    public boolean checkEsquinas(int x, int y) {// comprueba que la ficha se coloca en alguna de las esquinas
-    	Integer[] esquina1 = {0, 0}, esquina2 = {DIM_BOARD-1, 0}, 
-    			esquina3 = {0, DIM_BOARD-1}, esquina4 = {DIM_BOARD-1, DIM_BOARD-1};
-    	Integer[] casilla = {x, y};
-    	return Arrays.toString(casilla) == Arrays.toString(esquina1) || Arrays.toString(casilla) == Arrays.toString(esquina2) 
-    			|| Arrays.toString(casilla) == Arrays.toString(esquina3) || Arrays.toString(casilla) == Arrays.toString(esquina4);
-    }
+    public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
+		Integer[] esquina1 = { 0, 0 }, esquina2 = { DIM_BOARD - 1, 0 }, esquina3 = { 0, DIM_BOARD - 1 },
+				esquina4 = { DIM_BOARD - 1, DIM_BOARD - 1 };
+		Integer[] casilla = { 0, 0 };
+		for (int i = 0; i < ficha.getNumCasillas(); ++i) {
+			casilla[0] = ficha.getFichaX(i);
+			casilla[1] = ficha.getFichaY(i);
+			if (casilla[0] == esquina1[0] && casilla[1] == esquina1[1]) {
+				return true;
+			} else if (casilla[0] == esquina2[0] && casilla[1] == esquina2[1]) {
+				return true;
+			} else if (casilla[0] == esquina3[0] && casilla[1] == esquina3[1]) {
+				return true;
+			} else if (casilla[0] == esquina4[0] && casilla[1] == esquina4[1]) {
+				return true;
+			}
+		}
+		return false;
+	}
     //------------
  
     public boolean jugadorPuedeColocar(int jugador) {
