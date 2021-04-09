@@ -12,13 +12,28 @@ public class Game {
     
 	public final static int DIM_BOARD = 20;
 	
-	private boolean primeraRonda = true;
-	private boolean juegoTerminado = false;
-    private List<Jugador> jugadores = new ArrayList<Jugador> ();  
-    private HashMap<String, String> mapaCasillas = new HashMap<String, String>();
+	private boolean primeraRonda;
+	private boolean juegoTerminado;
+    private List<Jugador> jugadores;  
+    private HashMap<String, String> mapaCasillas;
+    private List<GameObserver> go;
+    
     public int currentPlayer = 0;
 
     public Game(int numJugadores) {
+    	// Inicializo los atributos de la clase en el constructor
+    	this.primeraRonda = true;
+    	this.juegoTerminado = false;
+    	this.jugadores = new ArrayList<Jugador>();
+    	this.mapaCasillas = new HashMap<String, String>();
+    	this.go = new ArrayList<GameObserver>();  	
+    	
+    	initPrueba();
+    	
+    }
+    
+    private void initPrueba() {
+    	
     	//CONSTRUCTOR DE PRUBA, FICHAS CARGADAS DE FORMA MANUAL
     	Ficha ficha;
     	Ficha ficha2;

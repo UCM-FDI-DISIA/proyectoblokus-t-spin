@@ -52,7 +52,7 @@ public class ModelTest extends TestCase{
 	 */
 	public void testConstruirJugador() {
 		init();
-		assert(jugadores != null);
+		assert(jugador != null);
 	}
 	
 	
