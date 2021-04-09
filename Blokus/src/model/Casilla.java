@@ -1,4 +1,4 @@
-package objects;
+package model;
 
 public class Casilla {
     private int x;

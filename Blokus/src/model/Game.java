@@ -4,9 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import Exception.GameException;
-import objects.Casilla;
-import objects.Ficha;
-import objects.Jugador;
+
 
 import java.util.HashMap;
 
