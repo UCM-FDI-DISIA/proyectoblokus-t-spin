@@ -320,4 +320,10 @@ public class Game {
 		return jugadores.get(currentPlayer).getNumCasillas(i);
 	}
 
+	public void addObserver(GameObserver o) {
+		// TODO Auto-generated method stub
+		//No hecha
+		
+	}
+
 }
