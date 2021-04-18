@@ -6,7 +6,7 @@ import java.util.List;
 import Exception.CommandExecuteException;
 import Exception.CommandParseException;
 import model.Game;
-import objects.Jugador;
+
 
 
 public class Rotar extends Command{
@@ -40,7 +40,7 @@ public class Rotar extends Command{
 			throw new CommandExecuteException("No ha sido posible rotar", "rotate token\n");
 			
 		}
-		return true;
+		return false;
 	}
 
 	
