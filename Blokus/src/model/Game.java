@@ -93,11 +93,12 @@ public class Game {
     			posicion[0] = Integer.valueOf(ficha.getFichaX(i)); posicion[1] = Integer.valueOf(ficha.getFichaY(i));
         		
         		if(posicion[0] < 0 || posicion[0] > DIM_BOARD || posicion[1] < 0 || posicion[1] > DIM_BOARD) {
-        			return false;
+        	    	
+        	    	throw new GameException("Posición no válida.\n");
         		}
         		
         		if(mapaCasillas.containsKey(Arrays.toString(posicion))) { //Si estÃ¡ ocupada
-        			return false;
+        			throw new GameException("Posición no válida.\n");
         		}
         	}
     		
