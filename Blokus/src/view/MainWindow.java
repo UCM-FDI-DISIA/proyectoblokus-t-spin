@@ -31,7 +31,9 @@ private void initGUI(){
 
 	JPanel mainPanel=new JPanel (new BorderLayout());
 	this.setContentPane(mainPanel);
-	mainPanel.add(new MainMenu(_controller), BorderLayout.PAGE_START);
+	mainPanel.add(new UpMenu(_controller), BorderLayout.NORTH);
+	mainPanel.add(new MainMenu(_controller),BorderLayout.CENTER);
+	
 	
 
 	
