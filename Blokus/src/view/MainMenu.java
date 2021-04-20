@@ -17,7 +17,7 @@ import javax.swing.JSeparator;
 
 import controller.Controller;
 
-public class MainMenu  extends JFrame implements ActionListener {
+public class MainMenu  extends JPanel implements ActionListener {
 	
 
 	JLabel titulo =new JLabel();
@@ -29,20 +29,20 @@ public class MainMenu  extends JFrame implements ActionListener {
 
 	
 	public MainMenu(Controller controller) {
-		super("Blockus");
+		//super("Blockus");
 		_controller=controller;
 		initGUI();
 	}
 	private void initGUI(){
-		this.setTitle("Blokus");
-	    this.setSize(800,800);
-	    this.setResizable(false);
-	    this.setLocationRelativeTo(null);
-	    this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//this.setTitle("Blokus");
+	    //this.setSize(800,800);
+	    //this.setResizable(false);
+	    //this.setLocationRelativeTo(null);
+	    //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    this.creaElementos();
 	    this.setLayout(null);
-	    this.setVisible(true);
-	   // this.menuSuperior();
+	    //this.setVisible(true);
+	    //this.menuSuperior();
 	    
 	}
 	
@@ -53,25 +53,28 @@ public class MainMenu  extends JFrame implements ActionListener {
 		titulo.setBounds(310,250,2000,30);
 		titulo.setFont(new Font("comic-sans", 1, 21));
 		titulo.setText("Numero de Jugadores");
-		this.getContentPane().add(titulo);
-
+		//this.getContentPane().add(titulo);
+		this.add(titulo);
 
 		p1.setBounds(350,300,120,30);
 		p1.setText("2 Jugadores");
-		this.getContentPane().add(p1);
+		//this.getContentPane().add(p1);
+		this.add(p1);
 
 		p2.setBounds(350,350,120,30);
 		p2.setText("3 Jugadores");
-		this.getContentPane().add(p2);
-
+		//this.getContentPane().add(p2);
+		this.add(p2);
+		
 		p3.setBounds(350,400,120,30);
 		p3.setText("4 Jugadores");
-		this.getContentPane().add(p3);
-
+		//this.getContentPane().add(p3);
+		this.add(p3);
 
 		p4.setBounds(350,450,120,30);
 		p4.setText("Salir");
-		this.getContentPane().add(p4);
+		//this.getContentPane().add(p4);
+		this.add(p4);
 
 		p1.addActionListener(this);
 		p2.addActionListener(this);

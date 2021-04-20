@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -19,6 +18,8 @@ import controller.Controller;
 
 public class MainWindow extends JFrame {
 	
+private static final long serialVersionUID = 1L;
+
 private Controller _controller;
 
 public MainWindow(Controller controller) {
@@ -28,10 +29,20 @@ public MainWindow(Controller controller) {
 }
 
 private void initGUI(){
+	this.setTitle("Blokus");
+    this.setSize(800,800);
+    this.setResizable(false);
+    this.setLocationRelativeTo(null);
+    this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    this.setLayout(null);
+    this.setVisible(true);
 
 	JPanel mainPanel=new JPanel (new BorderLayout());
 	this.setContentPane(mainPanel);
-	mainPanel.add(new UpMenu(_controller), BorderLayout.NORTH);
+	
+	this.setJMenuBar(new UpMenu(_controller));
+	UpMenu upMenu = new UpMenu(_controller);
+	
 	mainPanel.add(new MainMenu(_controller),BorderLayout.CENTER);
 	
 	

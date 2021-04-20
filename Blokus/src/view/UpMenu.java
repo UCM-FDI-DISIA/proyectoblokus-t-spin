@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -17,7 +18,7 @@ import javax.swing.JSeparator;
 
 import controller.Controller;
 
-public class UpMenu extends JPanel implements ActionListener{
+public class UpMenu extends JMenuBar implements ActionListener{
 	private String ayuda="El objetivo es colocar la mayor cantidad de las 21 piezas en el tablero. Cada pieza debe tocar al menos\r\n" + 
 			"otra del mismo color, pero solo por una de las esquinas. El juego termina cuando ningun jugador\r\n" + 
 			"puede colocar una pieza. ";
@@ -29,11 +30,13 @@ public class UpMenu extends JPanel implements ActionListener{
 	public UpMenu(Controller controller)  {
 		_controller=controller;
 		menuS();
+		this.setVisible(true);
+		
 		}
 	
 	public void menuS(){
 	   
-	    JMenuBar menuSuperior= new JMenuBar();
+	    //JMenuBar this= new JMenuBar();
 		JMenu archivo = new JMenu("Archivo");
 		JMenu ayudas = new JMenu("Ayuda");
 		JMenu ventana = new JMenu("Ventana");
@@ -63,13 +66,13 @@ public class UpMenu extends JPanel implements ActionListener{
 		
 		
 		
-		menuSuperior.add(archivo);
-		menuSuperior.add(ayudas);
-		menuSuperior.add(ventana);
-		menuSuperior.add(new JSeparator());
-		menuSuperior.add(salir);
+		this.add(archivo);
+		this.add(ayudas);
+		this.add(ventana);
+		this.add(new JSeparator());
+		this.add(salir);
 
-		add(menuSuperior);
+		//add(this);
 		
 	}
 		
