@@ -40,9 +40,9 @@ private void initGUI(){
 	JPanel mainPanel=new JPanel (new BorderLayout());
 	this.setContentPane(mainPanel);
 	
-	this.setJMenuBar(new UpMenu(_controller));
-	UpMenu upMenu = new UpMenu(_controller);
-	
+	this.setJMenuBar(new UpMenu());
+	UpMenu upMenu = new UpMenu();
+
 	mainPanel.add(new MainMenu(_controller),BorderLayout.CENTER);
 	
 	

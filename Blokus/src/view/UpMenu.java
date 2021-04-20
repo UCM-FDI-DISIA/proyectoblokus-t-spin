@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,83 +24,69 @@ public class UpMenu extends JMenuBar implements ActionListener{
 			"otra del mismo color, pero solo por una de las esquinas. El juego termina cuando ningun jugador\r\n" + 
 			"puede colocar una pieza. ";
 	private JMenu archivo, ayudas, ventana, salir;
-	private JMenuItem NPartida, instrucciones, Rpartida, tam1,tam2,SalirE,VolverP;
+	private JMenuItem NPartida, instrucciones, Rpartida, tam1,tam2,SalirE,VolverP;	
 	private Controller _controller;
 	
 	
-	public UpMenu(Controller controller)  {
-		_controller=controller;
-		menuS();
-		this.setVisible(true);
-		
-		}
 	
-	public void menuS(){
-	   
-	    //JMenuBar this= new JMenuBar();
-		JMenu archivo = new JMenu("Archivo");
-		JMenu ayudas = new JMenu("Ayuda");
-		JMenu ventana = new JMenu("Ventana");
-		JMenu salir = new JMenu("Salir");
-		
-		JMenuItem NPartida = new JMenuItem("Nueva Partida");
-		
-		JMenuItem instrucciones = new JMenuItem("Instrucciones");
-		JMenuItem Rpartida = new JMenuItem("Reiniciar Partida");
-		
-		JMenuItem tam1 = new JMenuItem("640*480");
-		JMenuItem tam2 = new JMenuItem("1024*768");
-		
-		JMenuItem SalirE = new JMenuItem("Salir al escritorio");
-		JMenuItem VolverP = new JMenuItem("Volver al menu principal");
-		
-		archivo.add(NPartida);
-		
-		ayudas.add(instrucciones);
-		ayudas.add(Rpartida);
-		
-		ventana.add(tam1);
-		ventana.add(tam2);
-		
-		salir.add(SalirE);
-		salir.add(VolverP);
-		
+	public UpMenu()  {
+		 
+		 archivo = new JMenu("Archivo");
+		 ayudas = new JMenu("Ayuda");
+		 salir = new JMenu("Salir");
 		
 		
 		this.add(archivo);
 		this.add(ayudas);
-		this.add(ventana);
 		this.add(new JSeparator());
 		this.add(salir);
-
-		//add(this);
 		
-	}
+		NPartida = new JMenuItem("Nueva Partida");
+		NPartida.addActionListener(this);
+		archivo.add(NPartida);	
+	
+		instrucciones = new JMenuItem("Instrucciones");
+		instrucciones.addActionListener(this);
+		ayudas.add(instrucciones);
 		
-		@Override
+		Rpartida = new JMenuItem("Reiniciar Partida");
+		Rpartida.addActionListener(this);
+		ayudas.add(Rpartida);
+		
+		 
+		SalirE = new JMenuItem("Salir al escritorio");
+		SalirE.addActionListener(this);
+		salir.add(SalirE);	
+		
+		VolverP = new JMenuItem("Volver al menu principal");
+		VolverP.addActionListener(this);
+		salir.add(VolverP);
+		
+					
+	
+		}
+		
+			@Override
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource()==tam1) {
-				setSize(640,480);
-			}
-			if (e.getSource()==tam2) {
-				setSize(1024,768);
-			}
-			if (e.getSource()==NPartida) {
+			
+			
+			
+			if (e.getSource().equals(NPartida)) {
 				JOptionPane.showMessageDialog(null, "Nueva Partida");
 			}
 		
-			if(e.getSource()==salir) {
+			if(e.getSource().equals(SalirE)) {
 				System.exit(WIDTH);
 			}
-			if(e.getSource()==instrucciones) {
+			if(e.getSource().equals(instrucciones)) {
 				JOptionPane.showMessageDialog(null, ayuda);
 			}
-			if(e.getSource()==Rpartida) {
+			if(e.getSource().equals(Rpartida)) {
 				//Llamada al m�todo reiniciarPartida();
 				JOptionPane.showMessageDialog(null, "Reiniciar Partida");
 			}
 			
-			if(e.getSource()==VolverP) {
+			if(e.getSource().equals(VolverP)) {
 				//Llamada al m�todo reiniciarPartida();
 				JOptionPane.showMessageDialog(null, "Volver a menu");
 			}
