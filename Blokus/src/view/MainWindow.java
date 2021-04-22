@@ -55,8 +55,9 @@ public void openMenu(JPanel previousPanel) {
 		mainPanel.setVisible(true);
 		this.setContentPane(mainPanel);
 	}
-public void newGame(int numJugadores, JPanel previousPanel) {
-		GamePanel gamePanel = new GamePanel(numJugadores);
+
+public void newGame(int numPlayers, JPanel previousPanel) {
+		GamePanel gamePanel = new GamePanel(numPlayers);
 		gamePanel.setVisible(true);
 		mainPanel.setVisible(false);
 		this.setContentPane(gamePanel);

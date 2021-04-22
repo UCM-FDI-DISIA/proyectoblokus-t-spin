@@ -18,7 +18,7 @@ import javax.swing.JSeparator;
 
 import controller.Controller;
 
-public class MainMenu  extends JPanel implements ActionListener {
+public class MainMenu  extends JPanel {
 	
 
 	JLabel titulo =new JLabel();
@@ -81,33 +81,39 @@ public class MainMenu  extends JPanel implements ActionListener {
 		//this.getContentPane().add(p4);
 		this.add(p4);
 
-		p1.addActionListener(this);
-		p2.addActionListener(this);
-		p3.addActionListener(this);
-		p4.addActionListener(this);
+		p1.addActionListener(new PlayersButtonListener(2));
+		p2.addActionListener(new PlayersButtonListener(3));
+		p3.addActionListener(new PlayersButtonListener(4));
+		p4.addActionListener(new ExitButtonListener());
 
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
+	class PlayersButtonListener implements ActionListener {
 		
-		if(e.getSource()==p1){
-			_mainWindow.newGame(2, _previousPanel);
-			
+		int _numPlayers;
+		
+		public PlayersButtonListener(int numPlayers) {
+			super();
+			_numPlayers = numPlayers;
 		}
-		else if(e.getSource()==p2){
-			_mainWindow.newGame(3, _previousPanel);
-			
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			_mainWindow.newGame(_numPlayers, _previousPanel);
 		}
-		else if(e.getSource()==p3){
-			_mainWindow.newGame(4, _previousPanel);
-			
-		}
-		else if(e.getSource()==p4){
+	}
+
+	class ExitButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
 			System.exit(WIDTH);
 		}
 		
-		
 	}
 }
+
+
 
