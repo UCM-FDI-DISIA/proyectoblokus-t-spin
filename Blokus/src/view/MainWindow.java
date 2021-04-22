@@ -21,6 +21,7 @@ public class MainWindow extends JFrame {
 private static final long serialVersionUID = 1L;
 
 private Controller _controller;
+private JPanel mainPanel;
 
 public MainWindow(Controller controller) {
 	super ("Blokus");
@@ -37,10 +38,10 @@ private void initGUI(){
     this.setLayout(null);
     this.setVisible(true);
 
-	JPanel mainPanel=new JPanel (new BorderLayout());
+	mainPanel=new JPanel (new BorderLayout());
 	this.setContentPane(mainPanel);
 	
-	this.setJMenuBar(new UpMenu());
+	this.setJMenuBar(new UpMenu(this, _controller));
 
 	mainPanel.add(new MainMenu(_controller, mainPanel, this),BorderLayout.CENTER);
 	
@@ -49,5 +50,16 @@ private void initGUI(){
 	
 }
 
-
+public void openMenu(JPanel previousPanel) {
+		previousPanel.setVisible(false);
+		mainPanel.setVisible(true);
+		this.setContentPane(mainPanel);
+	}
+public void newGame(int numJugadores, JPanel previousPanel) {
+		GamePanel gamePanel = new GamePanel(numJugadores);
+		gamePanel.setVisible(true);
+		mainPanel.setVisible(false);
+		this.setContentPane(gamePanel);
+		previousPanel.setVisible(false);
+	}
 }

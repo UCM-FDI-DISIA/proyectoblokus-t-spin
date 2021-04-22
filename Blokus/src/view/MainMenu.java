@@ -92,24 +92,15 @@ public class MainMenu  extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()==p1){
-			GamePanel gamePanel_2 = new GamePanel(2);
-			gamePanel_2.setVisible(true);
-			_previousPanel.setVisible(false);
-			_mainWindow.setContentPane(gamePanel_2);
+			_mainWindow.newGame(2, _previousPanel);
 			
 		}
 		else if(e.getSource()==p2){
-			GamePanel gamePanel_3 = new GamePanel(3);
-			gamePanel_3.setVisible(true);
-			_previousPanel.setVisible(false);
-			_mainWindow.setContentPane(gamePanel_3);
+			_mainWindow.newGame(3, _previousPanel);
 			
 		}
 		else if(e.getSource()==p3){
-			GamePanel gamePanel_4 = new GamePanel(4);
-			gamePanel_4.setVisible(true);
-			_previousPanel.setVisible(false);
-			_mainWindow.setContentPane(gamePanel_4);
+			_mainWindow.newGame(4, _previousPanel);
 			
 		}
 		else if(e.getSource()==p4){
