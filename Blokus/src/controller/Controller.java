@@ -66,6 +66,14 @@ public class Controller {
     public void addObserver(GameObserver o) {
     	game.addObserver(o);
 	}
+    
+    public void rotate() {
+    	game.Rotate(0,0); // TODO Parametros correctos son (numFicha, rotacion)
+    }
+    
+    public void passTurn() {
+    	// TODO Llamar game pasa turno
+    }
 
 
 }
