@@ -4,7 +4,9 @@ import java.util.Scanner;
 import Commands.Command;
 import Commands.CommandGenerator;
 import model.Game;
+import model.GameObserver;
 import view.BoardPrinter;
+import view.TableroPanel;
 
 public class Controller {
     private model.Game game;
@@ -16,11 +18,7 @@ public class Controller {
 	
     public Controller(Game game, Scanner scanner) {
     	this.game = game;
-		in = scanner;
-		for(int i = 0; i < game.getNumJugadores(); i++) {
-			//game.jugarPrimeraRonda();	
-		}
-		
+		in = scanner;		
     }
     
     
@@ -63,6 +61,10 @@ public class Controller {
     	System.out.println("Turno jugador "+ ((game.currentPlayer)+1) + "/" + game.getNumJugadores());
     	System.out.println(printer.toString(game));
 		
+	}
+
+    public void addObserver(GameObserver o) {
+    	game.addObserver(o);
 	}
 
 

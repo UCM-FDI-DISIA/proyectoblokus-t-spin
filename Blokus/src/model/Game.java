@@ -87,7 +87,21 @@ public class Game {
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
     	
+    	
     	if(jugadorPuedeColocar(currentPlayer) && checkEsquinas(ficha)) {
+    		for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
+    			posicion[0] = Integer.valueOf(ficha.getFichaX(i)); posicion[1] = Integer.valueOf(ficha.getFichaY(i));
+        		
+        		if(posicion[0] < 0 || posicion[0] > DIM_BOARD || posicion[1] < 0 || posicion[1] > DIM_BOARD) {
+        	    	
+        	    	throw new GameException("Posición no válida.\n");
+        		}
+        		
+        		if(mapaCasillas.containsKey(Arrays.toString(posicion))) { //Si estÃ¡ ocupada
+        			throw new GameException("Posición no válida.\n");
+        		}
+        	}
+    		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
@@ -304,6 +318,12 @@ public class Game {
 	
 	public int dim (int i) {
 		return jugadores.get(currentPlayer).getNumCasillas(i);
+	}
+
+	public void addObserver(GameObserver o) {
+		// TODO Auto-generated method stub
+		//No hecha
+		
 	}
 
 }

@@ -1,31 +1,82 @@
 package main;
-import java.util.Scanner;
+import model.Ficha;
+import model.Game;
+import view.MainWindow;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.security.PrivateKey;
+import javax.swing.*;
+import java.util.*;
+
 
 import controller.Controller;
-import model.Game;
 
 public class Main {
+	
+	private static String _mode = "gui";
 
-	public static void main(String[] args)  {
-    		
-    	Controller controller;
+
+	private static void startBatchMode() throws IOException {
+		
+   	Controller controller;
     	Game game;
     	Scanner scanner;
     	int numJugadores = 2;
-    	//TEST
+    	String[] args = null;
+		//TEST
     	if (args.length == 1) {
-        	numJugadores = Integer.parseInt(args[0]);
-    	}    	
-    	//TEST
+       	numJugadores = Integer.parseInt(args[0]);
+    	}
+//    	//TEST
     	scanner = new Scanner(System.in);
     	game = new Game(numJugadores);
     	controller = new Controller(game, scanner);
-    	controller.run(); //Ejecuta el juego
-    	
-    	System.out.print("Game closed.");
-    	//TEST ZONE
+   		controller.run(); //Ejecuta el juego
 
-    	//TEST ZONE
+   		System.out.print("Game closed.");
+//    	//TEST ZONE
+
+//    	//TEST ZONE
+	}
+	
+	private static void startGUIMode () throws IOException{
+		
+		Controller controller = null;
+		SwingUtilities.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {	new MainWindow(controller);	}
+			
+			
+		});
+		
+	}
+	
+	private static void start(String[] args) throws IOException{
+		
+			if(_mode=="console") {
+			startBatchMode();
+				}else {
+					startGUIMode();
+				}
+		
+	}
+	
+	public static void main(String[] args)  {
+		
+		try {
+			start(args);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
     }
 
+//
+	
 }
+
