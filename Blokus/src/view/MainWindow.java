@@ -41,9 +41,8 @@ private void initGUI(){
 	this.setContentPane(mainPanel);
 	
 	this.setJMenuBar(new UpMenu());
-	UpMenu upMenu = new UpMenu();
 
-	mainPanel.add(new MainMenu(_controller),BorderLayout.CENTER);
+	mainPanel.add(new MainMenu(_controller, mainPanel, this),BorderLayout.CENTER);
 	
 	
 

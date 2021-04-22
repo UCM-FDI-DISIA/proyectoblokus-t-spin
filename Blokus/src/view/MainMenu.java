@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -26,11 +27,15 @@ public class MainMenu  extends JPanel implements ActionListener {
 	JButton p3=new JButton();
 	JButton p4=new JButton();
 	private Controller _controller;
+	private JPanel _previousPanel;
+	private MainWindow _mainWindow;
 
 	
-	public MainMenu(Controller controller) {
+	public MainMenu(Controller controller, JPanel previousPanel, MainWindow mainWindow) {
 		//super("Blockus");
 		_controller=controller;
+		_previousPanel = previousPanel;
+		_mainWindow = mainWindow;
 		initGUI();
 	}
 	private void initGUI(){
@@ -87,22 +92,31 @@ public class MainMenu  extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()==p1){
-			//tablero para dos jugadores
-			//v1.setVisible(true);
+			GamePanel gamePanel_2 = new GamePanel(2);
+			gamePanel_2.setVisible(true);
+			_previousPanel.setVisible(false);
+			_mainWindow.setContentPane(gamePanel_2);
+			
 		}
-		if(e.getSource()==p2){
-			//tablero para Tres jugadores
-			//v2.setVisible(true):
+		else if(e.getSource()==p2){
+			GamePanel gamePanel_3 = new GamePanel(3);
+			gamePanel_3.setVisible(true);
+			_previousPanel.setVisible(false);
+			_mainWindow.setContentPane(gamePanel_3);
+			
 		}
-		if(e.getSource()==p3){
-			//tablero para cuatro jugadores
-			//v3.setVisible(true):
+		else if(e.getSource()==p3){
+			GamePanel gamePanel_4 = new GamePanel(4);
+			gamePanel_4.setVisible(true);
+			_previousPanel.setVisible(false);
+			_mainWindow.setContentPane(gamePanel_4);
+			
 		}
-		if(e.getSource()==p4){
+		else if(e.getSource()==p4){
 			System.exit(WIDTH);
 		}
 		
 		
-		}
 	}
+}
 

@@ -16,7 +16,7 @@ import controller.Controller;
 
 public class Main {
 	
-	private static String _mode="gui";
+	private static String _mode = "gui";
 
 
 	private static void startBatchMode() throws IOException {
@@ -66,7 +66,7 @@ public class Main {
 	}
 	
 	public static void main(String[] args)  {
-
+		
 		try {
 			start(args);
 		}catch (Exception e) {
