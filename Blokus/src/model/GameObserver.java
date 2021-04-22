@@ -11,6 +11,6 @@ public interface GameObserver {
 	
 	public void onReset(List<Jugador> jugadores, HashMap<String, String> mapaCasillas);
 	
-	public void onFichaAñadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas);
+	public void onFichaAnadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas);
 
 }
