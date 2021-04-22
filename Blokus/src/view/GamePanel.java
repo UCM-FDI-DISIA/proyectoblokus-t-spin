@@ -11,6 +11,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = -9060831481452731983L;
 	private static int numPlayers;
+	TableroPanel tablero;
 	/*private TableroPanel tableroPanel;
 	private PuntuationPanel puntPanel;
 	private PassButton passButton;
@@ -32,6 +33,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	public void initGui() {
 		//Añadir panel del tablero
+		tablero = new TableroPanel();
 		//Añadir panel de jugadores
 		//Añadir panel de pasar turno
 		//Añadir panel de rotar
@@ -48,6 +50,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		this.add(Panel5, BorderLayout.CENTER);
 		this.add(Panel6, BorderLayout.EAST);
 		this.add(Panel10, BorderLayout.PAGE_END);
+		this.add(tablero);
 	}
 	
 }

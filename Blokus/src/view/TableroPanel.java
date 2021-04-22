@@ -32,22 +32,20 @@ public class TableroPanel extends JPanel implements GameObserver{
 	private int width = 20, height = 20;
 	
 	
-	public TableroPanel(Controller ctrl) {
+	public TableroPanel(/*Controller ctrl*/) {
 		super(new GridLayout(20, 20));
 		this.setPreferredSize(new Dimension(width * SQUARESIZE, height
 				* SQUARESIZE));
 		
 		initGUI();
 
-		ctrl.addObserver(this);
+		//ctrl.addObserver(this);
 	}
 
 
-	private void initGUI() {
-		//tablero = new JButton[20][20]; //Hardcodeado
-		
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 20; j++) {				
+	private void initGUI() {		
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {				
 				CasillaPanel casilla = new CasillaPanel(i,j);
 				this.add(casilla);
 
