@@ -16,7 +16,7 @@ public class Game{
 	private boolean primeraRonda;
 	private boolean juegoTerminado;
     private List<Jugador> jugadores;  
-    private HashMap<String, String> mapaCasillas;
+    private HashMap<String, Integer> mapaCasillas;
     private List<GameObserver> go;
     
     public int currentPlayer = 0;
@@ -26,7 +26,7 @@ public class Game{
     	this.primeraRonda = true;
     	this.juegoTerminado = false;
     	this.jugadores = new ArrayList<Jugador>();
-    	this.mapaCasillas = new HashMap<String, String>();
+    	this.mapaCasillas = new HashMap<String, Integer>();
     	this.go = new ArrayList<GameObserver>();  	
     	
     	initPrueba();	
@@ -213,7 +213,7 @@ public class Game{
 		return casillaValida;
     }
     
-    private boolean checkDiagonal(Integer[]pos, String equipo) {
+    private boolean checkDiagonal(Integer[]pos, int equipo) {
     	boolean casillaValida = false;
 
     	
@@ -223,25 +223,25 @@ public class Game{
     	
     	Integer[] auxPos = {0,0};auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] += 1; auxPos[1] += 1;
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //1
+    	if(mapaCasillas.get((auxPos) == (equipo)) { //1
     		casillaValida = true;    		
     	}//else {System.out.println("\n1: "+ equipo+mapaCasillas.get(Arrays.toString(auxPos)));}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] += 1; auxPos[1] -= 1;    	
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //2
+    	if(mapaCasillas.get((auxPos)) == (equipo)) { //2
     		casillaValida = true;    		
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] -= 1; auxPos[1] += 1;
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //3
+    	if(mapaCasillas.get((auxPos)) == (equipo)) { //3
     		casillaValida = true;    		
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] -= 1; auxPos[1] -= 1; 	
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //4
+    	if(mapaCasillas.get((auxPos)) == (equipo)) { //4
     		casillaValida = true;    		
     	}
     	return casillaValida;
