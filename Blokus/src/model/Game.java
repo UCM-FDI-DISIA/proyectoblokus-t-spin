@@ -29,11 +29,11 @@ public class Game{
     	this.mapaCasillas = new HashMap<String, Integer>();
     	this.go = new ArrayList<GameObserver>();  	
     	
-    	initPrueba();	
+    	//initPrueba();	
     }
     
     
-    
+    /*
     private void initPrueba() {
     	
     	//CONSTRUCTOR DE PRUBA, FICHAS CARGADAS DE FORMA MANUAL
@@ -68,10 +68,8 @@ public class Game{
     	jugador2 = new Jugador(arrayFichas2);
     	jugadores.add(jugador2);
     	
-    	/*for(int i = 0; i < numJugadores; i++) {
-    		jugadores.add(jugador);
-    	}*/
-    }
+    	
+    }*/
     /*
     public void initJugadores(int n) {
     	for(int i = 0; i < n; i++) {
@@ -112,7 +110,7 @@ public class Game{
     		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());
+    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
     				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i));
     			}
@@ -165,7 +163,7 @@ public class Game{
     	if(fichaAnadida = cumpleReglas(ficha)) {    		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());
+    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
     				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i));
     			}
@@ -186,7 +184,7 @@ public class Game{
     
     public boolean cumpleReglas(Ficha ficha) {
     	Integer[] pos = {0,0};
-    	String equipo = ficha.getEquipo();
+    	Integer equipo = ficha.getEquipo();
     	boolean casillaValida = false;
     	//checkea si vacia y contiguas
     	
@@ -223,7 +221,7 @@ public class Game{
     	
     	Integer[] auxPos = {0,0};auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] += 1; auxPos[1] += 1;
-    	if(mapaCasillas.get((auxPos) == (equipo)) { //1
+    	if(mapaCasillas.get(auxPos) == (equipo)) { //1
     		casillaValida = true;    		
     	}//else {System.out.println("\n1: "+ equipo+mapaCasillas.get(Arrays.toString(auxPos)));}
     	
@@ -247,7 +245,7 @@ public class Game{
     	return casillaValida;
     }
 
-    private boolean checkContiguaNoDiagonal(Integer[]pos, String equipo) {
+    private boolean checkContiguaNoDiagonal(Integer[]pos, int equipo) {
     	boolean casillaValida = true;
    	
     	//	| |1| |
@@ -300,7 +298,8 @@ public class Game{
 	public String positionToString(int x, int y) {
 		
 		Integer[] pos = {x,y};
-		return (mapaCasillas.containsKey(Arrays.toString(pos))) ? mapaCasillas.get(Arrays.toString(pos)) : " ";
+		return ""; //arreglar
+		//return (mapaCasillas.containsKey(Arrays.toString(pos))) ? mapaCasillas.get(Arrays.toString(pos)) : " ";
 		
 	}
 
