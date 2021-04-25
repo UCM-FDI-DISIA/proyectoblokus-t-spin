@@ -3,10 +3,15 @@ package view;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.JButton;
 
-public class CasillaPanel extends JButton{
+import model.GameObserver;
+import model.Jugador;
+
+public class CasillaPanel extends JButton implements GameObserver{
 	private static final long serialVersionUID = 1L;
 	private int _x, _y;
 	
@@ -33,10 +38,11 @@ public class CasillaPanel extends JButton{
 		
 	}
 	
-	public void toggle() {
-		setBackground(Color.red);
+	public void toggle(Color color) {
+		setBackground(color);
 		setFocusPainted(false);
-		setBorderPainted( false );
+		setBorderPainted(false);
+		
 	}
 	
 	public int getXPos() {
@@ -45,5 +51,16 @@ public class CasillaPanel extends JButton{
 	
 	public int getYPos() {
 		return _y;
+	}
+
+	@Override
+	public void onReset(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFichaAnadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
+		// TODO Auto-generated method stub		
 	}
 }

@@ -40,10 +40,11 @@ public class TableroPanel extends JPanel implements GameObserver{
 		
 		initGUI();
 		this.ctrl = ctrl; //tmp
-		//ctrl.addObserver(this);
+		ctrl.addObserver(this);
 	}
 
-
+	
+	
 	private void initGUI() {		
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {				
@@ -51,7 +52,9 @@ public class TableroPanel extends JPanel implements GameObserver{
 				casilla.addActionListener(new ActionListener() {					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						//ctrl.anadirFicha(casilla.getXPos(), casilla.getYPos());
+						if(ctrl.anadirFicha(casilla.getXPos(), casilla.getYPos())) {
+							casilla.toggle(Color.red);
+						}
 						
 						
 						System.out.println("------------------------");
@@ -82,7 +85,7 @@ public class TableroPanel extends JPanel implements GameObserver{
 
 	@Override
 	public void onFichaAnadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 		
 	}
 }

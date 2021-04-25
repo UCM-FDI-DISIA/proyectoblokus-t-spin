@@ -54,11 +54,10 @@ public class GamePanel extends JPanel implements GameObserver {
 		JButton puntButton = new JButton("Puntuacion");
 		JButton passButton = new JButton("Pasar tuno");
 		JButton rotateButton = new JButton("Rotar");
-		JButton playerButton = new JButton("Fichas del jugador");
+		FichasPanel pfichas =  new FichasPanel();
 		
 		JPanel eastPanel = new JPanel();
-		JPanel playerPanel = new JPanel();
-		playerPanel.add(playerButton);
+		
 		
 		eastPanel.setLayout(new BorderLayout(20, 30));
 		eastPanel.add(panelJ, BorderLayout.NORTH);
@@ -66,7 +65,7 @@ public class GamePanel extends JPanel implements GameObserver {
 		eastPanel.add(rotateButton, BorderLayout.SOUTH);
 		
 		this.add(eastPanel, BorderLayout.EAST);
-		this.add(playerPanel, BorderLayout.SOUTH);
+		this.add(pfichas.inf(), BorderLayout.SOUTH);
 		this.add(tablero, BorderLayout.CENTER);
 	}
 

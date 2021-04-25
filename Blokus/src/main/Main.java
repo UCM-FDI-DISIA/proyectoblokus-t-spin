@@ -17,12 +17,12 @@ import controller.Controller;
 public class Main {
 	
 	private static String _mode = "gui";
-
+	
+	private static Controller controller;
+	private static Game game;
 
 	private static void startBatchMode() throws IOException {
-		
-   	Controller controller;
-    	Game game;
+
     	Scanner scanner;
     	int numJugadores = 2;
     	String[] args = null;
@@ -43,8 +43,8 @@ public class Main {
 	}
 	
 	private static void startGUIMode () throws IOException{
-		
-		Controller controller = null;
+		game = new Game(2);
+		controller = new Controller(game);
 		SwingUtilities.invokeLater(new Runnable() {
 
 			@Override
@@ -52,6 +52,7 @@ public class Main {
 			
 			
 		});
+
 		
 	}
 	
