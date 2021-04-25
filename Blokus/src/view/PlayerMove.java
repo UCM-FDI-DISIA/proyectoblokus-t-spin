@@ -3,6 +3,7 @@ package view;
 
 import java.util.HashMap;
 import java.util.List;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -34,12 +35,9 @@ public class PlayerMove extends JPanel implements GameObserver{
 		//	2. Pasar turno
 		
 		// Layout
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-	
-		JButton rotateB = new JButton();		// TODO Remove string after adding icon
-		rotateB.setToolTipText("Rotar ficha");
-		rotateB.setBounds(0, 0, 2000, 4000);					//TODO Resize? check size, add icon
-		rotateB.setIcon(new ImageIcon("resources/rotate.png"));
+		this.setLayout(new BorderLayout());
+		JButton rotateB = new JButton(new ImageIcon("Blokus/resources/rotate.png"));		// TODO Remove string after adding icon
+		rotateB.setText("\n Rotar ficha");
 
 		// rotateB listener using an anonymus inner class
 		rotateB.addActionListener(new ActionListener() {
@@ -57,10 +55,8 @@ public class PlayerMove extends JPanel implements GameObserver{
 		// rotateB listener using a nested class
 		// rotateB.addActionListener(new RotarListener());
 		
-		JButton skipB = new JButton(); 		// TODO Remove string after adding icon
-		skipB.setToolTipText("Pasar turno");
-		skipB.setBounds(0, 0, 2000, 4000);					//TODO Resize? check size, add icon
-		skipB.setIcon(new ImageIcon("resources/skip.png"));
+		JButton skipB = new JButton(new ImageIcon("Blokus/resources/skip.png")); 		// TODO Remove string after adding icon
+		skipB.setText("\n Pasar turno");
 
 		// passB listener using an anonymus inner class
 		skipB.addActionListener(new ActionListener() {
@@ -75,12 +71,10 @@ public class PlayerMove extends JPanel implements GameObserver{
 			}
 			
 		});
-		
-		JSeparator sep = new JSeparator(SwingConstants.VERTICAL);
-		
-		this.add(rotateB);
-		this.add(sep);
-		this.add(skipB);	
+
+		this.add(rotateB, BorderLayout.NORTH);
+		//this.add(sep);
+		this.add(skipB, BorderLayout.SOUTH);	
 		
 	}
 	
