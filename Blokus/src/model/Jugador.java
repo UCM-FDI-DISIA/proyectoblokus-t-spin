@@ -9,8 +9,17 @@ public class Jugador {
 
     public Jugador(List<Ficha> arrayFichas) {
     	this.arrayFichas = arrayFichas;
+    	cargarFichas();
     }
     
+ // Hola Luis, que tal?
+    
+    public void cargarFichas() {
+    	int [][][] fichas = Ficha.getAllFormas();	
+		for (int i = 0; i < fichas.length; i++) {
+			arrayFichas.add(new Ficha(fichas[i]));
+	}
+    }
     public Ficha getFicha(int i) {
     	return arrayFichas.get(i);
     }

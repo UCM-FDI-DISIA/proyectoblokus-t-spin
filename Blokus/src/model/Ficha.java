@@ -14,6 +14,10 @@ public class Ficha {
 		this.listaCasillas = arrayCasillas;
 	}
 
+	public Ficha(int[][] forma) {
+		this.forma = forma;
+	}
+
 //	public void rotar(int rotacion) {
 //		switch (rotacion) {
 //		case 270:
