@@ -84,7 +84,6 @@ public class PlayerMove extends JPanel implements GameObserver{
 		
 	}
 	
-	
 //    private class RotateListener implements ActionListener{
 //
 //        @Override
