@@ -104,7 +104,7 @@ public class Game {
     		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
+    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());
     		}
     		jugadores.get(currentPlayer).borrarPieza(f);
     		fichaAnadida = true;
@@ -323,6 +323,7 @@ public class Game {
 	public void addObserver(GameObserver o) {
 		// TODO Auto-generated method stub
 		//No hecha
+		
 		
 	}
 
