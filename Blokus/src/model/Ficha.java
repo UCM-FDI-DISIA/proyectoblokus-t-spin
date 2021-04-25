@@ -16,6 +16,9 @@ public class Ficha {
 
 	public Ficha(int[][] forma) {
 		this.forma = forma;
+		for(int i = 0; i < forma.length; i++) {
+			listaCasillas.add(new Casilla(0, 0));
+		}
 	}
 
 //	public void rotar(int rotacion) {
@@ -86,9 +89,10 @@ public class Ficha {
 		setForma();
 	}
 
-	public void moverFicha(int x, int y) {
+	public void moverFicha(int x, int y) {		
 		listaCasillas.get(0).setX(x);
 		listaCasillas.get(0).setY(y);
+		
 		setForma();
 	}
 
