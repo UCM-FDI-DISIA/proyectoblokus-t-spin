@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Ficha {
 
-	private String equipo;
+	private int equipo;
 	private int[][] forma;
 	private List<Casilla> listaCasillas = new ArrayList<Casilla>();
 
-	public Ficha(int[][] forma, List<Casilla> arrayCasillas, String equipo) {
+	public Ficha(int[][] forma, List<Casilla> arrayCasillas, int equipo) {
 		this.forma = forma;
 		this.equipo = equipo;
 		this.listaCasillas = arrayCasillas;
@@ -103,7 +103,7 @@ public class Ficha {
 		return forma;
 	}
 
-	public String getEquipo() {
+	public int getEquipo() {
 		return equipo;
 	}
 

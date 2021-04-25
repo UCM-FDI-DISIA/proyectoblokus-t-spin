@@ -6,13 +6,12 @@ public class Jugador {
     private int puntuacion = 0;
     private boolean ultimoCuadrado = false;
     private List<Ficha> arrayFichas = new ArrayList<Ficha> ();
+    private int id;
 
-    public Jugador(List<Ficha> arrayFichas) {
-    	this.arrayFichas = arrayFichas;
+    public Jugador(int id) {    	
+    	this.id = id;
     	cargarFichas();
     }
-    
- // Hola Luis, que tal?
     
     public void cargarFichas() {
     	int [][][] fichas = Ficha.getAllFormas();	
@@ -70,5 +69,13 @@ public class Jugador {
     public int getNumCasillas(int ficha) {
     	return arrayFichas.get(ficha).getNumCasillas();
     }
+
+	public int getId() {
+		return id;
+	}
+
+	
+    
+    
     
 }

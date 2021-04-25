@@ -45,9 +45,6 @@ private void initGUI(){
 
 	mainPanel.add(new MainMenu(_controller, mainPanel, this),BorderLayout.CENTER);
 	
-	
-
-	
 }
 
 public void openMenu(JPanel previousPanel) {
