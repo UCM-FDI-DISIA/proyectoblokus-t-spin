@@ -103,10 +103,7 @@ public class TableroPanel extends JPanel implements GameObserver{
 		}
 		else {
 			tablero[x][y].toggle(Color.green);
-		}
-		System.out.println("------------------------");
-		System.out.println("x2: " + x);
-		System.out.println("y2: " + y);
+		}	
 		
 	}
 }

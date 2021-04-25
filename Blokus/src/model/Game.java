@@ -154,8 +154,7 @@ public class Game{
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
     	boolean fichaAnadida = false;
-    	
- 
+    	    	
     	if(fichaAnadida = cumpleReglas(ficha)) {    		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
@@ -187,19 +186,18 @@ public class Game{
     	for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
     		pos[0] = Integer.valueOf(ficha.getFichaX(i)); pos[1] = Integer.valueOf(ficha.getFichaY(i));
     		
-    		if(pos[0] < 0 || pos[0] > DIM_BOARD || pos[1] < 0 || pos[1] > DIM_BOARD) {    			
+    		if(pos[0] < 0 || pos[0] > DIM_BOARD-1 || pos[1] < 0 || pos[1] > DIM_BOARD-1) {    			
     			return false;
     		}
     		
-    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si está ocupada
-    			System.out.println("hostia no");
+    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si está ocupada    			
     			return false;
     		}
     		
     		if(checkDiagonal(pos, equipo)) { //Si no tiene casillas del equipo en diagonal
-    			casillaValida = true;
+    			casillaValida = true;    			
     		}
-    		
+    		System.out.println(casillaValida);
     		if(!checkContiguaNoDiagonal(pos, equipo)) { //Si tiene casillas del equipo contiguas no diagonales
     			return false;
     		}
