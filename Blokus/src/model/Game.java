@@ -73,8 +73,8 @@ public class Game{
     
     public void initJugadores(int n) {
     	for(int i = 0; i < n; i++) {
-    		jugadores.add(new Jugador(n+1));
-    	}    	
+    		jugadores.add(new Jugador(i+1));
+    	}	
     }
     
     public void update() {
@@ -160,7 +160,8 @@ public class Game{
     	Integer[] posicion = {0,0};
     	boolean fichaAnadida = false;
     	    	
-    	if(fichaAnadida = cumpleReglas(ficha)) {    		
+    	if(fichaAnadida = cumpleReglas(ficha)) {   
+    		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
@@ -189,25 +190,31 @@ public class Game{
     	//checkea si vacia y contiguas
     	
     	for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
+    		
     		pos[0] = Integer.valueOf(ficha.getFichaX(i)); pos[1] = Integer.valueOf(ficha.getFichaY(i));
     		
-    		if(pos[0] < 0 || pos[0] > DIM_BOARD-1 || pos[1] < 0 || pos[1] > DIM_BOARD-1) {    			
+    		if(pos[0] < 0 || pos[0] > DIM_BOARD-1 || pos[1] < 0 || pos[1] > DIM_BOARD-1) {    			    			
+    			
     			return false;
     		}
     		
-    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si está ocupada    			
+    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si está ocupada    			    			
+    			
     			return false;
     		}
     		
-    		if(checkDiagonal(pos, equipo)) { //Si no tiene casillas del equipo en diagonal
+    		if(checkDiagonal(pos, equipo)) { //Si no tiene casillas del equipo en diagonal    			
     			casillaValida = true;    			
     		}
     		
-    		if(!checkContiguaNoDiagonal(pos, equipo)) { //Si tiene casillas del equipo contiguas no diagonales
+    		if(!checkContiguaNoDiagonal(pos, equipo)) { //Si tiene casillas del equipo contiguas no diagonales    		
+    			
     			return false;
     		}
     		
+    		
     	}
+    	
 		return casillaValida;
     }
     
@@ -221,25 +228,26 @@ public class Game{
     	
     	Integer[] auxPos = {0,0};auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] += 1; auxPos[1] += 1;
-    	if(mapaCasillas.get(auxPos) == (equipo)) { //1
+    	
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //1
     		casillaValida = true;    		
     	}//else {System.out.println("\n1: "+ equipo+mapaCasillas.get(Arrays.toString(auxPos)));}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] += 1; auxPos[1] -= 1;    	
-    	if(mapaCasillas.get((auxPos)) == (equipo)) { //2
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //2
     		casillaValida = true;    		
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] -= 1; auxPos[1] += 1;
-    	if(mapaCasillas.get((auxPos)) == (equipo)) { //3
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //3
     		casillaValida = true;    		
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] -= 1; auxPos[1] -= 1; 	
-    	if(mapaCasillas.get((auxPos)) == (equipo)) { //4
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //4
     		casillaValida = true;    		
     	}
     	return casillaValida;
@@ -254,25 +262,25 @@ public class Game{
     	
     	Integer[] auxPos = {0,0};auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[1] += 1;
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //1
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //1
     		casillaValida = false;
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] += 1;
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //2
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //2
     		casillaValida = false;
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[1] -= 1;
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //3
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //3
     		casillaValida = false;
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] -= 1; 	
-    	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //4
+    	if(mapaCasillas.get(Arrays.toString(auxPos)) == Integer.valueOf(equipo)) { //4
     		casillaValida = false;
     	}
     	return casillaValida;
