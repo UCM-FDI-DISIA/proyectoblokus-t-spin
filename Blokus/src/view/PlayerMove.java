@@ -106,7 +106,7 @@ public class PlayerMove extends JPanel implements GameObserver{
 	}
 
 	@Override
-	public void onFichaAnadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
+	public void onFichaAnadida(String color, int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}

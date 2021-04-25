@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 
+import controller.Controller;
 import model.GameObserver;
 import model.Jugador;
 
@@ -42,7 +43,7 @@ public class CasillaPanel extends JButton implements GameObserver{
 		setBackground(color);
 		setFocusPainted(false);
 		setBorderPainted(false);
-		
+		setEnabled(false);
 	}
 	
 	public int getXPos() {
@@ -59,8 +60,12 @@ public class CasillaPanel extends JButton implements GameObserver{
 		
 	}
 
+
+	
+
 	@Override
-	public void onFichaAnadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
-		// TODO Auto-generated method stub		
+	public void onFichaAnadida(String color, int x, int y) {
+		// TODO Auto-generated method stub
+		toggle(Color.red);
 	}
 }

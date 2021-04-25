@@ -27,6 +27,8 @@ public class TableroPanel extends JPanel implements GameObserver{
 	private static final long serialVersionUID = 1L;
 
 	private static final int SQUARESIZE = 40;
+	//private List<CasillaPanel> tablero;
+	private CasillaPanel[][] tablero;
 	
 
 	private int width = 20, height = 20;
@@ -35,25 +37,29 @@ public class TableroPanel extends JPanel implements GameObserver{
 	
 	public TableroPanel(Controller ctrl) {
 		super(new GridLayout(20, 20));
+		tablero = new CasillaPanel[20][20];
 		this.setPreferredSize(new Dimension(width * SQUARESIZE, height
 				* SQUARESIZE));
 		
 		initGUI();
-		this.ctrl = ctrl; //tmp
+		
 		ctrl.addObserver(this);
+		this.ctrl = ctrl; 
 	}
 
 	
 	
 	private void initGUI() {		
 		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {				
-				CasillaPanel casilla = new CasillaPanel(i,j);
+			for (int j = 0; j < height; j++) {
+				
+				CasillaPanel casilla = new CasillaPanel(j,i);
+				
 				casilla.addActionListener(new ActionListener() {					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
 						if(ctrl.anadirFicha(casilla.getXPos(), casilla.getYPos())) {
-							casilla.toggle(Color.red);
+							//casilla.toggle(Color.red);
 						}
 						
 						
@@ -65,6 +71,7 @@ public class TableroPanel extends JPanel implements GameObserver{
 				this.add(casilla);
 
 				casilla.setVisible(true);
+				tablero[i][j] = casilla;
 			}
 		}
 	}
@@ -82,10 +89,24 @@ public class TableroPanel extends JPanel implements GameObserver{
 		
 	}
 
-
 	@Override
-	public void onFichaAnadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
-		// TODO Auto-generated method stub	
+	public void onFichaAnadida(String color, int x, int y) {
+		// TODO Auto-generated method stub
+		if(color == "1") {
+			tablero[x][y].toggle(Color.red);	
+		}
+		else if(color == "2") {
+			tablero[x][y].toggle(Color.blue);
+		}
+		else if(color == "3") {
+			tablero[x][y].toggle(Color.yellow);
+		}
+		else {
+			tablero[x][y].toggle(Color.green);
+		}
+		System.out.println("------------------------");
+		System.out.println("x2: " + x);
+		System.out.println("y2: " + y);
 		
 	}
 }

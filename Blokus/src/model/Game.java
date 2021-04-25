@@ -4,10 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import exceptions.GameException;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 
 import java.util.HashMap;
 
-public class Game {
+public class Game{
     
 	public final static int DIM_BOARD = 20;
 	
@@ -50,7 +52,7 @@ public class Game {
     	Jugador jugador;
     	Jugador jugador2;
     	
-    	ficha = new Ficha(forma, arrayCasillas, "A");
+    	ficha = new Ficha(forma, arrayCasillas, "1");
     	for(int i = 0; i < 10; i++) {
     		arrayFichas.add(ficha);	
     	}
@@ -58,7 +60,7 @@ public class Game {
     	jugadores.add(jugador);
     	
     	
-    	ficha2 = new Ficha(forma, arrayCasillas2, "B");
+    	ficha2 = new Ficha(forma, arrayCasillas2, "2");
     	for(int i = 0; i < 10; i++) {
     		arrayFichas2.add(ficha2);	
     	}    	
@@ -104,6 +106,9 @@ public class Game {
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());
+    			for(GameObserver o : go) {
+    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i));
+    			}
     		}
     		jugadores.get(currentPlayer).borrarPieza(f);
     		fichaAnadida = true;
@@ -151,16 +156,21 @@ public class Game {
     	boolean fichaAnadida = false;
     	
  
-    	if(fichaAnadida = cumpleReglas(ficha)) {
+    	if(fichaAnadida = cumpleReglas(ficha)) {    		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
+    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());
+    			for(GameObserver o : go) {
+    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i));
+    			}
     		}
     		//Llamar a jugador para quitarle la ficha que acaba de colocar
     		if ((jugadores.get(currentPlayer).getNumFichas() == 1) && (ficha.getNumCasillas() == 1)) {
     			jugadores.get(currentPlayer).puntUltimoCuadrado();
     		}
 			jugadores.get(currentPlayer).borrarPieza(f);
+			
+
     	} 
     	else {
     		throw new GameException("PosiciÛn no v·lida.\n");
@@ -177,11 +187,12 @@ public class Game {
     	for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
     		pos[0] = Integer.valueOf(ficha.getFichaX(i)); pos[1] = Integer.valueOf(ficha.getFichaY(i));
     		
-    		if(pos[0] < 0 || pos[0] > DIM_BOARD || pos[1] < 0 || pos[1] > DIM_BOARD) {
+    		if(pos[0] < 0 || pos[0] > DIM_BOARD || pos[1] < 0 || pos[1] > DIM_BOARD) {    			
     			return false;
     		}
     		
     		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si est√° ocupada
+    			System.out.println("hostia no");
     			return false;
     		}
     		
@@ -322,5 +333,10 @@ public class Game {
 	public void addObserver(GameObserver o) {
 		go.add(o);
 	}
+
+
+
+
+
 
 }
