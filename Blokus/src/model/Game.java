@@ -321,9 +321,7 @@ public class Game {
 	}
 
 	public void addObserver(GameObserver o) {
-		// TODO Auto-generated method stub
-		//No hecha
-		
+		go.add(o);
 	}
 
 }
