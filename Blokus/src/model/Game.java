@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import Exception.GameException;
-
+import exceptions.GameException;
 
 import java.util.HashMap;
 
@@ -104,7 +103,7 @@ public class Game {
     		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());	
+    			mapaCasillas.put(Arrays.toString(posicion), ficha.getEquipo());
     		}
     		jugadores.get(currentPlayer).borrarPieza(f);
     		fichaAnadida = true;

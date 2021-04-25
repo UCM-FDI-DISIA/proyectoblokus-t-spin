@@ -1,8 +1,8 @@
 package controller;
 import java.util.Scanner;
 
-import Commands.Command;
-import Commands.CommandGenerator;
+import commands.*;
+import exceptions.CommandExecuteException;
 import model.Game;
 import model.GameObserver;
 import view.BoardPrinter;
@@ -19,6 +19,10 @@ public class Controller {
     public Controller(Game game, Scanner scanner) {
     	this.game = game;
 		in = scanner;		
+    }
+    
+    public Controller(Game game) {
+    	this.game = game;
     }
     
     
@@ -70,14 +74,19 @@ public class Controller {
     //Metodos temporales
     public void rotate() {
     	game.Rotate(0,0); // TODO Parametros correctos son (numFicha, rotacion)
+    	Command command = new RotateCommand(0, 0);
+		command.execute(game);
+		//return true;
     }
     
     public void passTurn() {
     	// TODO Llamar game pasa turno
     }
     
-    public void anadirFicha(int x, int y) {
-    	game.anadirFicha(0, y, x);
+    public boolean anadirFicha(int x, int y) {
+     	Command command = new AddCommand(0, x , y);
+		command.execute(game);
+		return true;    	
     }
   //Metodos temporales
 

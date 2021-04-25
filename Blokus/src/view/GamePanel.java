@@ -19,6 +19,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	private static final long serialVersionUID = -9060831481452731983L;
 	private static int numPlayers;
 	TableroPanel tablero;
+	PanelJugadores panelJ;
 	/*
 	private PuntuationPanel puntPanel;
 	private PassButton passButton;
@@ -38,6 +39,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	public void initGui() {
 		//Añadir panel del tablero
 		tablero = new TableroPanel(ctrl);
+		panelJ=new PanelJugadores(numPlayers);
 		//Añadir panel de puntuacion dejugadores
 		//Añadir panel de pasar turno
 		//Añadir panel de rotar
@@ -52,19 +54,18 @@ public class GamePanel extends JPanel implements GameObserver {
 		JButton puntButton = new JButton("Puntuacion");
 		JButton passButton = new JButton("Pasar tuno");
 		JButton rotateButton = new JButton("Rotar");
-		JButton playerButton = new JButton("Fichas del jugador");
+		FichasPanel pfichas =  new FichasPanel();
 		
 		JPanel eastPanel = new JPanel();
-		JPanel playerPanel = new JPanel();
-		playerPanel.add(playerButton);
+		
 		
 		eastPanel.setLayout(new BorderLayout(20, 30));
-		eastPanel.add(puntButton, BorderLayout.NORTH);
+		eastPanel.add(panelJ, BorderLayout.NORTH);
 		eastPanel.add(passButton, BorderLayout.CENTER);
 		eastPanel.add(rotateButton, BorderLayout.SOUTH);
 		
 		this.add(eastPanel, BorderLayout.EAST);
-		this.add(playerPanel, BorderLayout.SOUTH);
+		this.add(pfichas.inf(), BorderLayout.SOUTH);
 		this.add(tablero, BorderLayout.CENTER);
 	}
 

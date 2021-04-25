@@ -1,8 +1,8 @@
-package Commands;
+package commands;
 
 
 
-import Exception.*;
+import exceptions.*;
 import model.Game;
 
 
