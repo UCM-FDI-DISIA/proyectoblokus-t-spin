@@ -21,7 +21,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	private TableroPanel tablero;
 	private PanelJugadores panelJ;
 	private PlayerMove move;
-	
+	private FichasPanel pFichas;
 	/*
 	private PuntuationPanel puntPanel;
 	private PassButton passButton;
@@ -38,23 +38,12 @@ public class GamePanel extends JPanel implements GameObserver {
 	}
 	
 	
-	public void initGui() {
-		//Añadir panel del tablero
+	private void initGui() {
+		
 		tablero = new TableroPanel(ctrl);
 		panelJ = new PanelJugadores(numPlayers);
 		move = new PlayerMove(ctrl);
-		//Añadir panel de puntuacion dejugadores
-		//Añadir panel de pasar turno
-		//Añadir panel de rotar
-		//Añadir panel de fichas del jugador	
-		
-		
-		//Test del layout para que veais como queda cada panel
-		// Sustituid cada JButton de ejemplo por el vuestro
-		// Si es un panel, eliminad el JButton y sustituid el JPanel de ejemplo
-//		JButton passButton = new JButton("Pasar tuno");
-//		JButton rotateButton = new JButton("Rotar");
-		FichasPanel pfichas =  new FichasPanel();
+		pFichas =  new FichasPanel();
 		
 		JPanel eastPanel = new JPanel();
 		
@@ -62,11 +51,9 @@ public class GamePanel extends JPanel implements GameObserver {
 		eastPanel.setLayout(new BorderLayout(20, 30));
 		eastPanel.add(panelJ.numJugadores(), BorderLayout.NORTH);
 		eastPanel.add(move, BorderLayout.CENTER);
-//		eastPanel.add(passButton, BorderLayout.CENTER);
-//		eastPanel.add(rotateButton, BorderLayout.SOUTH);
-		
+	
 		this.add(eastPanel, BorderLayout.EAST);
-		this.add(pfichas.inf(), BorderLayout.SOUTH);
+		this.add(pFichas.inf(), BorderLayout.SOUTH);
 		this.add(tablero, BorderLayout.CENTER);
 	}
 

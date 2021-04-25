@@ -37,7 +37,7 @@ public class PlayerMove extends JPanel implements GameObserver{
 		// Layout
 		this.setLayout(new BorderLayout());
 		JButton rotateB = new JButton(new ImageIcon("Blokus/resources/rotate.png"));		// TODO Remove string after adding icon
-		rotateB.setText("\n Rotar ficha");
+		rotateB.setText("Rotar ficha");
 
 		// rotateB listener using an anonymus inner class
 		rotateB.addActionListener(new ActionListener() {
@@ -56,7 +56,7 @@ public class PlayerMove extends JPanel implements GameObserver{
 		// rotateB.addActionListener(new RotarListener());
 		
 		JButton skipB = new JButton(new ImageIcon("Blokus/resources/skip.png")); 		// TODO Remove string after adding icon
-		skipB.setText("\n Pasar turno");
+		skipB.setText("Pasar turno");
 
 		// passB listener using an anonymus inner class
 		skipB.addActionListener(new ActionListener() {
@@ -73,7 +73,6 @@ public class PlayerMove extends JPanel implements GameObserver{
 		});
 
 		this.add(rotateB, BorderLayout.NORTH);
-		//this.add(sep);
 		this.add(skipB, BorderLayout.SOUTH);	
 		
 	}
