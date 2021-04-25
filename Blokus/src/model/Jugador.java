@@ -16,7 +16,7 @@ public class Jugador {
     public void cargarFichas() {
     	int [][][] fichas = Ficha.getAllFormas();	
 		for (int i = 0; i < fichas.length; i++) {
-			arrayFichas.add(new Ficha(fichas[i]));
+			arrayFichas.add(new Ficha(fichas[i],id));
 	}
     }
     public Ficha getFicha(int i) {

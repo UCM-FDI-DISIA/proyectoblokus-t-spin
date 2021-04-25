@@ -8,14 +8,15 @@ public class Ficha {
 	private int[][] forma;
 	private List<Casilla> listaCasillas = new ArrayList<Casilla>();
 
-	public Ficha(int[][] forma, List<Casilla> arrayCasillas, int equipo) {
+//	public Ficha(int[][] forma, List<Casilla> arrayCasillas, int equipo) {
+//		this.forma = forma;
+//		this.equipo = equipo;
+//		this.listaCasillas = arrayCasillas;
+//	}
+
+	public Ficha(int[][] forma, int equipo) {
 		this.forma = forma;
 		this.equipo = equipo;
-		this.listaCasillas = arrayCasillas;
-	}
-
-	public Ficha(int[][] forma) {
-		this.forma = forma;
 		for(int i = 0; i < forma.length; i++) {
 			listaCasillas.add(new Casilla(0, 0));
 		}
