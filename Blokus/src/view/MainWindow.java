@@ -61,6 +61,7 @@ public void newGame(int numPlayers, JPanel previousPanel) {
 		gamePanel.setVisible(true);
 		mainPanel.setVisible(false);
 		this.setContentPane(gamePanel);
+		this.pack();
 		previousPanel.setVisible(false);
 	}
 }
