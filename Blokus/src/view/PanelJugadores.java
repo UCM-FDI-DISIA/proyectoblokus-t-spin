@@ -14,14 +14,13 @@ public class PanelJugadores extends JPanel{
 		this.numPlayers=numPlayers;
 	}
 	
-public JPanel numJugadores() {
+	public JPanel numJugadores() {
 		
-		JLabel titulo= new JLabel("PUNTUACIÓN");
-		JLabel ju1 = new JLabel("Jugador 1: ");
-		JLabel ju2 = new JLabel("Jugador 2: ");
-		JLabel ju3 = new JLabel("Jugador 3: ");
-		JLabel ju4 = new JLabel("Jugador 4: ");
-	
+		JLabel titulo= new JLabel(lineBreak("PUNTUACION"));
+		JLabel ju1 = new JLabel(lineBreak("Jugador 1: "));
+		JLabel ju2 = new JLabel(lineBreak("Jugador 2: "));
+		JLabel ju3 = new JLabel(lineBreak("Jugador 3: "));
+		JLabel ju4 = new JLabel(lineBreak("Jugador 4: "));
 	
 		JPanel supPanel = new JPanel(new FlowLayout());
 		supPanel.setPreferredSize(new Dimension(100,300));
@@ -47,5 +46,9 @@ public JPanel numJugadores() {
 		}
 		
 		return supPanel;
+	}
+	
+	private String lineBreak(String text) {
+		return "<html><p style=\"width:170px\">" + text + "</p></html>";
 	}
 }

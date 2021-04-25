@@ -31,7 +31,7 @@ public MainWindow(Controller controller) {
 
 private void initGUI(){
 	this.setTitle("Blokus");
-    this.setSize(800,800);
+    this.setSize(1050,1100);
     this.setResizable(true);
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);

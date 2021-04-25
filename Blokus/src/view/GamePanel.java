@@ -22,13 +22,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	private PanelJugadores panelJ;
 	private PlayerMove move;
 	private FichasPanel pFichas;
-	/*
-	private PuntuationPanel puntPanel;
-	private PassButton passButton;
-	private RotateButton rotateButton;
-	private PlayerPanel playerPanel;
-	*/
-	Controller ctrl;
+	private Controller ctrl;
 	
 	public GamePanel(Controller ctrl, int numPlayers) {
 		super(new BorderLayout());
