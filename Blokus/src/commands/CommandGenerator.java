@@ -19,7 +19,7 @@ public class CommandGenerator {
 			new ExitCommand(),
 			new Restantes(),
 			new RotateCommand(numFicha,angulo),
-			new PassTurnCommand(),			
+			new SkipTurnCommand(),			
 			};
 	
 	public static Command parse(String[ ] commandWords) throws CommandParseException {

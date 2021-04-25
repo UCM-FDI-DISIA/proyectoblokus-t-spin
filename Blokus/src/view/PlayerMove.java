@@ -34,12 +34,12 @@ public class PlayerMove extends JPanel implements GameObserver{
 		//	2. Pasar turno
 		
 		// Layout
-		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		
-		JButton rotateB = new JButton("Rotar ficha");		// TODO Remove string after adding icon
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+	
+		JButton rotateB = new JButton();		// TODO Remove string after adding icon
 		rotateB.setToolTipText("Rotar ficha");
-		rotateB.setBounds(0, 0, 100, 100);					//TODO Resize? check size, add icon
-		//rotateB.setIcon(new ImageIcon("src/icons/rotate.png"));
+		rotateB.setBounds(0, 0, 2000, 4000);					//TODO Resize? check size, add icon
+		rotateB.setIcon(new ImageIcon("resources/rotate.png"));
 
 		// rotateB listener using an anonymus inner class
 		rotateB.addActionListener(new ActionListener() {
@@ -57,13 +57,13 @@ public class PlayerMove extends JPanel implements GameObserver{
 		// rotateB listener using a nested class
 		// rotateB.addActionListener(new RotarListener());
 		
-		JButton passB = new JButton("Pasar turno"); 		// TODO Remove string after adding icon
-		passB.setToolTipText("Pasar turno");
-		passB.setBounds(0, 0, 100, 100);					//TODO Resize? check size, add icon
-		//passB.setIcon(new ImageIcon("src/icons/pass.png"));
+		JButton skipB = new JButton(); 		// TODO Remove string after adding icon
+		skipB.setToolTipText("Pasar turno");
+		skipB.setBounds(0, 0, 2000, 4000);					//TODO Resize? check size, add icon
+		skipB.setIcon(new ImageIcon("resources/skip.png"));
 
 		// passB listener using an anonymus inner class
-		passB.addActionListener(new ActionListener() {
+		skipB.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent a) {
@@ -80,7 +80,7 @@ public class PlayerMove extends JPanel implements GameObserver{
 		
 		this.add(rotateB);
 		this.add(sep);
-		this.add(passB);	
+		this.add(skipB);	
 		
 	}
 	
