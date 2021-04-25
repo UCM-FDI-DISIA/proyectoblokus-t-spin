@@ -39,15 +39,11 @@ public class MainMenu  extends JPanel {
 		initGUI();
 	}
 	private void initGUI(){
-		//this.setTitle("Blokus");
-	    //this.setSize(800,800);
-	    //this.setResizable(false);
-	    //this.setLocationRelativeTo(null);
-	    //this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
 	    this.creaElementos();
 	    this.setLayout(null);
-	    //this.setVisible(true);
-	    //this.menuSuperior();
+	    this.setSize(_previousPanel.getSize());
+
 	    
 	}
 	
@@ -55,28 +51,28 @@ public class MainMenu  extends JPanel {
 
 	public void creaElementos(){
 		
-		titulo.setBounds(310,250,2000,30);
+		titulo.setBounds(400,250,2000,30);
 		titulo.setFont(new Font("comic-sans", 1, 21));
 		titulo.setText("Numero de Jugadores");
 		//this.getContentPane().add(titulo);
 		this.add(titulo);
 
-		p1.setBounds(350,300,120,30);
+		p1.setBounds(440,300,120,30);
 		p1.setText("2 Jugadores");
 		//this.getContentPane().add(p1);
 		this.add(p1);
 
-		p2.setBounds(350,350,120,30);
+		p2.setBounds(440,350,120,30);
 		p2.setText("3 Jugadores");
 		//this.getContentPane().add(p2);
 		this.add(p2);
 		
-		p3.setBounds(350,400,120,30);
+		p3.setBounds(440,400,120,30);
 		p3.setText("4 Jugadores");
 		//this.getContentPane().add(p3);
 		this.add(p3);
 
-		p4.setBounds(350,450,120,30);
+		p4.setBounds(440,450,120,30);
 		p4.setText("Salir");
 		//this.getContentPane().add(p4);
 		this.add(p4);
