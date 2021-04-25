@@ -58,14 +58,7 @@ public class TableroPanel extends JPanel implements GameObserver{
 				casilla.addActionListener(new ActionListener() {					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						if(ctrl.anadirFicha(casilla.getXPos(), casilla.getYPos())) {
-							//casilla.toggle(Color.red);
-						}
-						
-						
-						System.out.println("------------------------");
-						System.out.println("x: " + casilla.getXPos());
-						System.out.println("y: " + casilla.getYPos());
+						ctrl.anadirFicha(casilla.getXPos(), casilla.getYPos());					
 					}
 				});
 				this.add(casilla);
@@ -75,13 +68,6 @@ public class TableroPanel extends JPanel implements GameObserver{
 			}
 		}
 	}
-/*
-	//Nunca llamamos a esta funcion directamente, el sistema la llama por nosotros.
-	public void paintComponent(Graphics g) {
-		g.fillRect(100, 100, 400, 400);
-		g.clearRect(100, 100, 50, 50);
-	
-	}*/
 	
 	@Override
 	public void onReset(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
@@ -103,7 +89,8 @@ public class TableroPanel extends JPanel implements GameObserver{
 		}
 		else {
 			tablero[x][y].toggle(Color.green);
-		}	
+		}
+		
 		
 	}
 }

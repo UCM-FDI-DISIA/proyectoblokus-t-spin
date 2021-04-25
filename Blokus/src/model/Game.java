@@ -29,9 +29,10 @@ public class Game{
     	this.mapaCasillas = new HashMap<String, String>();
     	this.go = new ArrayList<GameObserver>();  	
     	
-    	initPrueba();
-    	
+    	initPrueba();	
     }
+    
+    
     
     private void initPrueba() {
     	
@@ -71,6 +72,12 @@ public class Game{
     		jugadores.add(jugador);
     	}*/
     }
+    /*
+    public void initJugadores(int n) {
+    	for(int i = 0; i < n; i++) {
+    		jugadores.add(new Jugador(arrayFichas));
+    	}
+    }*/
     
     public void update() {
     	currentPlayer++;
