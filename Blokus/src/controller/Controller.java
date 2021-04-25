@@ -73,14 +73,16 @@ public class Controller {
     
     //Metodos temporales
     public void rotate() {
-    	game.Rotate(0,0); // TODO Parametros correctos son (numFicha, rotacion)
-    	Command command = new RotateCommand(0, 0);
+    	
+    	Command command = new RotateCommand(0, 90); // TODO ficha seleccionada
 		command.execute(game);
 		//return true;
     }
     
     public void passTurn() {
-    	// TODO Llamar game pasa turno
+    	Command command = new SkipTurnCommand();
+		command.execute(game);
+		//return true;
     }
     
     public boolean anadirFicha(int x, int y) {

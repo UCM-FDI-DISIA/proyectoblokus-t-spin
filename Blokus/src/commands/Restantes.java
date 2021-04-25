@@ -17,7 +17,7 @@ public class Restantes extends Command{
 	@Override
 	public boolean execute(Game game) {
 		
-		game.Remaining();
+		game.remaining();
 		
 		return true;
 	}

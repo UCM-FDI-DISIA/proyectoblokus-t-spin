@@ -298,21 +298,18 @@ public class Game {
 	
 	public void exit() {
 		juegoTerminado = true;
-		
 	}
 		
-	public void Reset() {
+	public void reset() {
 		currentPlayer=0;
 		mapaCasillas.clear();	
 	}
-	public void Remaining() {
+	public void remaining() {
 		jugadores.get(currentPlayer).getNumFichas();
 	}
 	
-	public void Rotate(int numFicha, int rotacion) {
-		
+	public void rotate(int numFicha, int rotacion) {	
 		jugadores.get(currentPlayer).getFicha(numFicha).rotar(rotacion);
-
 	}
 	
 	public int dim (int i) {
