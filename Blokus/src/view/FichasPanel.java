@@ -19,7 +19,7 @@ public class FichasPanel extends JPanel{
         JPanel pn= new JPanel();
         JScrollPane s = new JScrollPane(pn, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         s.setPreferredSize(new Dimension(0,200));
-        Jugador pj = new Jugador(1);
+
         
         for(int i=0;i<21;i++) {
         	JButton A=new JButton("Forma");

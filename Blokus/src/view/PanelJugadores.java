@@ -12,7 +12,6 @@ public class PanelJugadores extends JPanel{
 	
 	public PanelJugadores(int numPlayers) {
 		this.numPlayers=numPlayers;
-		numJugadores();
 	}
 	
 public JPanel numJugadores() {
