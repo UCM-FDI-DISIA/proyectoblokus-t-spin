@@ -4,54 +4,77 @@ import java.util.List;
 
 public class Ficha {
 
-	private String equipo;
+	private int color;
 	private int[][] forma;
 	private List<Casilla> listaCasillas = new ArrayList<Casilla>();
 
-	public Ficha(int[][] forma, List<Casilla> arrayCasillas, String equipo) {
+	public Ficha(int[][] forma, int color) {
 		this.forma = forma;
-		this.equipo = equipo;
-		this.listaCasillas = arrayCasillas;
+		this.color = color;
+		//this.listaCasillas = arrayCasillas;
 	}
 
+//	public void rotar(int rotacion) {
+//		switch (rotacion) {
+//		case 270:
+//			for (int i = 0; i < listaCasillas.size() - 1; i++) {
+//				if (forma[i][0] == 0) {
+//					forma[i][0] = -1;
+//				} else {
+//					forma[i][0] = 0;
+//				}
+//				if (forma[i][1] == 0) {
+//					forma[i][1] = -1;
+//				} else {
+//					forma[i][1] = 0;
+//				}
+//				if (forma[i][0] == 0 && forma[i][1] == 0) {
+//					forma[i][0] = 1;
+//					forma[i][1] = -1;
+//				}
+//			}
+//			break;
+//		case 180:
+//			for (int i = 0; i < listaCasillas.size() - 1; i++) {
+//				forma[i][0] = -forma[i][0];
+//				forma[i][1] = -forma[i][1];
+//			}
+//			break;
+//		case 90:
+//			for (int i = 0; i < listaCasillas.size() - 1; i++) {
+//				if (forma[i][0] == 0) {
+//					forma[i][0] = 1;
+//				} else {
+//					forma[i][0] = 0;
+//				}
+//				if (forma[i][1] == 0) {
+//					forma[i][1] = 1;
+//				} else {
+//					forma[i][1] = 0;
+//				}
+//			}
+//			break;
+//		}
+//
+//		setForma();
+//	}
+	
 	public void rotar(int rotacion) {
 		switch (rotacion) {
-		case 270:
+		case 1:
 			for (int i = 0; i < listaCasillas.size() - 1; i++) {
-				if (forma[i][0] == 0) {
-					forma[i][0] = -1;
-				} else {
-					forma[i][0] = 0;
-				}
-				if (forma[i][1] == 0) {
-					forma[i][1] = -1;
-				} else {
-					forma[i][1] = 0;
-				}
-				if (forma[i][0] == 0 && forma[i][1] == 0) {
-					forma[i][0] = 1;
-					forma[i][1] = -1;
-				}
+					forma[i][0] = -forma[i][0];	
 			}
 			break;
-		case 180:
+		case 2:
 			for (int i = 0; i < listaCasillas.size() - 1; i++) {
 				forma[i][0] = -forma[i][0];
 				forma[i][1] = -forma[i][1];
 			}
 			break;
-		case 90:
+		case 3:
 			for (int i = 0; i < listaCasillas.size() - 1; i++) {
-				if (forma[i][0] == 0) {
-					forma[i][0] = 1;
-				} else {
-					forma[i][0] = 0;
-				}
-				if (forma[i][1] == 0) {
-					forma[i][1] = 1;
-				} else {
-					forma[i][1] = 0;
-				}
+				forma[i][1] = -forma[i][1];
 			}
 			break;
 		}
@@ -76,8 +99,8 @@ public class Ficha {
 		return forma;
 	}
 
-	public String getEquipo() {
-		return equipo;
+	public int getColor() {
+		return color;
 	}
 
 	public int getFichaX(int i) {
@@ -92,6 +115,147 @@ public class Ficha {
 
 	public int getNumCasillas() {
 		return listaCasillas.size();
+	}
+	
+	public static int [][][] getAllFormas(){
+		int[][][] fichas = new int[21][][];
+		int i=0;
+		
+		fichas[i++] = new int [][] {
+			{0,0}
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ 0, 1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 1, 0 }, 
+			{ -1, 1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			 { 0, 1 }, 
+			 { 0, 1 }, 
+			 { 0, 1 } 
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 1, 0 }, 
+			{ 0, 1 }, 
+			{ 0, 1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ 0, 1 }, 
+			{ 1, -1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ 1, 0 }, 
+			{ 0, -1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 1, 0 }, 
+			{ 0, -1 }, 
+			{ 1, 0 }
+		};
+		
+		fichas[i++] = new int [][] {
+			 { 0, 1 }, 
+			 { 0, 1 }, 
+			 { 0, 1 }, 
+			 { 0, 1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 1, 0 }, 
+			{ 0, 1 }, 
+			{ 0, 1 }, 
+			{ 0, 1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ 1, 0 }, 
+			{ 0, 1 }, 
+			{ 0, 1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ 1, 0 }, 
+			{ 0, 1 }, 
+			{ 0, -2 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 1, 0 }, 
+			{ 0, 1 }, 
+			{ 0, 1 }, 
+			{ -1, 0 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ 0, 1 }, 
+			{ 0, 1 }, 
+			{ 1, -1 }
+		};
+		
+		
+		fichas[i++] = new int [][] {
+			 { 1, 0 }, 
+			 { 0, 1 }, 
+			 { 0, 1 }, 
+			 { 1, -2 } 
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ 0, 1 }, 
+			{ 1, -2 }, 
+			{ 1, 0 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ +1, 0 }, 
+			{ 0, -1 }, 
+			{ -1, +2 }, 
+			{ -1, 0 }
+		};
+		
+		fichas[i++] = new int [][] {
+			{ 0, -1 }, 
+			{ 1, 0 }, 
+			{ 1, 0 }, 
+			{ 0, -1 }
+		};
+		
+		fichas[i++] = new int [][] {
+			 { 0, -1 }, 
+			 { 1, 0 }, 
+			 { 1, 0 }, 
+			 { -1, -1 }
+		};
+		
+		
+		fichas[i++] = new int [][] {
+			{ 0, 1 }, 
+			{ -1, -1 }, 
+			{ 1, -1 }, 
+			{ 1, 1 }
+		};
+		
+		return fichas;
 	}
 
 }
