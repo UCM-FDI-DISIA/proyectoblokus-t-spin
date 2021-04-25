@@ -18,17 +18,18 @@ public class CasillaPanel extends JButton{
 		this.setBackground(Color.white);
 		this.setBorderPainted(true);
 		
-		
+		/*
 		this.addActionListener(new ActionListener() {					
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				//anadirFicha(getXPos(), getYPos());
 				toggle();
 				
 				System.out.println("------------------------");
 				System.out.println("x: " + getXPos());
 				System.out.println("y: " + getYPos());
 			}
-		});
+		});*/
 		
 	}
 	

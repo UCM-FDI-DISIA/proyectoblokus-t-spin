@@ -67,6 +67,7 @@ public class Controller {
     	game.addObserver(o);
 	}
     
+    //Metodos temporales
     public void rotate() {
     	game.Rotate(0,0); // TODO Parametros correctos son (numFicha, rotacion)
     }
@@ -74,6 +75,11 @@ public class Controller {
     public void passTurn() {
     	// TODO Llamar game pasa turno
     }
+    
+    public void anadirFicha(int x, int y) {
+    	game.anadirFicha(0, y, x);
+    }
+  //Metodos temporales
 
 
 }

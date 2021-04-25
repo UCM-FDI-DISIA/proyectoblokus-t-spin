@@ -30,15 +30,16 @@ public class TableroPanel extends JPanel implements GameObserver{
 	
 
 	private int width = 20, height = 20;
+	Controller ctrl;
 	
 	
-	public TableroPanel(/*Controller ctrl*/) {
+	public TableroPanel(Controller ctrl) {
 		super(new GridLayout(20, 20));
 		this.setPreferredSize(new Dimension(width * SQUARESIZE, height
 				* SQUARESIZE));
 		
 		initGUI();
-
+		this.ctrl = ctrl; //tmp
 		//ctrl.addObserver(this);
 	}
 
@@ -47,6 +48,17 @@ public class TableroPanel extends JPanel implements GameObserver{
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {				
 				CasillaPanel casilla = new CasillaPanel(i,j);
+				casilla.addActionListener(new ActionListener() {					
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						//ctrl.anadirFicha(casilla.getXPos(), casilla.getYPos());
+						
+						
+						System.out.println("------------------------");
+						System.out.println("x: " + casilla.getXPos());
+						System.out.println("y: " + casilla.getYPos());
+					}
+				});
 				this.add(casilla);
 
 				casilla.setVisible(true);

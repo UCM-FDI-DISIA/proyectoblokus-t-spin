@@ -4,11 +4,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class GamePanel extends JPanel implements ActionListener {
+import controller.Controller;
+import model.GameObserver;
+import model.Jugador;
+
+public class GamePanel extends JPanel implements GameObserver {
 
 	private static final long serialVersionUID = -9060831481452731983L;
 	private static int numPlayers;
@@ -19,22 +25,19 @@ public class GamePanel extends JPanel implements ActionListener {
 	private RotateButton rotateButton;
 	private PlayerPanel playerPanel;
 	*/
+	Controller ctrl;
 	
-	public GamePanel(int numPlayers) {
+	public GamePanel(Controller ctrl, int numPlayers) {
 		super(new BorderLayout());
 		this.numPlayers = numPlayers;
+		this.ctrl = ctrl;
 		initGui();
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public void initGui() {
 		//Añadir panel del tablero
-		tablero = new TableroPanel();
+		tablero = new TableroPanel(ctrl);
 		//Añadir panel de puntuacion dejugadores
 		//Añadir panel de pasar turno
 		//Añadir panel de rotar
@@ -63,6 +66,18 @@ public class GamePanel extends JPanel implements ActionListener {
 		this.add(eastPanel, BorderLayout.EAST);
 		this.add(playerPanel, BorderLayout.SOUTH);
 		this.add(tablero, BorderLayout.CENTER);
+	}
+
+	@Override
+	public void onReset(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFichaAnadida(List<Jugador> jugadores, HashMap<String, String> mapaCasillas) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
