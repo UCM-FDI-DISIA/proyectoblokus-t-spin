@@ -197,7 +197,7 @@ public class Game{
     		if(checkDiagonal(pos, equipo)) { //Si no tiene casillas del equipo en diagonal
     			casillaValida = true;    			
     		}
-    		System.out.println(casillaValida);
+    		
     		if(!checkContiguaNoDiagonal(pos, equipo)) { //Si tiene casillas del equipo contiguas no diagonales
     			return false;
     		}
@@ -215,27 +215,27 @@ public class Game{
     	//	|3| |4|
     	
     	Integer[] auxPos = {0,0};auxPos[0] = pos[0];auxPos[1] = pos[1];
-    	auxPos[0] -= 1; auxPos[1] -= 1;
+    	auxPos[0] += 1; auxPos[1] += 1;
     	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //1
-    		casillaValida = true;
+    		casillaValida = true;    		
     	}//else {System.out.println("\n1: "+ equipo+mapaCasillas.get(Arrays.toString(auxPos)));}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
-    	auxPos[0] -= 1; auxPos[1] += 1;    	
+    	auxPos[0] += 1; auxPos[1] -= 1;    	
     	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //2
-    		casillaValida = true;
+    		casillaValida = true;    		
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
     	auxPos[0] -= 1; auxPos[1] += 1;
     	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //3
-    		casillaValida = true;
+    		casillaValida = true;    		
     	}
     	
     	auxPos[0] = pos[0];auxPos[1] = pos[1];
-    	auxPos[0] += 1; auxPos[1] += 1; 	
+    	auxPos[0] -= 1; auxPos[1] -= 1; 	
     	if(mapaCasillas.get(Arrays.toString(auxPos)) == (equipo)) { //4
-    		casillaValida = true;
+    		casillaValida = true;    		
     	}
     	return casillaValida;
     }
