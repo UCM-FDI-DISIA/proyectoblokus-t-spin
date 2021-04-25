@@ -4,14 +4,14 @@ import java.util.List;
 
 public class Ficha {
 
-	private int color;
+	private String equipo;
 	private int[][] forma;
 	private List<Casilla> listaCasillas = new ArrayList<Casilla>();
 
-	public Ficha(int[][] forma, int color) {
+	public Ficha(int[][] forma, List<Casilla> arrayCasillas, String equipo) {
 		this.forma = forma;
-		this.color = color;
-		//this.listaCasillas = arrayCasillas;
+		this.equipo = equipo;
+		this.listaCasillas = arrayCasillas;
 	}
 
 //	public void rotar(int rotacion) {
@@ -99,8 +99,8 @@ public class Ficha {
 		return forma;
 	}
 
-	public int getColor() {
-		return color;
+	public String getEquipo() {
+		return equipo;
 	}
 
 	public int getFichaX(int i) {

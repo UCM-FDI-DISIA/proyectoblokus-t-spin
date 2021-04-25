@@ -7,11 +7,8 @@ public class Jugador {
     private boolean ultimoCuadrado = false;
     private List<Ficha> arrayFichas = new ArrayList<Ficha> ();
 
-    public Jugador(int color) {	
-		int [][][] fichas = Ficha.getAllFormas();	
-		for (int i = 0; i < fichas.length; i++) {
-			arrayFichas.add(new Ficha(fichas[i],color));
-		}
+    public Jugador(List<Ficha> arrayFichas) {
+    	this.arrayFichas = arrayFichas;
     }
     
     public Ficha getFicha(int i) {
