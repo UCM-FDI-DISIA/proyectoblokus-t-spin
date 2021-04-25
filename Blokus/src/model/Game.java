@@ -73,7 +73,7 @@ public class Game{
     
     public void initJugadores(int n) {
     	for(int i = 0; i < n; i++) {
-    		jugadores.add(new Jugador(n+1));
+    		jugadores.add(new Jugador(i+1));
     	}    	
     }
     
