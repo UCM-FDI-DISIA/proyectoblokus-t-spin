@@ -37,7 +37,7 @@ public class GamePanel extends JPanel implements GameObserver {
 		tablero = new TableroPanel(ctrl);
 		panelJ = new PanelJugadores(numPlayers);
 		move = new PlayerMove(ctrl);
-		pFichas =  new FichasPanel();
+		pFichas =  new FichasPanel(ctrl);
 		
 		JPanel eastPanel = new JPanel();
 		
@@ -60,6 +60,13 @@ public class GamePanel extends JPanel implements GameObserver {
 
 	@Override
 	public void onFichaAnadida(int color, int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void updateIcono(int color) {
 		// TODO Auto-generated method stub
 		
 	}

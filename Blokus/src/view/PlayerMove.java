@@ -99,4 +99,10 @@ public class PlayerMove extends JPanel implements GameObserver{
 		
 	}
 
+	@Override
+	public void updateIcono(int color) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

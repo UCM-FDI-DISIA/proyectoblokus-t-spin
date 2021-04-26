@@ -93,4 +93,12 @@ public class TableroPanel extends JPanel implements GameObserver{
 		
 		
 	}
+
+
+
+	@Override
+	public void updateIcono(int color) {
+		// TODO Auto-generated method stub
+		
+	}
 }

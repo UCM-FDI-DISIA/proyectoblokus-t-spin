@@ -68,4 +68,10 @@ public class CasillaPanel extends JButton implements GameObserver{
 		// TODO Auto-generated method stub
 		toggle(Color.red);
 	}
+
+	@Override
+	public void updateIcono(int color) {
+		// TODO Auto-generated method stub
+		
+	}
 }

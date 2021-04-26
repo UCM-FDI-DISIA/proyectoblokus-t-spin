@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import controller.Controller;
 import model.GameObserver;
 import model.Jugador;
 
@@ -20,26 +21,23 @@ import model.Jugador;
 public class FichasPanel extends JPanel implements GameObserver{
 
 	private static final long serialVersionUID = 1L;
-	private int player;
+	
 	JPanel pn= new JPanel();
-	public FichasPanel() {	
-	}
-	public FichasPanel(int player ) {
-		
-		this.player=player;
+	JLabel buttonRed;
+	public FichasPanel(Controller ctrl) {		
 		inf();
-		
+		ctrl.addObserver(this);
 	}
 
-	public JScrollPane inf() {
-		
-		
-		
-        
-        
+	public JScrollPane inf() {	      
         JScrollPane s = new JScrollPane(pn, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         s.setPreferredSize(new Dimension(0,200));
-        System.out.println(this.player);
+        
+
+		buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+		pn.add(buttonRed);
+		
+       /* System.out.println(this.player);
        // JLabel buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
        // pn.add(buttonRed);
         if(this.player==1 ||this.player==0 ) {
@@ -70,12 +68,12 @@ public class FichasPanel extends JPanel implements GameObserver{
 			
 		}
       
-        	
+        	*/
         
         
         
         for(int i=0;i<21;i++) {
-        	 JButton forma = new JButton((Icon) new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+        	 JButton forma = new JButton((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
         	
             forma.setPreferredSize(new Dimension(200,180));
             pn.add(forma);
@@ -98,30 +96,32 @@ public class FichasPanel extends JPanel implements GameObserver{
 	public void updateIcono(int d) {
 		
 		
-		 if(d==1 ||d==0 ) {
-        	 JLabel buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-        	 pn.add(buttonRed);
+		 if(d==0 ) {
+        	 buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+        	 //pn.add(buttonRed);
+        	 
         	System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
             			
 		}
-		if(d==2) {
+		if(d==1) {
 			
-			JLabel buttonBlue = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			pn.add(buttonBlue);
+			buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			//pn.add(buttonBlue);
+			
 			System.out.println("0000000000000000000000000000000000000000000000000");
 			
 		
 		}
-		if(d==3) {
+		if(d==2) {
 			
-			JLabel buttonGreen = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			pn.add(buttonGreen);
+			buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			//pn.add(buttonGreen);
 		
 		}
-		if(d==4) {
+		if(d==3) {
 			
-			 JLabel buttonYellow = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			 pn.add(buttonYellow);
+			buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			//pn.add(buttonYellow);
         
 			
 		}

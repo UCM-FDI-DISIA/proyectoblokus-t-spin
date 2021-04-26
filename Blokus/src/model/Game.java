@@ -46,14 +46,13 @@ public class Game{
      
     public void update() {
     	currentPlayer++;
-    	
-    	
+    	 	
     
     	if(currentPlayer >= jugadores.size()) {
 			currentPlayer = 0;
 		}
     	
-    	for(GameObserver o : go) {
+    	for(GameObserver o : go) {    		
 			o.updateIcono(currentPlayer);
 		}
     	
