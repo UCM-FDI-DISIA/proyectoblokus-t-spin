@@ -25,7 +25,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 	JPanel pn= new JPanel();
 	JLabel buttonRed;
 	public FichasPanel(Controller ctrl) {		
-		inf();
+		//inf();
 		ctrl.addObserver(this);
 	}
 
@@ -34,8 +34,11 @@ public class FichasPanel extends JPanel implements GameObserver{
         s.setPreferredSize(new Dimension(0,200));
         
 
-		buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+		buttonRed = new JLabel(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+		
 		pn.add(buttonRed);
+		//buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+		//pn.repaint();
 		
        /* System.out.println(this.player);
        // JLabel buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
@@ -73,7 +76,7 @@ public class FichasPanel extends JPanel implements GameObserver{
         
         
         for(int i=0;i<21;i++) {
-        	 JButton forma = new JButton((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+        	JButton forma = new JButton((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
         	
             forma.setPreferredSize(new Dimension(200,180));
             pn.add(forma);
@@ -95,18 +98,23 @@ public class FichasPanel extends JPanel implements GameObserver{
 	@Override
 	public void updateIcono(int d) {
 		
-		
-		 if(d==0 ) {
-        	 buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-        	 //pn.add(buttonRed);
-        	 
-        	System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-            			
+		if(d==0) {
+        	 //buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			 //pn.add(buttonRed);
+        	 //buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));        	 
+			 //buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			 buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			 //pn.repaint();
+			 //pn.revalidate();
+        	 System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 		}
 		if(d==1) {
-			
-			buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			//buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			//buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			//pn.add(buttonBlue);
+			
+			
 			
 			System.out.println("0000000000000000000000000000000000000000000000000");
 			
