@@ -49,6 +49,6 @@ public class PanelJugadores extends JPanel{
 	}
 	
 	private String lineBreak(String text) {
-		return "<html><p style=\"width:170px\">" + text + "</p></html>";
+		return "<html><p style=\"width:150px\">" + text + "</p></html>";
 	}
 }

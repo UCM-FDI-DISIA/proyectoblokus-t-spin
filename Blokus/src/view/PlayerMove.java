@@ -40,7 +40,7 @@ public class PlayerMove extends JPanel implements GameObserver{
 		JButton rotateB = new JButton();
 		rotateB.setToolTipText("Rotar ficha");
 		rotateB.setPreferredSize(new Dimension(200,200));
-		rotateB.setIcon(new ImageIcon("resources/rotate.png"));
+		rotateB.setIcon(new ImageIcon("Blokus/resources/rotate.png"));
 
 		// rotateB listener using an anonymus inner class
 		rotateB.addActionListener(new ActionListener() {
@@ -60,7 +60,7 @@ public class PlayerMove extends JPanel implements GameObserver{
 		JButton skipB = new JButton();
 		skipB.setToolTipText("Pasar turno");
 		skipB.setPreferredSize(new Dimension(200,200));
-		skipB.setIcon(new ImageIcon("resources/skip.png"));
+		skipB.setIcon(new ImageIcon("Blokus/resources/skip.png"));
 
 		// skipB listener using an anonymus inner class
 		skipB.addActionListener(new ActionListener() {
