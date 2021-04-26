@@ -25,9 +25,9 @@ public class ModelTest extends TestCase{
 	public void init() {
 		
 		// TODO dar valores correctos a los args para poder hacer bien los test
-		this.ficha = new Ficha(null, null, null);
+		this.ficha = new Ficha(null, 0);
 		this.casilla = new Casilla(0, 0);
-		this.jugador = new Jugador(null);
+		this.jugador = new Jugador(0);
 	}
 	
 	/**

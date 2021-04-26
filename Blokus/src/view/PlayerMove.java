@@ -4,6 +4,7 @@ package view;
 import java.util.HashMap;
 import java.util.List;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -36,8 +37,10 @@ public class PlayerMove extends JPanel implements GameObserver{
 		
 		// Layout
 		this.setLayout(new BorderLayout());
-		JButton rotateB = new JButton(new ImageIcon("Blokus/resources/rotate.png"));		// TODO Remove string after adding icon
-		rotateB.setText("Rotar ficha");
+		JButton rotateB = new JButton();
+		rotateB.setToolTipText("Rotar ficha");
+		rotateB.setPreferredSize(new Dimension(200,200));
+		rotateB.setIcon(new ImageIcon("resources/rotate.png"));
 
 		// rotateB listener using an anonymus inner class
 		rotateB.addActionListener(new ActionListener() {
@@ -52,13 +55,14 @@ public class PlayerMove extends JPanel implements GameObserver{
 			}
 			
 		});
-		// rotateB listener using a nested class
-		// rotateB.addActionListener(new RotarListener());
 		
-		JButton skipB = new JButton(new ImageIcon("Blokus/resources/skip.png")); 		// TODO Remove string after adding icon
-		skipB.setText("Pasar turno");
+		
+		JButton skipB = new JButton();
+		skipB.setToolTipText("Pasar turno");
+		skipB.setPreferredSize(new Dimension(200,200));
+		skipB.setIcon(new ImageIcon("resources/skip.png"));
 
-		// passB listener using an anonymus inner class
+		// skipB listener using an anonymus inner class
 		skipB.addActionListener(new ActionListener() {
 
 			@Override
@@ -76,14 +80,6 @@ public class PlayerMove extends JPanel implements GameObserver{
 		this.add(skipB, BorderLayout.SOUTH);	
 		
 	}
-	
-//    private class RotateListener implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//
-//        }
-//    }
 	
 	private void showExceptionMessage(String message) {
 		JOptionPane.showMessageDialog(this, message,
