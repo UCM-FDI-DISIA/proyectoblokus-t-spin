@@ -44,13 +44,13 @@ public class FichasPanel extends JPanel implements GameObserver{
         s.setPreferredSize(new Dimension(0,200));
         
 
-		buttonRed = new JLabel(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+		buttonRed = new JLabel(new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 		
 		pn.add(buttonRed);
 	
 		 
 		for(int i=0;i<21;i++) {
-			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			 forma.setPreferredSize(new Dimension(200,180));
 	         pn.add(botones.get(i));
 		}
@@ -79,39 +79,39 @@ public class FichasPanel extends JPanel implements GameObserver{
 		 
 		if(d==0) {
         	
-			 buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			 buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			 for(int i=0;i<21;i++) {
-					botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+					botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 					 forma.setPreferredSize(new Dimension(200,180));
 			         pn.add(botones.get(i));
 				}
 		        
 		}
 		if(d==1) {
-			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
 		         pn.add(botones.get(i));
 			}
 	        
 		}
 		if(d==2) {
-			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
 		         pn.add(botones.get(i));
 			}
 	        
 		}
 		if(d==3) {
-			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
 		         pn.add(botones.get(i));
 			}
