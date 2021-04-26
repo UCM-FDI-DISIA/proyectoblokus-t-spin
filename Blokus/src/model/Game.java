@@ -2,7 +2,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import view.FichasPanel;
+import view.GamePanel;
 import exceptions.GameException;
 //import javafx.beans.InvalidationListener;
 //import javafx.beans.Observable;
@@ -20,6 +21,8 @@ public class Game{
     private List<GameObserver> go;
     
     public int currentPlayer = 0;
+    
+    
 
     public Game(int numJugadores) {
     	// Inicializo los atributos de la clase en el constructor
@@ -32,56 +35,29 @@ public class Game{
     	initJugadores(2);
     }
     
-    
-    /*
-    private void initPrueba() {
-    	
-    	//CONSTRUCTOR DE PRUBA, FICHAS CARGADAS DE FORMA MANUAL
-    	Ficha ficha;
-    	Ficha ficha2;
-    	List<Casilla> arrayCasillas = new ArrayList<Casilla> ();
-    	List<Casilla> arrayCasillas2 = new ArrayList<Casilla> ();
-    	List<Ficha> arrayFichas = new ArrayList<Ficha>();
-    	List<Ficha> arrayFichas2 = new ArrayList<Ficha>();
-    	arrayCasillas.add(new Casilla(0,0));
-    	arrayCasillas.add(new Casilla(0,0));
-    	arrayCasillas.add(new Casilla(0,0));
-    	arrayCasillas2.add(new Casilla(0,0));
-    	arrayCasillas2.add(new Casilla(0,0));
-    	arrayCasillas2.add(new Casilla(0,0));
-    	int[][] forma = {{1,0},{1,0}};
-    	Jugador jugador;
-    	Jugador jugador2;
-    	
-    	ficha = new Ficha(forma, arrayCasillas, "1");
-    	for(int i = 0; i < 10; i++) {
-    		arrayFichas.add(ficha);	
-    	}
-    	jugador = new Jugador(arrayFichas);
-    	jugadores.add(jugador);
-    	
-    	
-    	ficha2 = new Ficha(forma, arrayCasillas2, "2");
-    	for(int i = 0; i < 10; i++) {
-    		arrayFichas2.add(ficha2);	
-    	}    	
-    	jugador2 = new Jugador(arrayFichas2);
-    	jugadores.add(jugador2);
-    	
-    	
-    }*/
-    
+       
     public void initJugadores(int n) {
     	for(int i = 0; i < n; i++) {
     		jugadores.add(new Jugador(i+1));
     	}	
     }
     
+
+     
     public void update() {
     	currentPlayer++;
+    	
+    	
+    
     	if(currentPlayer >= jugadores.size()) {
 			currentPlayer = 0;
-		}	
+		}
+    	
+    	for(GameObserver o : go) {
+			o.updateIcono(currentPlayer);
+		}
+    	
+    	
     }
     
     
@@ -342,6 +318,7 @@ public class Game{
 	public void addObserver(GameObserver o) {
 		go.add(o);
 	}
+	
 
 
 
