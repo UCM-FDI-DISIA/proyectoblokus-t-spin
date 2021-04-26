@@ -86,7 +86,7 @@ public class Controller {
     }
     
     public boolean anadirFicha(int x, int y) {
-     	Command command = new AddCommand(0, x , y);
+     	Command command = new AddCommand(0, x , y); // TODO ficha seleccionada
 		command.execute(game);
 		return true;    	
     }

@@ -19,7 +19,7 @@ public class RotateCommand extends Command{
 	
 	public RotateCommand(int posicion, int angulo) {
 		super(nombre, shortcut,  help);
-		this.numFicha = numFicha;
+		this.numFicha = posicion;
 		this.angulo=angulo;
 
 	}
@@ -28,8 +28,7 @@ public class RotateCommand extends Command{
 	
 	@Override
 	public boolean execute(Game game) {
-		if(this.numFicha >=0 && this.numFicha < game.dim(numFicha)  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR
-		
+		if(this.numFicha >=0 && this.numFicha < game.dim(numFicha)  && this.angulo>=0 && this.angulo<361) {//CAMPIAR 90 POR EL ARRAY DE PIEZAS JUGADOR			
 			if (this.angulo==90 || this.angulo==180 || this.angulo==270) {
 				game.rotate(numFicha,angulo);
 			}else {
@@ -63,7 +62,7 @@ public class RotateCommand extends Command{
 				}
 			}
 			else {
-				throw new CommandParseException("Command add :Incorrect number of arguments\n");
+				throw new CommandParseException("Command rotate :Incorrect number of arguments\n");
 				
 			}
 		}
