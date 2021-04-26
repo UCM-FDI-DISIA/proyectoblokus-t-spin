@@ -121,14 +121,14 @@ public class FichasPanel extends JPanel implements GameObserver{
 		
 		}
 		if(d==2) {
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
-			buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			//pn.add(buttonGreen);
 		
 		}
 		if(d==3) {
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
-			buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			//pn.add(buttonYellow);
         
 			
