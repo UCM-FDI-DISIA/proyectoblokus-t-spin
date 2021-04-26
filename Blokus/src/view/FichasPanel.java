@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,12 +25,21 @@ public class FichasPanel extends JPanel implements GameObserver{
 	
 	JPanel pn= new JPanel();
 	JLabel buttonRed;
+	ArrayList<JButton> botones=new ArrayList<JButton>();
+	JButton forma = new JButton();
+	
 	public FichasPanel(Controller ctrl) {		
 		//inf();
 		ctrl.addObserver(this);
+		for(int i=0;i<21;i++) {
+			
+			botones.add(new JButton());
+		}
 	}
 
-	public JScrollPane inf() {	      
+	public JScrollPane inf() {	
+		
+		
         JScrollPane s = new JScrollPane(pn, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         s.setPreferredSize(new Dimension(0,200));
         
@@ -37,51 +47,20 @@ public class FichasPanel extends JPanel implements GameObserver{
 		buttonRed = new JLabel(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 		
 		pn.add(buttonRed);
-		//buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-		//pn.repaint();
-		
-       /* System.out.println(this.player);
-       // JLabel buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-       // pn.add(buttonRed);
-        if(this.player==1 ||this.player==0 ) {
-        	 JLabel buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-        	 pn.add(buttonRed);
-        	
-            			
+	
+		 
+		for(int i=0;i<21;i++) {
+			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			 forma.setPreferredSize(new Dimension(200,180));
+	         pn.add(botones.get(i));
 		}
-		if(this.player==2) {
-			
-			JLabel buttonBlue = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			pn.add(buttonBlue);
-			
-			
-		
-		}
-		if(this.player==3) {
-			
-			JLabel buttonGreen = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			pn.add(buttonGreen);
-		
-		}
-		if(this.player==4) {
-			
-			 JLabel buttonYellow = new JLabel((Icon) new ImageIcon(((new ImageIcon("resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			 pn.add(buttonYellow);
-        
-			
-		}
-      
-        	*/
+			 	
+			   /* forma.setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+	            forma.setPreferredSize(new Dimension(200,180));
+	            pn.add(forma);*/
+	        
         
         
-        
-        for(int i=0;i<21;i++) {
-        	JButton forma = new JButton((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-        	
-            forma.setPreferredSize(new Dimension(200,180));
-            pn.add(forma);
-        }
-
 
         return s;
     }
@@ -97,40 +76,46 @@ public class FichasPanel extends JPanel implements GameObserver{
 	}
 	@Override
 	public void updateIcono(int d) {
-		
+		 
 		if(d==0) {
-        	 //buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			 //pn.add(buttonRed);
-        	 //buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));        	 
-			 //buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+        	
 			 buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			 //pn.repaint();
-			 //pn.revalidate();
-        	 System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+			 for(int i=0;i<21;i++) {
+					botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+					 forma.setPreferredSize(new Dimension(200,180));
+			         pn.add(botones.get(i));
+				}
+		        
 		}
 		if(d==1) {
 			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			//buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			//buttonRed = new JLabel((Icon) new ImageIcon(((new ImageIcon("Blokus/resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			//pn.add(buttonBlue);
 			
-			
-			
-			System.out.println("0000000000000000000000000000000000000000000000000");
-			
-		
+			for(int i=0;i<21;i++) {
+				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				 forma.setPreferredSize(new Dimension(200,180));
+		         pn.add(botones.get(i));
+			}
+	        
 		}
 		if(d==2) {
 			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
-			//pn.add(buttonGreen);
-		
+			for(int i=0;i<21;i++) {
+				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				 forma.setPreferredSize(new Dimension(200,180));
+		         pn.add(botones.get(i));
+			}
+	        
 		}
 		if(d==3) {
 			buttonRed.setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
-			//pn.add(buttonYellow);
-        
+			for(int i=0;i<21;i++) {
+				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("Blokus/resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				 forma.setPreferredSize(new Dimension(200,180));
+		         pn.add(botones.get(i));
+			}
+	        
 			
 		}
 		
