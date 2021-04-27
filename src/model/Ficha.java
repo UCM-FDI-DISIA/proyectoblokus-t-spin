@@ -69,24 +69,25 @@ public class Ficha {
 	
 	public void rotar(int rotacion) {
 		switch (rotacion) {
-		case 1:
-			for (int i = 0; i < listaCasillas.size() - 1; i++) {
-					forma[i][0] = -forma[i][0];	
+		case 90:
+			for (int i = 0; i < listaCasillas.size(); i++) {
+					forma[i][0] = -forma[i][0];
+					System.out.println(forma[i][0] +" | " + -forma[i][0]);
 			}
 			break;
-		case 2:
-			for (int i = 0; i < listaCasillas.size() - 1; i++) {
+		case 180:
+			for (int i = 0; i < listaCasillas.size(); i++) {
 				forma[i][0] = -forma[i][0];
 				forma[i][1] = -forma[i][1];
 			}
 			break;
-		case 3:
-			for (int i = 0; i < listaCasillas.size() - 1; i++) {
+		case 270:
+			for (int i = 0; i < listaCasillas.size(); i++) {
 				forma[i][1] = -forma[i][1];
 			}
 			break;
 		}
-
+		
 		setForma();
 	}
 
@@ -97,7 +98,7 @@ public class Ficha {
 		setForma();
 	}
 
-	public void setForma() {
+	public void setForma() {		
 		for (int i = 1; i < listaCasillas.size(); i++) {
 			listaCasillas.get(i).setX(listaCasillas.get(i - 1).getX() - forma[i - 1][1]);
 			listaCasillas.get(i).setY(listaCasillas.get(i - 1).getY() + forma[i - 1][0]);
