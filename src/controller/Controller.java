@@ -38,26 +38,20 @@ public class Controller {
 			System.out.print("Command > ");
 			String[] words = in.nextLine().toLowerCase().trim().split("\\s+");
 			try { 
-			Command command = CommandGenerator.parse(words);
-			
-			if (command != null)
-			{
-				if (!command.execute(game))
-				{
-					printGame = false;
-				}
-			}
-		
+				Command command = CommandGenerator.parse(words);			
+				if (command != null){
+					
+					if (!command.execute(game)){
+						
+						printGame = false;				
+					}
+				}	
 			}catch(Exception e) {
 				System.out.format(e.getMessage());
 				printGame = false;
-			}
-
-				
 			}			
-			   
-
-		}
+		}						   
+	}
     
 
     private void draw() {

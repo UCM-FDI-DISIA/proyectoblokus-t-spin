@@ -39,7 +39,9 @@ public class Game{
     public void initJugadores(int n) {
     	for(int i = 0; i < n; i++) {
     		jugadores.add(new Jugador(i+1));
-    	}	
+    	}
+    	
+    	jugadores.add(new JugadorIA(n));
     }
     
 
@@ -51,11 +53,17 @@ public class Game{
     	if(currentPlayer >= jugadores.size()) {
 			currentPlayer = 0;
 		}
-    	
+    	   	
     	for(GameObserver o : go) {    		
 			o.updateIcono(currentPlayer);
 		}
     	
+    	
+    	if(currentPlayer >= jugadores.size()-1) {
+    		primeraRonda = false;
+    	}
+    	
+    	jugadores.get(currentPlayer).computerAction(this);    
     	
     }
     
@@ -96,9 +104,7 @@ public class Game{
     	else {
     		throw new GameException("La primera ficha debe colocarse en una de las esquinas\n");
     	}
-    	if(currentPlayer >= jugadores.size()-1) {
-    		primeraRonda = false;
-    	}
+
     	return fichaAnadida;
     }
     
@@ -299,14 +305,15 @@ public class Game{
 	}
 		
 	public void reset() {
+		//TODO Falta resetear las fichas de los jugadores
 		currentPlayer=0;
-		mapaCasillas.clear();	
+		mapaCasillas.clear();
 	}
 	public void remaining() {
 		jugadores.get(currentPlayer).getNumFichas();
 	}
 	
-	public void rotate(int numFicha, int rotacion) {	
+	public void rotate(int numFicha, int rotacion) {
 		jugadores.get(currentPlayer).getFicha(numFicha).rotar(rotacion);
 	}
 	

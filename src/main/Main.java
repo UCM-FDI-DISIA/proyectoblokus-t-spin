@@ -41,7 +41,7 @@ public class Main {
 	
 	private static void startGUIMode () throws IOException{
 		
-		game = new Game(2);
+		game = new Game(3);
 		controller = new Controller(game);
 		SwingUtilities.invokeLater(new Runnable() {
 
