@@ -32,39 +32,39 @@ public class Game{
     	this.mapaCasillas = new HashMap<String, Integer>();
     	this.go = new ArrayList<GameObserver>();  	
     	
-    	initJugadores(2);
+    	initJugadores(2,1);
     }
     
        
-    public void initJugadores(int n) {
-    	for(int i = 0; i < n; i++) {
+    public void initJugadores(int p, int ia) {
+    	for(int i = 0; i < p; i++) {
     		jugadores.add(new Jugador(i+1));
     	}
+    	for(int i = p; i < p+ia; i++) {
+    		jugadores.add(new JugadorIA(i+1));    		
+    	}
     	
-    	jugadores.add(new JugadorIA(n));
     }
     
 
      
-    public void update() {
+    public void update() {    	
+    	 	   	
     	currentPlayer++;
-    	 	
-    
+
     	if(currentPlayer >= jugadores.size()) {
 			currentPlayer = 0;
+			primeraRonda = false;
 		}
-    	   	
+
+    	
     	for(GameObserver o : go) {    		
 			o.updateIcono(currentPlayer);
 		}
-    	
-    	
-    	if(currentPlayer >= jugadores.size()-1) {
-    		primeraRonda = false;
-    	}
-    	
-    	jugadores.get(currentPlayer).computerAction(this);    
-    	
+
+    	if(jugadores.get(currentPlayer).computerAction(this)) {    		
+        	update();
+    	} 	
     }
     
     
@@ -94,6 +94,7 @@ public class Game{
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
+    			
     			for(GameObserver o : go) {
     				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i));
     			}

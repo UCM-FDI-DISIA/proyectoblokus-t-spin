@@ -29,7 +29,7 @@ public class AddCommand extends Command{
 			
 			if(game.getPrimeraRonda()) {				
 				if(game.jugarPrimeraRonda(ficha, fila, columna)) {
-					game.update();
+					game.update();					
 				}
 				
 			}

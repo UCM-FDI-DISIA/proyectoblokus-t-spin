@@ -74,7 +74,7 @@ public class Jugador {
 		return id;
 	}
 	
-	public void computerAction(Game game) {}
+	public boolean computerAction(Game game) {return false;}
 
 	
     

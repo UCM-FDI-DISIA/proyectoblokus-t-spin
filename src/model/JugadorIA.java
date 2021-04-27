@@ -1,6 +1,6 @@
 package model;
 
-import java.util.concurrent.TimeUnit;
+import exceptions.GameException;
 
 public class JugadorIA extends Jugador{
 
@@ -10,10 +10,28 @@ public class JugadorIA extends Jugador{
 	}
 	
 	@Override
-	public void computerAction(Game game) {
+	public boolean computerAction(Game game) {
 		System.out.println("Beep boop");
+		if(game.getPrimeraRonda()) {
+			game.jugarPrimeraRonda(0, 19, 19);
+		}else {
+			for(int i = 0; i < 20; i++) {
+				for(int j = 0; j < 20; j++) {					
+					
+					try {
+						if(game.anadirFicha(0, j, i)) {return true;}
+					} catch (GameException e) {
+						// TODO Auto-generated catch block
+					
+					}
+
+				}
+			}
+			
+		}
 		
-		game.update();
+		
+		return true;
 	}
 
 }

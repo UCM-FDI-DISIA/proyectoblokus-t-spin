@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.border.Border;
 
 import controller.Controller;
 import model.GameObserver;
@@ -34,6 +35,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 		for(int i=0;i<21;i++) {
 			
 			botones.add(new JButton());
+			
 		}
 	}
 
@@ -50,9 +52,9 @@ public class FichasPanel extends JPanel implements GameObserver{
 	
 		 
 		for(int i=0;i<21;i++) {
-			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			 forma.setPreferredSize(new Dimension(200,180));
-	         pn.add(botones.get(i));
+			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));			
+			forma.setPreferredSize(new Dimension(200,180));
+	        pn.add(botones.get(i));
 		}
 			 	
 			   /* forma.setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
@@ -76,7 +78,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 	}
 	@Override
 	public void updateIcono(int d) {
-		 
+
 		if(d==0) {
         	
 			 buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
@@ -114,10 +116,9 @@ public class FichasPanel extends JPanel implements GameObserver{
 				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
 		         pn.add(botones.get(i));
-			}
-	        
-			
+			}	        			
 		}
+		
 		
 	}
 	
