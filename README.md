@@ -57,22 +57,32 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 
 [desPDF]: https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/files/6480746/Proyecto.pdf
 
----
 
 <div align="center">
   
 ## Tecnologías y Herramientas 🖥️🛠️
 </div>
 
+<details>
+<summary>Tecnologías</summary>
+<br>
+
+</details>
+
+
+<details>
+<summary>Herramientas</summary>
+<br>
+  
 - **Github** :octocat: : Es un sistema de control de versiones, donde también se utiliza para agregar la documentación del proyecto, las historias de usuario, además de que todo el equipo tendrá la versión actual del código para trabajr sobre el.
 - **Eclipse:** Es el IDE, en donde se está desarrollando el proyecto.
 - **Discord:** Es el servicio de mensajería, el cual se utiliza para las reuniones dos veces por semana, así llevar un seguimiento en los avances del proyecto.
 - **Modelio:** Es la herramienta la cual se usa para la creación, modificación de los UML y diagramas de secuencia.
 - **Photoshop:** Es una herramienta de edición la cual se ha utilizado, para la modificiacón de imagenes del jugador en la GUI.
 - **Google Docs:** Es un servicio de alojamiento de archivos, con este creamos un archivo compartido, donde todos colabaoran rellenando su sección de las dayli.
+</details>
 
 
----
 <div align="center">
   
 ## Implementación 🧑‍💻
@@ -92,7 +102,6 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 - **Controller:** es el intermediario entre la vista y el modelo, permite al usuario introducir datos en el modelo para provocar cambios en él.
 </details>
 
----
 
 <details>
 <summary>UML</summary>
@@ -103,10 +112,9 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 </div>
 </details>
 
----
 
 <details>
-<summary>Diagramas de Secuencia</summary>
+<summary>Diagramas de Secuencia</summary> 
 <br>
 
 <div align="center">
@@ -114,20 +122,19 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 </div>
 </details>
 
----
 <div align="center">
   
 ## Wiki 📖
 </div>
 Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/wiki)
 
----
+
 <div align="center">
   
 ## Versiones 📌
 </div>
 <details>
-<summary>V1.0.0 First Version (Console)</summary>
+<summary>V1.0.0 First Version (Console)</summary> 
 <br>
 
 * Dimensiones del Tablero (19,19)
@@ -167,7 +174,6 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 
 ### [![Version](https://img.shields.io/badge/Version-1.1.0-blue)]()
 
----
 <div align="center">
   
 ## Autores ✒️
