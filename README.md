@@ -44,7 +44,7 @@ una compañía francesa. Para [más información][desPDF] del proyecto de IS-2.
 Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/wiki)
 
 
-## Versionado 📌
+## Versiones 📌
 
 ### [![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/releases/tag/v1.0)
  
