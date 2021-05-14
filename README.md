@@ -16,8 +16,8 @@
 ## Contenido
 
 - [Información general](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#general-info-)
-- [Tecnologías y Herramientas]()
-- [Implementación]()
+- [Tecnologías y Herramientas](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#tecnolog%C3%ADas-y-herramientas-%EF%B8%8F%EF%B8%8F)
+- [Implementación](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#implementaci%C3%B3n-)
 - [Wiki](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#wiki-)
 - [Versiones](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#versionado-)
 - [Autores](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#autores-%EF%B8%8F)
@@ -36,7 +36,7 @@ una compañía francesa. Para [más información][desPDF] del proyecto de IS-2.
 
 ## Tecnologías y Herramientas 🖥️🛠️
 
-## Implementación 📜
+## Implementación 🧑‍💻
 
 
 ## Wiki 📖
