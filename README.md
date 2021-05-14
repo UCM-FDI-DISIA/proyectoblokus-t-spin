@@ -24,7 +24,7 @@
 Blokus es un juego de mesa de estrategia basado en la conquista del tablero: el objetivo es rellenar el
 mayor espacio posible dentro del tablero con las piezas de cada color. Es para dos o hasta cuatro
 jugadores y fue inventado por Bernard Tavitian, y publicado por primera vez en el 2002 por Sekkoïa,
-una compañía francesa. Para [más información][desPDF] del proyecto de IS 2 he realizar.
+una compañía francesa. Para [más información][desPDF] del proyecto de IS-2.
 
 [desPDF]: https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/files/6480746/Proyecto.pdf
 
