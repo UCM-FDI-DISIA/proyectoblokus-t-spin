@@ -13,12 +13,17 @@
 </div>
 
 
-## Table of Contents
+## Contenido
 
-- [General Info](#general-info)
+- [Información general](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#general-info-)
+- [Tecnologías y Herramientas]()
+- [Implementación]()
+- [Wiki](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#wiki-)
+- [Versiones](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#versionado-)
+- [Autores](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#autores-%EF%B8%8F)
 
 
-## General Info 🌎
+## Información general 🌎
 
 ### Proyecto Blokus - UCM/Facultad de informática, IS II
 
@@ -28,6 +33,11 @@ jugadores y fue inventado por Bernard Tavitian, y publicado por primera vez en e
 una compañía francesa. Para [más información][desPDF] del proyecto de IS-2.
 
 [desPDF]: https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/files/6480746/Proyecto.pdf
+
+## Tecnologías y Herramientas 🖥️🛠️
+
+## Implementación 📜
+
 
 ## Wiki 📖
 
