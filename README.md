@@ -15,11 +15,11 @@
 
 ## Contenido
 
-- [Información general](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#general-info-)
+- [Información general](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#informaci%C3%B3n-general-)
 - [Tecnologías y Herramientas](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#tecnolog%C3%ADas-y-herramientas-%EF%B8%8F%EF%B8%8F)
 - [Implementación](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#implementaci%C3%B3n-)
 - [Wiki](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#wiki-)
-- [Versiones](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#versionado-)
+- [Versiones](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#versiones-)
 - [Autores](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#autores-%EF%B8%8F)
 
 
