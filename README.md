@@ -80,10 +80,8 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 
 > "Programar sin una arquitectura o diseño en mente es como explorar una gruta sólo con una linterna: no sabes dónde estás, dónde has estado ni hacia dónde vas”  – Danny Thorpe
 
-####  Arquitectura de Software
-
 <details>
-<summary>MVC - Modelo Vista Controlador </summary>
+<summary>Arquitectura de Software - MVC </summary>
 <br>
 <p> Desde el inicio del proyecto, aplicamos el patrón modelo vista controlador veíamos las ventajas y comodidad de usarlo, puesto que todo quedaría más ordenado y entendible para cada uno de los integrantes, sobre las modificaciones que hacían los otros. </p>
 
@@ -96,10 +94,8 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 
 ---
 
-####  UML
-
 <details>
-<summary>Esqueleto del proyecto</summary>
+<summary>UML</summary>
 <br>
 
 <div align="center">
@@ -109,10 +105,8 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 
 ---
 
-####  Diagramas de Secuencia
-
 <details>
-<summary>Main</summary>
+<summary>Diagramas de Secuencia</summary>
 <br>
 
 <div align="center">
