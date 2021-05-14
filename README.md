@@ -14,10 +14,11 @@
 
 
 ## Table of Contents
-1. [General Info](#general-info)
+
+- [General Info](#general-info)
 
 
-## General Info
+## General Info 🌎
 
 ### Proyecto Blokus - UCM/Facultad de informática, IS II
 
@@ -41,10 +42,6 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 
 ## Autores ✒️
 
-<details>
-<summary>Equipo 💻</summary>
-<br>
-
 <div align="center">
 
 | Luis Solís 	| Roberto Tejedor	| Carolina Molina 	|  Sofia Capmany	| Daniel Prieto 	|  Mauricio Calderón  	|  Andres Yunda	|
@@ -52,4 +49,4 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 | _Scrum Master_ 	|  _Product Owner_	|  _Development Team_	|  _Development Team_	| _Development Team_ 	| _Development Team_ |  _Development Team_	|
 
 </div>
-</details>
+
