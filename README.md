@@ -22,8 +22,10 @@
 - [Versiones](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#versiones-)
 - [Autores](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin#autores-%EF%B8%8F)
 
-
+<div align="center">
+  
 ## Información general 🌎
+</div>
 
 ### Proyecto Blokus - UCM/Facultad de informática, IS II
 
@@ -57,7 +59,10 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 
 ---
 
+<div align="center">
+  
 ## Tecnologías y Herramientas 🖥️🛠️
+</div>
 
 - **Github** :octocat: : Es un sistema de control de versiones, donde también se utiliza para agregar la documentación del proyecto, las historias de usuario, además de que todo el equipo tendrá la versión actual del código para trabajr sobre el.
 - **Eclipse:** Es el IDE, en donde se está desarrollando el proyecto.
@@ -68,12 +73,14 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 
 
 ---
-
+<div align="center">
+  
 ## Implementación 🧑‍💻
+</div>
 
 > "Programar sin una arquitectura o diseño en mente es como explorar una gruta sólo con una linterna: no sabes dónde estás, dónde has estado ni hacia dónde vas”  – Danny Thorpe
 
-###  Arquitectura de Software
+####  Arquitectura de Software
 
 <details>
 <summary>MVC - Modelo Vista Controlador </summary>
@@ -88,13 +95,43 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
 </details>
 
 ---
-## Wiki 📖
 
+####  UML
+
+<details>
+<summary>Esqueleto del proyecto</summary>
+<br>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/32586089/118138691-eb92c500-b406-11eb-87e4-770aed968c64.png"   width=75% />
+</div>
+</details>
+
+---
+
+####  Diagramas de Secuencia
+
+<details>
+<summary>Main</summary>
+<br>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/62907237/118175170-09c0eb00-b430-11eb-9eaf-7c5f489d7af8.png"   width=50% />
+</div>
+</details>
+
+---
+<div align="center">
+  
+## Wiki 📖
+</div>
 Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/wiki)
 
 ---
+<div align="center">
+  
 ## Versiones 📌
-
+</div>
 <details>
 <summary>V1.0.0 First Version (Console)</summary>
 <br>
@@ -137,8 +174,10 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 ### [![Version](https://img.shields.io/badge/Version-1.1.0-blue)]()
 
 ---
+<div align="center">
+  
 ## Autores ✒️
-
+</div>
 <div align="center">
 
 | Luis Solís 	| Roberto Tejedor	| Carolina Molina 	|  Sofia Capmany	| Daniel Prieto 	|  Mauricio Calderón  	|  Andres Yunda	|
