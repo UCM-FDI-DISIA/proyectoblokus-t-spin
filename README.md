@@ -138,16 +138,15 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 <summary>V1.0.0 First Version (Console)</summary> 
 <br>
 
-* Dimensiones del Tablero (19,19)
-* Piezas Cuadradas
-* Número de Jugadores [2-4]
-* Contrucción de 84 piezas (21 Formas, 4 Colores)
-* Inicio de Partida
-* Rotar Piezas
-* Siguientes Turnos
-* Pasar turno
-* Fin del juego
-* Puntuación Jugadores
+* Visualizar tablero de juego.
+* Determinar número de jugadores.
+* Disponer de fichas.
+* Iniciar partida.
+* Añadir ficha al tablero.
+* Rotar Piezas.
+* Pasar turno.
+* Finalizar partida.
+* Puntuar jugador.
 * Excepciones durante la partida
 </details>
 
