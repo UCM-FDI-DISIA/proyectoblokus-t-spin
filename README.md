@@ -53,7 +53,7 @@ La puntuación de cada jugador se calcula de la siguiente manera:
 
 <img src="https://cdn.discordapp.com/attachments/842864387726508052/842869350494765056/unknown.png"   width=30% />
 
-Para más información del juego y del proyecto de IS-2 [aquí.][desPDF].
+Para más información del juego y del proyecto de IS-2 [aquí][desPDF].
 
 [desPDF]: https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/files/6480746/Proyecto.pdf
 
