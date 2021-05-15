@@ -126,6 +126,7 @@ Para más información del juego y del proyecto de IS-2 [PDF][desPDF].
   
 ## Wiki 📖
 </div>
+
 Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.com/UCM-FDI-DISIA/proyectoblokus-t-spin/wiki)
 
 
