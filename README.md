@@ -147,7 +147,7 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 * Pasar turno.
 * Finalizar partida.
 * Puntuar jugador.
-* Excepciones durante la partida
+* Control de errores.
 </details>
 
 
