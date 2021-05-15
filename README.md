@@ -141,6 +141,8 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 * Visualizar tablero de juego.
 * Determinar número de jugadores.
 * Disponer de fichas.
+* Tener reglas.
+* Visualizar guia comandos.
 * Iniciar partida.
 * Añadir ficha al tablero.
 * Rotar Piezas.
