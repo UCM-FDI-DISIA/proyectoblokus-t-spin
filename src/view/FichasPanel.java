@@ -98,7 +98,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 	        
 		}
 		if(d==2) {
-			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
 				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
@@ -108,7 +108,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 	        
 		}
 		if(d==3) {
-			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
 				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
