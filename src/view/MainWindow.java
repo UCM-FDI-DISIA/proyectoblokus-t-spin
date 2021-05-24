@@ -3,9 +3,12 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -31,11 +34,13 @@ public MainWindow(Controller controller) {
 
 private void initGUI(){
 	this.setTitle("Blokus");
-    this.setSize(1050,1100);
+    this.setSize(1000,1000);
     this.setResizable(true);
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     this.setLayout(null);
+    this.setIconImage(new ImageIcon("resources/Blokus.jpg").getImage());
+    Image icon = Toolkit.getDefaultToolkit().getImage("resources/Blokus.jpg");
     this.setVisible(true);
 
 	mainPanel=new JPanel (new BorderLayout());
