@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,8 +51,12 @@ public class FichasPanel extends JPanel implements GameObserver{
 	
 		 
 		for(int i=0;i<21;i++) {
-			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
-			 forma.setPreferredSize(new Dimension(200,180));
+			
+			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/FichasRojas/"+i+".png")).getImage()).getScaledInstance(150, 130, Image.SCALE_DEFAULT)));
+			
+			
+			
+			 forma.setPreferredSize(new Dimension(150,130));
 	         pn.add(botones.get(i));
 		}
 			 	
@@ -81,9 +86,9 @@ public class FichasPanel extends JPanel implements GameObserver{
         	
 			 buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			 for(int i=0;i<21;i++) {
-					botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/ficha.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				 labelsB.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/FichasRojas/"+i+".png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 					 forma.setPreferredSize(new Dimension(200,180));
-			         pn.add(botones.get(i));
+			         pn.add(labelsB.get(i));
 				}
 		        
 		}
@@ -91,9 +96,9 @@ public class FichasPanel extends JPanel implements GameObserver{
 			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/BluePLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				labelsB.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
-		         pn.add(botones.get(i));
+		         pn.add(labelsB.get(i));
 			}
 	        
 		}
@@ -101,9 +106,9 @@ public class FichasPanel extends JPanel implements GameObserver{
 			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				labelsB.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
-		         pn.add(botones.get(i));
+		         pn.add(labelsB.get(i));
 			}
 	        
 		}
@@ -111,9 +116,9 @@ public class FichasPanel extends JPanel implements GameObserver{
 			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				labelsB.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
-		         pn.add(botones.get(i));
+		         pn.add(labelsB.get(i));
 			}
 	        
 			
