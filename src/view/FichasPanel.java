@@ -116,7 +116,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 			buttonRed.setIcon(new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 			
 			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/fichaBlue.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+				botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/FichasVerdes/"+i+".png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
 				 forma.setPreferredSize(new Dimension(200,180));
 		         pn.add(botones.get(i));
 			}
