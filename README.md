@@ -74,18 +74,19 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 <summary>V1.0.0 First Version (Console)</summary> 
 <br>
 
-* Visualizar tablero de juego.
-* Determinar número de jugadores.
-* Disponer de fichas.
-* Tener reglas.
-* Visualizar guia comandos.
-* Iniciar partida.
-* Añadir ficha al tablero.
-* Rotar Piezas.
-* Pasar turno.
-* Finalizar partida.
-* Puntuar jugador.
-* Control de errores.
+* **H-01:** Visualizar tablero de juego.
+* **H-02:** Determinar número de jugadores.
+* **H-03:** Disponer de fichas.
+* **H-04:** Tener reglas.
+* **H-05:** Visualizar guía comandos.
+* **H-06:** Iniciar partida.
+* **H-07:** Añadir ficha al tablero.
+* **H-08:** Rotar Piezas.
+* **H-09:** Pasar turno.
+* **H-10:** Finalizar partida.
+* **H-11:** Puntuar jugador.
+* **H-12:** Control de errores.
+
 </details>
 
 
@@ -94,23 +95,21 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 ---
 
 <details>
-<summary>V1.1.0 Second Version (GUI)</summary>
+<summary>V1.2.0 Second Version (GUI)</summary>
 <br>
 
-* Menú Inicio
-* Menú Superior
-* Barra Inferior Jugador
-* Lista Lateral Jugadores
-* Puntuación
-* Correción Rotar
-* Boton Rotar
-* Boton Pasar turno
-* Listener controller
-* Textura piezas/botones/jugadores
-* Pestaña principal  
+* **H-13:** Visualizar menú inicio.
+* **H-14:** Visualizar tablero.
+* **H-15:** Visualizar menú superior.
+* **H-16:** Visualizar barra inferior jugador.
+* **H-17:** Visualizar lista de jugadores.
+* **H-18:** Visualizar puntuación.
+* **H-19:** Visualizar botón rotar.
+* **H-20:** Visualizar botón pasar turno.
+
 </details>
 
-### [![Version](https://img.shields.io/badge/Version-1.1.0-blue)]()
+### [![Version](https://img.shields.io/badge/Version-1.2.0-blue)]()
 
 <div align="center">
   
