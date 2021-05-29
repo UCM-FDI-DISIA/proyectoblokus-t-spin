@@ -32,11 +32,12 @@ public class Game{
     	this.mapaCasillas = new HashMap<String, Integer>();
     	this.go = new ArrayList<GameObserver>();  	
     	
-    	initJugadores(2);
+    	initJugadores(numJugadores);
     }
     
        
     public void initJugadores(int n) {
+	jugadores.clear();
     	for(int i = 0; i < n; i++) {
     		jugadores.add(new Jugador(i+1));
     	}	

@@ -60,6 +60,7 @@ public void openMenu(JPanel previousPanel) {
 
 public void newGame(int numPlayers, JPanel previousPanel) {
 		GamePanel gamePanel = new GamePanel(_controller, numPlayers);
+		_controller.setPlayers(numPlayers);
 		gamePanel.setVisible(true);
 		mainPanel.setVisible(false);
 		this.setContentPane(gamePanel);

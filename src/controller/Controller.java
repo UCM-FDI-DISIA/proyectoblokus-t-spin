@@ -91,6 +91,10 @@ public class Controller {
 		return true;    	
     }
   //Metodos temporales
+	public void setPlayers(int numPlayers) {
+		game.initJugadores(numPlayers);
+		
+	}
 
 
 }
