@@ -1,5 +1,7 @@
 package test;
 
+import org.junit.Test;
+
 import junit.framework.TestCase;
 import model.*;
 
@@ -18,22 +20,24 @@ public class ModelTest extends TestCase{
 	 *  probar es la Ficha.
 	 */
 	
-	private Ficha ficha;
+	
 	private Casilla casilla;
 	private Jugador jugador;
+	private Game game;
 	
 	public void init() {
 		
 		// TODO dar valores correctos a los args para poder hacer bien los test
-		this.ficha = new Ficha(null, 0);
+		//this.ficha = new Ficha(null, 0);
 		this.casilla = new Casilla(0, 0);
 		this.jugador = new Jugador(0);
+		this.game=new Game(2);
 	}
 	
 	/**
 	 * Prueba si las fichas se crean correctamente.
 	 */
-	public void testConstruirFicha() {
+	/*public void testConstruirFicha() {
 		init();
 		assert(ficha != null);
 	}
@@ -42,14 +46,27 @@ public class ModelTest extends TestCase{
 	/**
 	 * Prueba si las casillas se crean correctamente.
 	 */
+	
+	@Test
 	public void testConstruirCasilla() {
 		init();
 		assert(casilla != null);
 	}
 	
+	@Test
+	 public void testInicioJugadores() {
+		init();
+		
+		int resultado=game.getNumJugadores();
+		int esperado=2;
+		System.out.println(game.getNumJugadores());
+		assertEquals(esperado, resultado);
+		 
+	 }
 	/**
 	 * Prueba si los jugadores se crean correctamente.
 	 */
+	@Test
 	public void testConstruirJugador() {
 		init();
 		assert(jugador != null);
