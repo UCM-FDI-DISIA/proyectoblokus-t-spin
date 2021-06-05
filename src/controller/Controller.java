@@ -80,8 +80,10 @@ public class Controller {
     }
     
     public void passTurn() {
-    	Command command = new SkipTurnCommand();
-		command.execute(game);
+    	if(!game.getPrimeraRonda()) {
+    		Command command = new SkipTurnCommand();
+			command.execute(game);
+    	}
 		//return true;
     }
     
