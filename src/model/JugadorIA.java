@@ -52,8 +52,8 @@ public class JugadorIA extends Jugador{
 			}}
 			
 			
-			else {
-				if(game.getTurno()%level==0) {
+			else if (level==2) {
+				if(game.getTurno()%2==0) {
 				
 				for(int i = 0; i < 20; i++) {
 				for(int j = 0; j < 20; j++) {					
@@ -67,6 +67,21 @@ public class JugadorIA extends Jugador{
 
 				}
 			}}
+			}else if(level==1) {
+				if(game.getTurno()%3==0) {
+					
+					for(int i = 0; i < 20; i++) {
+					for(int j = 0; j < 20; j++) {					
+						
+						try {
+							if(game.anadirFicha(0, j, i)) {return true;}
+						} catch (GameException e) {
+							// TODO Auto-generated catch block
+						
+						}
+
+					}
+				}}
 			}
 			
 			

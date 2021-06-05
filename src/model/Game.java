@@ -331,6 +331,7 @@ public class Game{
 		jugadores.clear();
 		currentPlayer=0;
 		mapaCasillas.clear();
+		
 	}
 	public void remaining() {
 		jugadores.get(currentPlayer).getNumFichas();
