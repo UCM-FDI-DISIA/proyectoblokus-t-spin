@@ -21,11 +21,6 @@ import controller.Controller;
 public class MainMenu  extends JPanel {
 	
 
-	JLabel titulo =new JLabel();
-	JButton p1=new JButton();
-	JButton p2=new JButton();
-	JButton p3=new JButton();
-	JButton p4=new JButton();
 	private Controller _controller;
 	private JPanel _previousPanel;
 	private MainWindow _mainWindow;
@@ -50,6 +45,12 @@ public class MainMenu  extends JPanel {
 	
 
 	public void creaElementos(){
+		
+		JLabel titulo =new JLabel();
+		JButton p1=new JButton();
+		JButton p2=new JButton();
+		JButton p3=new JButton();
+		JButton p4=new JButton();
 		
 		titulo.setBounds(400,250,2000,30);
 		titulo.setFont(new Font("comic-sans", 1, 21));

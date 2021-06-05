@@ -44,15 +44,15 @@ public class FichasPanel extends JPanel implements GameObserver{
         JScrollPane s = new JScrollPane(pn, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         s.setPreferredSize(new Dimension(0,200));
         
-
-		buttonRed = new JLabel(new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(150, 130, java.awt.Image.SCALE_SMOOTH)));
+        // He cambiado el tamaño del button aquí 150,130
+		buttonRed = new JLabel(new ImageIcon(((new ImageIcon("resources/icons/RedPLayer.png")).getImage()).getScaledInstance(80, 65, java.awt.Image.SCALE_SMOOTH)));
 		
 		pn.add(buttonRed);
 	
 		 
 		for(int i=0;i<21;i++) {
-			
-			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/FichasRojas/"+i+".png")).getImage()).getScaledInstance(150, 130, Image.SCALE_DEFAULT)));
+			// y aquí 150,130
+			botones.get(i).setIcon(new ImageIcon(((new ImageIcon("resources/FichasRojas/"+i+".png")).getImage()).getScaledInstance(100, 90, Image.SCALE_DEFAULT)));
 			
 			
 			

@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -40,11 +41,10 @@ public class GamePanel extends JPanel implements GameObserver {
 		pFichas =  new FichasPanel(ctrl);
 		
 		JPanel eastPanel = new JPanel();
-		
-		
-		eastPanel.setLayout(new BorderLayout(20, 30));
+		eastPanel.setLayout(new BorderLayout(0, 0));
+		eastPanel.setPreferredSize(new Dimension(420,500));
 		eastPanel.add(panelJ.numJugadores(), BorderLayout.NORTH);
-		eastPanel.add(move, BorderLayout.CENTER);
+		eastPanel.add(move, BorderLayout.SOUTH);
 	
 		this.add(eastPanel, BorderLayout.EAST);
 		this.add(pFichas.inf(), BorderLayout.SOUTH);

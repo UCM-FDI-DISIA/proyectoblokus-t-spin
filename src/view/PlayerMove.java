@@ -25,8 +25,8 @@ public class PlayerMove extends JPanel implements GameObserver{
 	
 	public PlayerMove(Controller ctrl) {
 		_ctrl = ctrl;
-		initGUI();
 		_ctrl.addObserver(this);
+		initGUI();
 	}
 	
 	private void initGUI() {
@@ -36,10 +36,13 @@ public class PlayerMove extends JPanel implements GameObserver{
 		//	2. Pasar turno
 		
 		// Layout
-		this.setLayout(new BorderLayout());
+		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		//this.setLayout(new BorderLayout(0, 0));
+		
+		// rotate button
 		JButton rotateB = new JButton();
 		rotateB.setToolTipText("Rotar ficha");
-		rotateB.setPreferredSize(new Dimension(200,150));
+		rotateB.setPreferredSize(new Dimension(150,150));
 		rotateB.setIcon(new ImageIcon("resources/rotate.png"));
 
 		// rotateB listener using an anonymus inner class
@@ -56,10 +59,10 @@ public class PlayerMove extends JPanel implements GameObserver{
 			
 		});
 		
-		
+		// skip button
 		JButton skipB = new JButton();
 		skipB.setToolTipText("Pasar turno");
-		skipB.setPreferredSize(new Dimension(200,150));
+		skipB.setPreferredSize(new Dimension(150,150));
 		skipB.setIcon(new ImageIcon("resources/skip.png"));
 
 		// skipB listener using an anonymus inner class
@@ -76,8 +79,8 @@ public class PlayerMove extends JPanel implements GameObserver{
 			
 		});
 
-		this.add(rotateB, BorderLayout.NORTH);
-		this.add(skipB, BorderLayout.SOUTH);	
+		this.add(rotateB, BorderLayout.WEST);
+		this.add(skipB, BorderLayout.EAST);	
 		
 	}
 	
