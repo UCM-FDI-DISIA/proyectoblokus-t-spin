@@ -94,7 +94,7 @@ public class Controller {
     }
   //Metodos temporales
 	public void setPlayers(int numPlayers) {
-		game.initJugadores(numPlayers);
+		game.initJugadores(numPlayers, numPlayers);
 		
 	}
 
