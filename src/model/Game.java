@@ -26,7 +26,7 @@ public class Game{
     
     
 
-    public Game(int numJugadores) {
+    public Game() {
     	// Inicializo los atributos de la clase en el constructor
     	this.primeraRonda = true;
     	this.juegoTerminado = false;
@@ -36,9 +36,6 @@ public class Game{
     	this.turno=0;
     	this.dificultad=2;//1-A;2M;3B
     	
-    	
-    	
-    	initJugadores(2,2);
     }
     
        
@@ -76,8 +73,7 @@ public class Game{
         	update();
     	} 	
     }
-    
-    
+  
     public boolean casillaVacia(int x, int y) {
     	boolean ok=true;
     	Integer[] posicion = {0,0};
@@ -330,6 +326,7 @@ public class Game{
 		
 	public void reset() {
 		//TODO Falta resetear las fichas de los jugadores
+		jugadores.clear();
 		currentPlayer=0;
 		mapaCasillas.clear();
 	}

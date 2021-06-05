@@ -16,14 +16,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 
 import controller.Controller;
 
-public class UpMenu extends JMenuBar implements ActionListener {
+public class UpMenu extends JMenuBar {
 	private String ayuda = "El objetivo es colocar la mayor cantidad de las 21 piezas en el tablero. Cada pieza debe tocar al menos\r\n"
 			+ "otra del mismo color, pero solo por una de las esquinas. El juego termina cuando ningun jugador\r\n"
 			+ "puede colocar una pieza. ";
-	private JMenu archivo, ayudas, ventana, salir;
+	private JMenu nPartida, ayudas, ventana, salir;
 	private JMenuItem NPartida, instrucciones, Rpartida, tam1, tam2, SalirE, VolverP;
 	private Controller _controller;
 	private MainWindow _mainWindow;
@@ -31,8 +33,8 @@ public class UpMenu extends JMenuBar implements ActionListener {
 
 	public UpMenu(MainWindow mw, Controller controller) {
 		_mainWindow = mw;
-		archivo = new JMenu("Archivo");
-		ayudas = new JMenu("Ayuda");
+		nPartida = new JMenu("Nueva Partida");
+		ayudas = new JMenu("Instrucciones");
 		salir = new JMenu("Salir");
 
 		_controller = controller;
@@ -42,60 +44,73 @@ public class UpMenu extends JMenuBar implements ActionListener {
 	}
 
 	public void initGUI() {
-		this.add(archivo);
+		this.add(nPartida);
 		this.add(ayudas);
 		this.add(new JSeparator());
 		this.add(salir);
+		
+		nPartida.addMenuListener(new MenuListener() {
 
-		NPartida = new JMenuItem("Nueva Partida");
-		NPartida.addActionListener(this);
-		archivo.add(NPartida);
+			@Override
+			public void menuCanceled(MenuEvent e) {
+				// TODO Auto-generated method stub
+			}
 
-		instrucciones = new JMenuItem("Instrucciones");
-		instrucciones.addActionListener(this);
-		ayudas.add(instrucciones);
+			@Override
+			public void menuDeselected(MenuEvent e) {
+				// TODO Auto-generated method stub
+			}
 
-		Rpartida = new JMenuItem("Reiniciar Partida");
-		Rpartida.addActionListener(this);
-		ayudas.add(Rpartida);
+			@Override
+			public void menuSelected(MenuEvent e) {
+				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(null, "Nueva Partida");
+				_mainWindow.reset();
+				_mainWindow.openMenu(_previousPanel);
+			}
+			
+		});
 
-		SalirE = new JMenuItem("Salir al escritorio");
-		SalirE.addActionListener(this);
-		salir.add(SalirE);
+		ayudas.addMenuListener(new MenuListener() {
 
-		VolverP = new JMenuItem("Volver al menu principal");
-		VolverP.addActionListener(this);
-		salir.add(VolverP);
-	}
+			@Override
+			public void menuCanceled(MenuEvent e) {
+				// TODO Auto-generated method stub
+			}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
+			@Override
+			public void menuDeselected(MenuEvent e) {
+				// TODO Auto-generated method stub
+			}
 
-		if (e.getSource().equals(NPartida)) {
-			// _controller.resetGame();
-			JOptionPane.showMessageDialog(null, "Nueva Partida");
-			_mainWindow.openMenu(_previousPanel);
-		}
+			@Override
+			public void menuSelected(MenuEvent e) {
+				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(null, ayuda);
 
-		if (e.getSource().equals(SalirE)) {
-			System.exit(WIDTH);
-		}
-		if (e.getSource().equals(instrucciones)) {
-			JOptionPane.showMessageDialog(null, ayuda);
-		}
-		if (e.getSource().equals(Rpartida)) {
-			// Llamada al m�todo reiniciarPartida();
-			// _controller.resetGame();
-			JOptionPane.showMessageDialog(null, "Reiniciar Partida");
-		}
+			}
+			
+		});
+		
+		salir.addMenuListener(new MenuListener() {
 
-		if (e.getSource().equals(VolverP)) {
-			// Llamada al m�todo reiniciarPartida();
-			// _controller.resetGame();
-			JOptionPane.showMessageDialog(null, "Volver a menu");
-			_mainWindow.openMenu(_previousPanel);
-		}
+			@Override
+			public void menuCanceled(MenuEvent e) {
+				// TODO Auto-generated method stub
+			}
 
+			@Override
+			public void menuDeselected(MenuEvent e) {
+				// TODO Auto-generated method stub
+			}
+
+			@Override
+			public void menuSelected(MenuEvent e) {
+				// TODO Auto-generated method stub
+				System.exit(WIDTH);
+			}
+			
+		});
 	}
 
 }

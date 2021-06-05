@@ -78,7 +78,6 @@ public class Jugador {
 		return false;
 	}
 
-	
     
     
     

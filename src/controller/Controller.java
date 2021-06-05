@@ -92,10 +92,13 @@ public class Controller {
 		command.execute(game);
 		return true;    	
     }
-  //Metodos temporales
-	public void setPlayers(int numPlayers) {
-		game.initJugadores(numPlayers, numPlayers);
-		
+
+	public void setPlayers(int numPlayers, int numIAs) {
+		game.initJugadores(numPlayers, numIAs);
+	}
+	
+	public void reset() {
+		game.reset();
 	}
 
 

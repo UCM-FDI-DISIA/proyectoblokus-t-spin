@@ -41,7 +41,6 @@ public class MainMenu  extends JPanel {
 	    this.creaElementos();
 	    this.setLayout(null);
 	    this.setSize(_previousPanel.getSize());
-
 	    
 	}
 	
@@ -50,7 +49,7 @@ public class MainMenu  extends JPanel {
 	public void creaElementos(){
 		
 		JLabel titulo = new JLabel();
-		String[] opciones = { "Vacio", "Bot", "Jugador" };
+		String[] opciones = { "Vacio", "Bot(fácil)", "Bot(medio)", "Bot(díficil)", "Jugador" };
 		JButton exitB = new JButton();
 
 		JButton nextB = new JButton();
@@ -83,14 +82,14 @@ public class MainMenu  extends JPanel {
 		p3.setBounds(440, 400, 120, 30);
 		this.add(p3);
 		
-		p4.setBounds(440, 400, 120, 30);
+		p4.setBounds(440, 450, 120, 30);
 		this.add(p4);
 
-		nextB.setBounds(440, 450, 120, 30);
+		nextB.setBounds(440, 550, 120, 30);
 		nextB.setText("Siguiente");
 		this.add(nextB);
 		
-		exitB.setBounds(440, 500, 120, 30);
+		exitB.setBounds(440, 600, 120, 30);
 		exitB.setText("Salir");
 		this.add(exitB);
 
@@ -102,7 +101,8 @@ public class MainMenu  extends JPanel {
 
 	class PlayersButtonListener implements ActionListener {
 		
-		int _numPlayers = 1;
+		int _numPlayers = 0;
+		int _numIAs = 0;
 		private List<JComboBox<String>> pList;
 
 		public PlayersButtonListener(List<JComboBox<String>> pList) {
@@ -114,11 +114,19 @@ public class MainMenu  extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			for (JComboBox<String> p: pList) {
-				if(p.getSelectedIndex() == 2)
+				
+				if (p.getSelectedIndex() > 0 && p.getSelectedIndex() < 4) {
+					_numIAs++;
+				}
+				if(p.getSelectedIndex() == 4)
 					_numPlayers++;
 			}
-			if(_numPlayers>=2) {
-				_mainWindow.newGame(_numPlayers, _previousPanel);
+			
+			if(_numPlayers + _numIAs >= 2) {
+				_mainWindow.newGame(_numPlayers, _numIAs, _previousPanel);
+			}
+			else {
+				//Avisa que se necesitan minimo 2 jugadores
 			}
 			
 		}
