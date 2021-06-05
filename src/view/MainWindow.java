@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +19,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import controller.Controller;
+import model.IAType;
+
 
 public class MainWindow extends JFrame {
 	
@@ -59,9 +62,9 @@ public class MainWindow extends JFrame {
 			this.setContentPane(mainPanel);
 		}
 	
-	public void newGame(int numPlayers, int numIAs, JPanel previousPanel) {
-			GamePanel gamePanel = new GamePanel(_controller, numPlayers + numIAs);
-			_controller.setPlayers(numPlayers, numIAs);
+	public void newGame(int numPlayers, List<IAType> IAs, JPanel previousPanel) {
+			GamePanel gamePanel = new GamePanel(_controller, numPlayers + IAs.size());
+			_controller.setPlayers(numPlayers, IAs);
 			gamePanel.setVisible(true);
 			mainPanel.setVisible(false);
 			this.setContentPane(gamePanel);

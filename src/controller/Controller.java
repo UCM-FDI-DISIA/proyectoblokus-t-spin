@@ -1,10 +1,12 @@
 package controller;
+import java.util.List;
 import java.util.Scanner;
 
 import commands.*;
 import exceptions.CommandExecuteException;
 import model.Game;
 import model.GameObserver;
+import model.IAType;
 import view.BoardPrinter;
 import view.TableroPanel;
 
@@ -93,8 +95,8 @@ public class Controller {
 		return true;    	
     }
 
-	public void setPlayers(int numPlayers, int numIAs) {
-		game.initJugadores(numPlayers, numIAs);
+	public void setPlayers(int numPlayers, List<IAType> IAs) {
+		game.initJugadores(numPlayers, IAs);
 	}
 	
 	public void reset() {

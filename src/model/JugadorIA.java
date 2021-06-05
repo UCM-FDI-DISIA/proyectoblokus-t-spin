@@ -3,9 +3,12 @@ package model;
 import exceptions.GameException;
 
 public class JugadorIA extends Jugador{
-
-	public JugadorIA(int id) {
+	//[1 facil: 2 medio: 3 dificil]
+	private int level;
+	
+	public JugadorIA(int id, int level) {
 		super(id);
+		this.level = level;
 		// TODO Auto-generated constructor stub
 	}
 	

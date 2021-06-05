@@ -39,12 +39,14 @@ public class Game{
     }
     
        
-    public void initJugadores(int p, int ia) {
+    public void initJugadores(int p, List<IAType> iaList) {
     	for(int i = 0; i < p; i++) {
     		jugadores.add(new Jugador(i+1));
     	}
-    	for(int i = p; i < p+ia; i++) {
-    		jugadores.add(new JugadorIA(i+1));    		
+    	for(int i = p; i < p+iaList.size(); i++) {
+    		IAType ia = iaList.get(i-p); 
+    		
+    		jugadores.add(new JugadorIA(i+1, ia.getLevel()));    		
     	}
     	
     }

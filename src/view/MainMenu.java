@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import controller.Controller;
+import model.IAType;
 
 public class MainMenu  extends JPanel {
 	
@@ -102,7 +103,7 @@ public class MainMenu  extends JPanel {
 	class PlayersButtonListener implements ActionListener {
 		
 		int _numPlayers = 0;
-		int _numIAs = 0;
+		List<IAType> IAs = new ArrayList<IAType>();
 		private List<JComboBox<String>> pList;
 
 		public PlayersButtonListener(List<JComboBox<String>> pList) {
@@ -116,17 +117,14 @@ public class MainMenu  extends JPanel {
 			for (JComboBox<String> p: pList) {
 				
 				if (p.getSelectedIndex() > 0 && p.getSelectedIndex() < 4) {
-					_numIAs++;
+					IAs.add(new IAType(0, p.getSelectedIndex()));
 				}
 				if(p.getSelectedIndex() == 4)
 					_numPlayers++;
 			}
 			
-			if(_numPlayers + _numIAs >= 2) {
-				_mainWindow.newGame(_numPlayers, _numIAs, _previousPanel);
-			}
-			else {
-				//Avisa que se necesitan minimo 2 jugadores
+			if(_numPlayers + IAs.size() >= 2) {
+				_mainWindow.newGame(_numPlayers, IAs, _previousPanel);
 			}
 			
 		}
