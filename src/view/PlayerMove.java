@@ -97,7 +97,7 @@ public class PlayerMove extends JPanel implements GameObserver{
 	}
 
 	@Override
-	public void onFichaAnadida(int color, int x, int y) {
+	public void onFichaAnadida(int color, int x, int y, int f) {
 		// TODO Auto-generated method stub
 		
 	}

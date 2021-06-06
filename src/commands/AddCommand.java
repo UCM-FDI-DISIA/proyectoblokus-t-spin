@@ -25,7 +25,7 @@ public class AddCommand extends Command{
 
 	@Override
 	public boolean execute(Game game) throws CommandExecuteException {
-		if(this.columna>=0 && this.columna < 20&& this.fila>=0 && this.fila<20) {
+		if(columna >= 0 && columna < 20 && fila >= 0 && fila < 20) {
 			
 			if(game.getPrimeraRonda()) {				
 				if(game.jugarPrimeraRonda(ficha, fila, columna)) {

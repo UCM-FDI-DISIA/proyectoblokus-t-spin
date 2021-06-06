@@ -62,7 +62,7 @@ public class Controller {
 
     private void draw() {
 		// TODO Auto-generated method stub
-    	System.out.println("Turno jugador "+ ((game.currentPlayer)+1) + "/" + game.getNumJugadores());
+    	System.out.println("Turno jugador "+ ((game.getCurrentPlayer())+1) + "/" + game.getNumJugadores());
     	System.out.println(printer.toString(game));
 		
 	}
@@ -73,8 +73,8 @@ public class Controller {
     
     //Metodos temporales
     public void rotate() {
-    	
-    	Command command = new RotateCommand(0, 90); // TODO ficha seleccionada
+    	int f = game.getCurrentFicha();
+    	Command command = new RotateCommand(f, 90); // TODO ficha seleccionada
 		command.execute(game);
 		//return true;
     }
@@ -86,14 +86,23 @@ public class Controller {
     }
     
     public boolean anadirFicha(int x, int y) {
-     	Command command = new AddCommand(0, x , y); // TODO ficha seleccionada
+    	int f = game.getCurrentFicha();
+     	Command command = new AddCommand(f, x , y); // TODO ficha seleccionada
 		command.execute(game);
 		return true;    	
     }
-  //Metodos temporales
+
 	public void setPlayers(int numPlayers) {
 		game.initJugadores(numPlayers);
 		
+	}
+	
+	public int remaining() {
+		return game.remaining();
+	}
+	
+	public void setCurrentFicha(int f) {
+		game.setCurrentFicha(f);
 	}
 
 

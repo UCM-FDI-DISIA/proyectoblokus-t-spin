@@ -20,7 +20,8 @@ public class Game{
     private HashMap<String, Integer> mapaCasillas;
     private List<GameObserver> go;
     
-    public int currentPlayer = 0;
+    private int currentPlayer = 0;
+    private int currentFicha = 0;
     
     
 
@@ -88,7 +89,7 @@ public class Game{
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
-    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i));
+    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i), f);
     			}
     		}
     		jugadores.get(currentPlayer).borrarPieza(f);
@@ -142,7 +143,7 @@ public class Game{
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
-    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i));
+    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i), f);
     			}
     		}
     		//Llamar a jugador para quitarle la ficha que acaba de colocar
@@ -303,8 +304,8 @@ public class Game{
 		currentPlayer=0;
 		mapaCasillas.clear();	
 	}
-	public void remaining() {
-		jugadores.get(currentPlayer).getNumFichas();
+	public int remaining() {
+		return jugadores.get(currentPlayer).getNumFichas();
 	}
 	
 	public void rotate(int numFicha, int rotacion) {	
@@ -319,10 +320,20 @@ public class Game{
 		go.add(o);
 	}
 	
-
-
-
-
-
+	public int getCurrentPlayer() {
+		return currentPlayer;
+	}
+	
+	public void setCurrentPlayer(int p) {
+		this.currentPlayer = p;
+	}
+	
+	public int getCurrentFicha() {
+		return currentFicha;
+	}
+	
+	public void setCurrentFicha(int f) {
+		this.currentFicha = f;
+	}
 
 }

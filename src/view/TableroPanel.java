@@ -77,7 +77,7 @@ public class TableroPanel extends JPanel implements GameObserver{
 	}
 
 	@Override
-	public void onFichaAnadida(int color, int x, int y) {
+	public void onFichaAnadida(int color, int x, int y, int f) {
 		// TODO Auto-generated method stub
 		if(color == 1) {
 			tablero[x][y].toggle(Color.red);	
