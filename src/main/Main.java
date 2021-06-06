@@ -32,7 +32,7 @@ public class Main {
     	}
 //    	//TEST
     	scanner = new Scanner(System.in);
-    	game = new Game(numJugadores);
+    	game = new Game();
     	controller = new Controller(game, scanner);
    		controller.run(); //Ejecuta el juego
 
@@ -41,7 +41,7 @@ public class Main {
 	
 	private static void startGUIMode () throws IOException{
 		
-		game = new Game(2);
+		game = new Game();
 		controller = new Controller(game);
 		SwingUtilities.invokeLater(new Runnable() {
 

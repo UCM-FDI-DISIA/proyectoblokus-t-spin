@@ -19,45 +19,76 @@ public class Game{
     private List<Jugador> jugadores;  
     private HashMap<String, Integer> mapaCasillas;
     private List<GameObserver> go;
+
     
     private int currentPlayer = 0;
     private int currentFicha = 0;
+
+    private int turno;
+    private int dificultad;
+
     
     
 
-    public Game(int numJugadores) {
+    public Game() {
     	// Inicializo los atributos de la clase en el constructor
     	this.primeraRonda = true;
     	this.juegoTerminado = false;
     	this.jugadores = new ArrayList<Jugador>();
     	this.mapaCasillas = new HashMap<String, Integer>();
     	this.go = new ArrayList<GameObserver>();  	
+    	this.turno=0;
+    	this.dificultad=2;//1-A;2M;3B
     	
-    	initJugadores(numJugadores);
     }
     
        
-    public void initJugadores(int n) {
-	jugadores.clear();
-    	for(int i = 0; i < n; i++) {
+    public void initJugadores(int p, List<IAType> iaList) {
+    	for(int i = 0; i < p; i++) {
     		jugadores.add(new Jugador(i+1));
-    	}	
+    	}
+    	for(int i = p; i < p+iaList.size(); i++) {
+    		IAType ia = iaList.get(i-p); 
+    		
+    		jugadores.add(new JugadorIA(i+1, ia.getLevel()));    		
+    	}
+    	
     }
+    
+    
     
 
      
-    public void update() {
+    public void update() {  
+    	
+    	
     	currentPlayer++;
-    	 	
-    
     	if(currentPlayer >= jugadores.size()) {
 			currentPlayer = 0;
+			primeraRonda = false;
+			turno++;
 		}
+
     	
     	for(GameObserver o : go) {    		
 			o.updateIcono(currentPlayer);
 		}
     	
+    	
+    	if(jugadores.get(currentPlayer).computerAction(this)) {    		
+        	update();
+    	} 	
+    }
+  
+    public boolean casillaVacia(int x, int y) {
+    	boolean ok=true;
+    	Integer[] posicion = {0,0};
+    	posicion[0]=x;
+    	posicion[1]=y;
+    	if(mapaCasillas.containsKey(Arrays.toString(posicion))) { //Si está ocupada
+			ok=false;
+		}
+    	return ok;
     	
     }
     
@@ -88,6 +119,7 @@ public class Game{
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
+    			
     			for(GameObserver o : go) {
     				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i), f);
     			}
@@ -98,9 +130,7 @@ public class Game{
     	else {
     		throw new GameException("La primera ficha debe colocarse en una de las esquinas\n");
     	}
-    	if(currentPlayer >= jugadores.size()-1) {
-    		primeraRonda = false;
-    	}
+
     	return fichaAnadida;
     }
     
@@ -301,15 +331,26 @@ public class Game{
 	}
 		
 	public void reset() {
+		//TODO Falta resetear las fichas de los jugadores
+		jugadores.clear();
 		currentPlayer=0;
-		mapaCasillas.clear();	
+		mapaCasillas.clear();
+		
 	}
 	public int remaining() {
 		return jugadores.get(currentPlayer).getNumFichas();
 	}
 	
-	public void rotate(int numFicha, int rotacion) {	
+	public void rotate(int numFicha, int rotacion) {
 		jugadores.get(currentPlayer).getFicha(numFicha).rotar(rotacion);
+	}
+	
+	public int getdificultad() {
+		return this.dificultad;
+	}
+	
+	public int getTurno() {
+		return this.turno;
 	}
 	
 	public int dim (int i) {

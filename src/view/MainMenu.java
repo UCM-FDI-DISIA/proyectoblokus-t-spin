@@ -5,8 +5,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -17,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import controller.Controller;
+import model.IAType;
 
 public class MainMenu  extends JPanel {
 	
@@ -38,7 +42,6 @@ public class MainMenu  extends JPanel {
 	    this.creaElementos();
 	    this.setLayout(null);
 	    this.setSize(_previousPanel.getSize());
-
 	    
 	}
 	
@@ -46,58 +49,84 @@ public class MainMenu  extends JPanel {
 
 	public void creaElementos(){
 		
-		JLabel titulo =new JLabel();
-		JButton p1=new JButton();
-		JButton p2=new JButton();
-		JButton p3=new JButton();
-		JButton p4=new JButton();
+		JLabel titulo = new JLabel();
+		String[] opciones = { "Vacio", "Bot(fácil)", "Bot(medio)", "Bot(díficil)", "Jugador" };
+		JButton exitB = new JButton();
+
+		JButton nextB = new JButton();
+		JComboBox<String> p1 = new JComboBox<String>(opciones);
+		JComboBox<String> p2 = new JComboBox<String>(opciones);
+		JComboBox<String> p3 = new JComboBox<String>(opciones);
+		JComboBox<String> p4 = new JComboBox<String>(opciones);
 		
-		titulo.setBounds(400,250,2000,30);
+		List<JComboBox<String>> pList = new ArrayList<JComboBox<String>>();
+
+		pList.add(p1);
+		pList.add(p2);
+		pList.add(p3);
+		pList.add(p4);
+		
+		titulo.setBounds(400, 250, 2000, 30);
 		titulo.setFont(new Font("comic-sans", 1, 21));
 		titulo.setText("Numero de Jugadores");
-		//this.getContentPane().add(titulo);
 		this.add(titulo);
 
-		p1.setBounds(440,300,120,30);
-		p1.setText("2 Jugadores");
-		//this.getContentPane().add(p1);
+		
+		
+		
+		p1.setBounds(440, 300, 120, 30);
 		this.add(p1);
 
-		p2.setBounds(440,350,120,30);
-		p2.setText("3 Jugadores");
-		//this.getContentPane().add(p2);
+		p2.setBounds(440, 350, 120, 30);
 		this.add(p2);
 		
-		p3.setBounds(440,400,120,30);
-		p3.setText("4 Jugadores");
-		//this.getContentPane().add(p3);
+		p3.setBounds(440, 400, 120, 30);
 		this.add(p3);
-
-		p4.setBounds(440,450,120,30);
-		p4.setText("Salir");
-		//this.getContentPane().add(p4);
+		
+		p4.setBounds(440, 450, 120, 30);
 		this.add(p4);
 
-		p1.addActionListener(new PlayersButtonListener(2));
-		p2.addActionListener(new PlayersButtonListener(3));
-		p3.addActionListener(new PlayersButtonListener(4));
-		p4.addActionListener(new ExitButtonListener());
+		nextB.setBounds(440, 550, 120, 30);
+		nextB.setText("Siguiente");
+		this.add(nextB);
+		
+		exitB.setBounds(440, 600, 120, 30);
+		exitB.setText("Salir");
+		this.add(exitB);
+
+		
+		nextB.addActionListener(new PlayersButtonListener(pList));
+		exitB.addActionListener(new ExitButtonListener());
 
 	}
 
 	class PlayersButtonListener implements ActionListener {
 		
-		int _numPlayers;
-		
-		public PlayersButtonListener(int numPlayers) {
+		int _numPlayers = 0;
+		List<IAType> IAs = new ArrayList<IAType>();
+		private List<JComboBox<String>> pList;
+
+		public PlayersButtonListener(List<JComboBox<String>> pList) {
 			super();
-			_numPlayers = numPlayers;
+			this.pList = pList;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			_mainWindow.newGame(_numPlayers, _previousPanel);
+			for (JComboBox<String> p: pList) {
+				
+				if (p.getSelectedIndex() > 0 && p.getSelectedIndex() < 4) {
+					IAs.add(new IAType(0, p.getSelectedIndex()));
+				}
+				if(p.getSelectedIndex() == 4)
+					_numPlayers++;
+			}
+			
+			if(_numPlayers + IAs.size() >= 2) {
+				_mainWindow.newGame(_numPlayers, IAs, _previousPanel);
+			}
+			
 		}
 	}
 

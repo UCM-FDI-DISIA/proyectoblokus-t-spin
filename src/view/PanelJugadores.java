@@ -8,10 +8,10 @@ import javax.swing.JPanel;
 
 public class PanelJugadores extends JPanel{
 
-	private static int numPlayers;
+	private static int totalPlayers;
 	
-	public PanelJugadores(int numPlayers) {
-		this.numPlayers=numPlayers;
+	public PanelJugadores(int totalPlayers) {
+		this.totalPlayers=totalPlayers;
 	}
 	
 	public JPanel numJugadores() {
@@ -27,19 +27,19 @@ public class PanelJugadores extends JPanel{
 		supPanel.add(titulo);
 		supPanel.add(ju1);
 		
-		if(numPlayers==2) {
+		if(totalPlayers==2) {
 			
 		supPanel.add(ju2);
 			
 		}
-		if(numPlayers==3) {
+		if(totalPlayers==3) {
 			
 			supPanel.add(ju2);
 			supPanel.add(ju3);
 			
 		}
 		
-		if(numPlayers==4) {
+		if(totalPlayers==4) {
 			supPanel.add(ju2);
 			supPanel.add(ju3);
 			supPanel.add(ju4);

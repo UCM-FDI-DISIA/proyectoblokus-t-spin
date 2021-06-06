@@ -18,16 +18,16 @@ import model.Jugador;
 public class GamePanel extends JPanel implements GameObserver {
 
 	private static final long serialVersionUID = -9060831481452731983L;
-	private static int numPlayers;
+	private static int totalPlayers;
 	private TableroPanel tablero;
 	private PanelJugadores panelJ;
 	private PlayerMove move;
 	private FichasPanel pFichas;
 	private Controller ctrl;
 	
-	public GamePanel(Controller ctrl, int numPlayers) {
+	public GamePanel(Controller ctrl, int totalPlayers) {
 		super(new BorderLayout());
-		this.numPlayers = numPlayers;
+		this.totalPlayers = totalPlayers;
 		this.ctrl = ctrl;
 		initGui();
 	}
@@ -36,7 +36,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	private void initGui() {
 		
 		tablero = new TableroPanel(ctrl);
-		panelJ = new PanelJugadores(numPlayers);
+		panelJ = new PanelJugadores(totalPlayers);
 		move = new PlayerMove(ctrl);
 		pFichas =  new FichasPanel(ctrl);
 		

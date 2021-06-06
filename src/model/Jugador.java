@@ -74,7 +74,10 @@ public class Jugador {
 		return id;
 	}
 
-	
+	public boolean computerAction(Game game) {
+		return false;
+	}
+
     
     
     

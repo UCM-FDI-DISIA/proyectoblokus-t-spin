@@ -1,10 +1,12 @@
 package controller;
+import java.util.List;
 import java.util.Scanner;
 
 import commands.*;
 import exceptions.CommandExecuteException;
 import model.Game;
 import model.GameObserver;
+import model.IAType;
 import view.BoardPrinter;
 import view.TableroPanel;
 
@@ -80,8 +82,10 @@ public class Controller {
     }
     
     public void passTurn() {
-    	Command command = new SkipTurnCommand();
-		command.execute(game);
+    	if(!game.getPrimeraRonda()) {
+    		Command command = new SkipTurnCommand();
+			command.execute(game);
+    	}
 		//return true;
     }
     
@@ -92,9 +96,17 @@ public class Controller {
 		return true;    	
     }
 
+
 	public void setPlayers(int numPlayers) {
 		game.initJugadores(numPlayers);
 		
+
+	public void setPlayers(int numPlayers, List<IAType> IAs) {
+		game.initJugadores(numPlayers, IAs);
+	}
+	
+	public void reset() {
+		game.reset();
 	}
 	
 	public int remaining() {
