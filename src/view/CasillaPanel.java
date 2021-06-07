@@ -64,13 +64,13 @@ public class CasillaPanel extends JButton implements GameObserver{
 	
 
 	@Override
-	public void onFichaAnadida(int color, int x, int y, int f) {
+	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Auto-generated method stub
 		toggle(Color.red);
 	}
 
 	@Override
-	public void updateIcono(int color) {
+	public void update(Jugador jugador) {
 		// TODO Auto-generated method stub
 		
 	}

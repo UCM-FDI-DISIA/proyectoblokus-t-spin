@@ -60,11 +60,11 @@ public class MainWindow extends JFrame {
 			mainPanel.setVisible(true);
 			mainPanel.add(new MainMenu(_controller, mainPanel, this),BorderLayout.CENTER);
 			this.setContentPane(mainPanel);
-		}
+	}
 	
 	public void newGame(int numPlayers, List<IAType> IAs, JPanel previousPanel) {
-			GamePanel gamePanel = new GamePanel(_controller, numPlayers + IAs.size());
 			_controller.setPlayers(numPlayers, IAs);
+			GamePanel gamePanel = new GamePanel(_controller);
 			gamePanel.setVisible(true);
 			mainPanel.setVisible(false);
 			this.setContentPane(gamePanel);

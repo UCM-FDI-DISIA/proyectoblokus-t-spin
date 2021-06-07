@@ -11,8 +11,8 @@ public interface GameObserver {
 	
 	public void onReset(List<Jugador> jugadores, HashMap<String, String> mapaCasillas);
 	
-	public void onFichaAnadida(int color, int x, int y, int f);
+	public void onFichaAnadida(int x, int y, int f, Jugador jugador);
 	
-	public void updateIcono (int color);
+	public void update (Jugador jugador);
 
 }

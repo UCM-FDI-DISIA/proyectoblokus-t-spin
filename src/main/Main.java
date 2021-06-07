@@ -1,5 +1,4 @@
 package main;
-import model.Ficha;
 import model.Game;
 import view.MainWindow;
 

@@ -38,14 +38,16 @@ public class FichasPanel extends JPanel implements GameObserver{
 	JPanel pn;
 	JLabel playerIcon;
 	
-	ArrayList<JButton> botones;
+	private ArrayList<JButton> botones;
 	
-	ArrayList<ImageIcon> redFichas;
-	ArrayList<ImageIcon> blueFichas;
-	ArrayList<ImageIcon> yellowFichas;
-	ArrayList<ImageIcon> greenFichas;
+	private ArrayList<ImageIcon> redFichas;
+	private ArrayList<ImageIcon> blueFichas;
+	private ArrayList<ImageIcon> yellowFichas;
+	private ArrayList<ImageIcon> greenFichas;
 	
-	ArrayList<ArrayList<ImageIcon>> colors;
+	private ArrayList<ArrayList<ImageIcon>> colors;
+	private ArrayList<ImageIcon> icons;
+	
 	
 	public FichasPanel(Controller ctrl) {		
 		_ctrl = ctrl;
@@ -79,6 +81,12 @@ public class FichasPanel extends JPanel implements GameObserver{
 		colors.add(yellowFichas);
 		colors.add(greenFichas);
 		
+		icons = new ArrayList<ImageIcon>();
+		icons.add(redPlayer);
+		icons.add(bluePlayer);
+		icons.add(yellowPlayer);
+		icons.add(greenPlayer);
+		
 	}
 	
 	
@@ -95,7 +103,15 @@ public class FichasPanel extends JPanel implements GameObserver{
         playerIcon = new JLabel(redPlayer);
 		
 		pn.add(playerIcon);
-	
+
+//		// PRUEBA
+//		JButton b = new JButton();
+//		b.setIcon(redFichas.get(0));
+//		b.addActionListener(new FichaButtonListener(0));
+//		
+//		botones.add(b);
+//		pn.add(b);
+		
 		 
 		for(int i=0;i<21;i++) {
 			// y aquí 150,130
@@ -132,52 +148,32 @@ public class FichasPanel extends JPanel implements GameObserver{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
-	public void onFichaAnadida(int color, int x, int y, int f) {
+	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Elimino la ficha f de la lista color
-		colors.get(color).remove(f);
+		colors.get(jugador.getId()).remove(f);
 	}
+	
 	@Override
-	public void updateIcono(int d) {
-		 
-		if(d==0) {
-        	
-			playerIcon.setIcon(redPlayer);
-			 for(int i=0;i<21;i++) {
-				 botones.get(i).setIcon(colors.get(d).get(i));
-			       //  pn.add(botones.get(i));
-				}
-		        
-		}
-		if(d==1) {
-			playerIcon.setIcon(bluePlayer);
-			
-			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(colors.get(d).get(i));
-		      //   pn.add(botones.get(i));
-			}
-	        
-		}
-		if(d==2) {
-			playerIcon.setIcon(yellowPlayer);
-			
-			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(colors.get(d).get(i));
-		        // pn.add(botones.get(i));
-			}
-	        
-		}
-		if(d==3) {
-			playerIcon.setIcon(greenPlayer);
-			
-			for(int i=0;i<21;i++) {
-				botones.get(i).setIcon(colors.get(d).get(i));
-		    //     pn.add(botones.get(i));
-			}
-	        
-			
+	public void update(Jugador jugador) {
+
+		int id = jugador.getId();
+		
+		playerIcon.setIcon(icons.get(id));
+
+		for(int i=0; i<jugador.getNumFichas(); i++) {
+			botones.get(i).setIcon(colors.get(id).get(i));
+			pn.add(botones.get(i));
 		}
 		
-	}		
+	}
+	
+//	private void limpiarBotones(JPanel pn, ArrayList<JButton> botones) {
+//		for(int i = 0; i < botones.size(); i++) {
+//			pn.remove(botones.get(i));
+//			botones.remove(i);
+//		}
+//	}
 	
 }

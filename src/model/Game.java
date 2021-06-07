@@ -5,8 +5,6 @@ import java.util.List;
 import view.FichasPanel;
 import view.GamePanel;
 import exceptions.GameException;
-//import javafx.beans.InvalidationListener;
-//import javafx.beans.Observable;
 
 import java.util.HashMap;
 
@@ -20,6 +18,10 @@ public class Game{
     private HashMap<String, Integer> mapaCasillas;
     private List<GameObserver> go;
 
+    // TODO Borrar 
+    // private Jugador currentPlayer;
+    // private Ficha currentFicha;
+    
     
     private int currentPlayer = 0;
     private int currentFicha = 0;
@@ -45,33 +47,30 @@ public class Game{
        
     public void initJugadores(int p, List<IAType> iaList) {
     	for(int i = 0; i < p; i++) {
-    		jugadores.add(new Jugador(i+1));
+    		jugadores.add(new Jugador(i));
     	}
     	for(int i = p; i < p+iaList.size(); i++) {
     		IAType ia = iaList.get(i-p); 
     		
-    		jugadores.add(new JugadorIA(i+1, ia.getLevel()));    		
+    		jugadores.add(new JugadorIA(i, ia.getLevel()));    		
     	}
     	
     }
     
-    
-    
-
      
     public void update() {  
     	
-    	
     	currentPlayer++;
-    	if(currentPlayer >= jugadores.size()) {
+    	if(currentPlayer > jugadores.size()-1) {
 			currentPlayer = 0;
 			primeraRonda = false;
 			turno++;
 		}
-
     	
-    	for(GameObserver o : go) {    		
-			o.updateIcono(currentPlayer);
+       	
+    	for(GameObserver o : go) {
+    		o.update(jugadores.get(currentPlayer));
+			//o.update(null);
 		}
     	
     	
@@ -104,24 +103,29 @@ public class Game{
     	
     	if(jugadorPuedeColocar(currentPlayer) && checkEsquinas(ficha)) {
     		for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
-    			posicion[0] = Integer.valueOf(ficha.getFichaX(i)); posicion[1] = Integer.valueOf(ficha.getFichaY(i));
+    			posicion[0] = Integer.valueOf(ficha.getFichaX(i));
+    			posicion[1] = Integer.valueOf(ficha.getFichaY(i));
         		
-        		if(posicion[0] < 0 || posicion[0] > DIM_BOARD || posicion[1] < 0 || posicion[1] > DIM_BOARD) {
+        		if(posicion[0] < 0 || posicion[0] > DIM_BOARD || 
+        				posicion[1] < 0 || posicion[1] > DIM_BOARD) {
         	    	
         	    	throw new GameException("Posición no válida.\n");
         		}
         		
-        		if(mapaCasillas.containsKey(Arrays.toString(posicion))) { //Si estÃ¡ ocupada
+        		if(mapaCasillas.containsKey(Arrays.toString(posicion))) { //Si esta ocupada
         			throw new GameException("Posición no válida.\n");
         		}
         	}
     		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
-    			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
+    			posicion[0] = ficha.getFichaX(i);
+    			posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			
-    			for(GameObserver o : go) {
-    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i), f);
+    			for(GameObserver o : go) {// TODO ficha.getEquipo()
+    				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, jugadores.get(currentPlayer));
+    				// TODO currentPlayer
+//    				o.onFichaAnadida(currentPlayer, ficha.getFichaX(i), ficha.getFichaY(i), f);
     			}
     		}
     		jugadores.get(currentPlayer).borrarPieza(f);
@@ -134,6 +138,14 @@ public class Game{
     	return fichaAnadida;
     }
     
+    
+    /**
+     * checkEsquinas:
+     * LLama a cada casilla de la ficha f y comprueba si la posición de al menos una de
+     * las casillas se corresponda con la posición de alguna de las esquinas.
+     * @param ficha
+     * @return
+     */
     public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
 		Integer[] esquina1 = { 0, 0 }, esquina2 = { DIM_BOARD - 1, 0 }, esquina3 = { 0, DIM_BOARD - 1 },
 				esquina4 = { DIM_BOARD - 1, DIM_BOARD - 1 };
@@ -155,6 +167,12 @@ public class Game{
 	}
     //------------
  
+    /**
+     * jugadorPuedeColocar:
+     * llama a jugador para ver si tiene piezas y ver si puede colocar
+     * @param jugador
+     * @return jugador.puedeJugar()
+     */
     public boolean jugadorPuedeColocar(int jugador) {
     	//llama a jugador para ver si tiene piezas y ver si puede colocar
     	return jugadores.get(jugador).puedeJugar();
@@ -173,7 +191,7 @@ public class Game{
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
-    				o.onFichaAnadida(ficha.getEquipo(), ficha.getFichaX(i), ficha.getFichaY(i), f);
+    				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, null);
     			}
     		}
     		//Llamar a jugador para quitarle la ficha que acaba de colocar

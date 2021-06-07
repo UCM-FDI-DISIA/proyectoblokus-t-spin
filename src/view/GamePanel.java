@@ -18,16 +18,14 @@ import model.Jugador;
 public class GamePanel extends JPanel implements GameObserver {
 
 	private static final long serialVersionUID = -9060831481452731983L;
-	private static int totalPlayers;
 	private TableroPanel tablero;
 	private PanelJugadores panelJ;
 	private PlayerMove move;
 	private FichasPanel pFichas;
 	private Controller ctrl;
 	
-	public GamePanel(Controller ctrl, int totalPlayers) {
+	public GamePanel(Controller ctrl) {
 		super(new BorderLayout());
-		this.totalPlayers = totalPlayers;
 		this.ctrl = ctrl;
 		initGui();
 	}
@@ -36,7 +34,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	private void initGui() {
 		
 		tablero = new TableroPanel(ctrl);
-		panelJ = new PanelJugadores(totalPlayers);
+		panelJ = new PanelJugadores(ctrl);
 		move = new PlayerMove(ctrl);
 		pFichas =  new FichasPanel(ctrl);
 		
@@ -48,6 +46,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	
 		this.add(eastPanel, BorderLayout.EAST);
 		this.add(pFichas.inf(), BorderLayout.SOUTH);
+		//this.add(pFichas.inf(_ctrl.getCurrentPlayer()), BorderLayout.SOUTH);
 		this.add(tablero, BorderLayout.CENTER);
 	}
 
@@ -59,14 +58,14 @@ public class GamePanel extends JPanel implements GameObserver {
 
 
 	@Override
-	public void onFichaAnadida(int color, int x, int y, int f) {
+	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void updateIcono(int color) {
+	public void update(Jugador jugador) {
 		// TODO Auto-generated method stub
 		
 	}

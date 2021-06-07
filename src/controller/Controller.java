@@ -98,7 +98,8 @@ public class Controller {
 
 
 	public void setPlayers(int numPlayers) {
-		game.initJugadores(numPlayers);
+		//game.initJugadores(numPlayers);
+	}
 		
 
 	public void setPlayers(int numPlayers, List<IAType> IAs) {
@@ -117,5 +118,8 @@ public class Controller {
 		game.setCurrentFicha(f);
 	}
 
+	public int getNumJugadores() {
+		return game.getNumJugadores();
+	}
 
 }

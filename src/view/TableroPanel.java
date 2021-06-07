@@ -77,28 +77,26 @@ public class TableroPanel extends JPanel implements GameObserver{
 	}
 
 	@Override
-	public void onFichaAnadida(int color, int x, int y, int f) {
+	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Auto-generated method stub
-		if(color == 1) {
-			tablero[x][y].toggle(Color.red);	
-		}
-		else if(color == 2) {
-			tablero[x][y].toggle(Color.blue);
-		}
-		else if(color == 3) {
-			tablero[x][y].toggle(Color.yellow);
-		}
-		else {
-			tablero[x][y].toggle(Color.green);
-		}
 		
+		int id = jugador.getId();
 		
+		switch(id) {
+		
+			case 0 : tablero[x][y].toggle(Color.red); break;
+			case 1 : tablero[x][y].toggle(Color.blue); break;
+			case 2 : tablero[x][y].toggle(Color.yellow); break;
+			case 3 : tablero[x][y].toggle(Color.green); break;
+			default: break;
+		}
+	
 	}
 
 
 
 	@Override
-	public void updateIcono(int color) {
+	public void update(Jugador jugador) {
 		// TODO Auto-generated method stub
 		
 	}

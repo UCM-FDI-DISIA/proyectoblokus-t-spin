@@ -54,12 +54,8 @@ public class Jugador {
     }
 
     public boolean puedeJugar() { 
-    	if (getNumFichas() > 0) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
+    	if (arrayFichas.size() > 0) return true;
+    	return false;
     }
     
     public int getNumFichas() {
