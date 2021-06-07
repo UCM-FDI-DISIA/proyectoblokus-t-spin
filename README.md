@@ -106,6 +106,9 @@ Puedes encontrar mucho más de este proyecto en nuestra [Wiki.](https://github.c
 * **H-18:** Visualizar puntuación.
 * **H-19:** Visualizar botón rotar.
 * **H-20:** Visualizar botón pasar turno.
+* **H-21:** Jugar con bots.
+* **H-22:** Visualizar menú de bots.
+* **H-23:** Elegir dificultad.
 
 </details>
 
