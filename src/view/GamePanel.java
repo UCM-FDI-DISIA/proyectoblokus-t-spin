@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import controller.Controller;
 import model.GameObserver;
@@ -21,22 +22,26 @@ public class GamePanel extends JPanel implements GameObserver {
 	private TableroPanel tablero;
 	private PanelJugadores panelJ;
 	private PlayerMove move;
-	private FichasPanel pFichas;
-	private Controller ctrl;
+	private JPanel pFichas;
+	private Controller _ctrl;
 	
-	public GamePanel(Controller ctrl) {
+	
+	
+	public GamePanel(Controller _ctrl) {
 		super(new BorderLayout());
-		this.ctrl = ctrl;
+		this._ctrl = _ctrl;
 		initGui();
 	}
 	
 	
 	private void initGui() {
 		
-		tablero = new TableroPanel(ctrl);
-		panelJ = new PanelJugadores(ctrl);
-		move = new PlayerMove(ctrl);
-		pFichas =  new FichasPanel(ctrl);
+		tablero = new TableroPanel(_ctrl);
+		panelJ = new PanelJugadores(_ctrl);
+		move = new PlayerMove(_ctrl);
+		
+		pFichas = new JPanel();
+		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
 		
 		JPanel eastPanel = new JPanel();
 		eastPanel.setLayout(new BorderLayout(0, 0));
@@ -45,9 +50,16 @@ public class GamePanel extends JPanel implements GameObserver {
 		eastPanel.add(move, BorderLayout.SOUTH);
 	
 		this.add(eastPanel, BorderLayout.EAST);
-		this.add(pFichas.inf(), BorderLayout.SOUTH);
-		//this.add(pFichas.inf(_ctrl.getCurrentPlayer()), BorderLayout.SOUTH);
+		this.add(pFichas, BorderLayout.SOUTH);
+		//this.add(pFichas.inf(__ctrl.getCurrentPlayer()), BorderLayout.SOUTH);
 		this.add(tablero, BorderLayout.CENTER);
+	}
+	
+	public void cargarFichasJugador(JScrollPane previousPanel) {
+		previousPanel.setVisible(false);
+		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
+		pFichas.setVisible(true);
+		
 	}
 
 	@Override

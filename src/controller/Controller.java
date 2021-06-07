@@ -121,5 +121,10 @@ public class Controller {
 	public int getNumJugadores() {
 		return game.getNumJugadores();
 	}
+	
+	public int getCurrentPlayer() {
+		return game.getCurrentPlayer();
+	}
 
+	
 }

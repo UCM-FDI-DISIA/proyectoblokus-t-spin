@@ -57,8 +57,8 @@ public class MainWindow extends JFrame {
 	
 	public void openMenu(JPanel previousPanel) {
 			previousPanel.setVisible(false);
-			mainPanel.setVisible(true);
 			mainPanel.add(new MainMenu(_controller, mainPanel, this),BorderLayout.CENTER);
+			mainPanel.setVisible(true);
 			this.setContentPane(mainPanel);
 	}
 	

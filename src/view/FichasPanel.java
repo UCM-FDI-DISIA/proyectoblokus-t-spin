@@ -24,10 +24,13 @@ import view.MainMenu.ExitButtonListener;
 import view.MainMenu.PlayersButtonListener;
 
 
-public class FichasPanel extends JPanel implements GameObserver{
+public class FichasPanel extends JScrollPane implements GameObserver{
 
 	private static final long serialVersionUID = 1L;
 	private Controller _ctrl;
+	
+	private JPanel _previousPanel;
+	private GamePanel _gamePanel;
 	
 	private ImageIcon redPlayer;
 	private ImageIcon bluePlayer;
@@ -49,10 +52,14 @@ public class FichasPanel extends JPanel implements GameObserver{
 	private ArrayList<ImageIcon> icons;
 	
 	
-	public FichasPanel(Controller ctrl) {		
+	public FichasPanel(Controller ctrl, JPanel previousPanel, GamePanel gamePanel) {		
 		_ctrl = ctrl;
 		_ctrl.addObserver(this);
+		_previousPanel = previousPanel;
+		_gamePanel = gamePanel;
+		
 		initIcons();
+		initGUI(_ctrl.getCurrentPlayer());
 	}
 
 	private void initIcons() {
@@ -90,42 +97,32 @@ public class FichasPanel extends JPanel implements GameObserver{
 	}
 	
 	
-	public JScrollPane inf() {	
+	private void initGUI(int jugador) {
 		
 		pn = new JPanel();
+		JScrollPane s = new JScrollPane(pn, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		s.setPreferredSize(new Dimension(0,200));
 		
 		botones = new ArrayList<JButton>();
 		
-        JScrollPane s = new JScrollPane(pn, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        s.setPreferredSize(new Dimension(0,200));
         
-        // He cambiado el tamaño del button aquí 150,130
-        playerIcon = new JLabel(redPlayer);
+        playerIcon = new JLabel(icons.get(jugador));
 		
 		pn.add(playerIcon);
-
-//		// PRUEBA
-//		JButton b = new JButton();
-//		b.setIcon(redFichas.get(0));
-//		b.addActionListener(new FichaButtonListener(0));
-//		
-//		botones.add(b);
-//		pn.add(b);
 		
-		 
-		for(int i=0;i<21;i++) {
-			// y aquí 150,130
+		for(int i=0; i<_ctrl.remaining(); i++) {
+			
 			JButton b = new JButton();
-			b.setIcon(redFichas.get(i));
+			b.setIcon(colors.get(jugador).get(i));
 			b.addActionListener(new FichaButtonListener(i));
 			
 			botones.add(b);
 			pn.add(b);
 		}
-
-		return s;
+		
+		this.add(s);
 	}
-			 	    
+	 	    
         
 	class FichaButtonListener implements ActionListener {
 		
