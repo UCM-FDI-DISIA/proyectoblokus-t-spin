@@ -17,7 +17,7 @@ public class JugadorIA extends Jugador{
 		
 		if(game.getPrimeraRonda()) {
 			
-			if(getId()==1) {
+			if(getId()==0) {
 				game.jugarPrimeraRonda(0,0,19);
 				return true;
 			}
