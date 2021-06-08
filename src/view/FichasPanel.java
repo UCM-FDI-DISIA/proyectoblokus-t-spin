@@ -24,7 +24,7 @@ import view.MainMenu.ExitButtonListener;
 import view.MainMenu.PlayersButtonListener;
 
 
-public class FichasPanel extends JScrollPane implements GameObserver{
+public class FichasPanel extends JPanel implements GameObserver{
 
 	private static final long serialVersionUID = 1L;
 	private Controller _ctrl;
@@ -38,7 +38,6 @@ public class FichasPanel extends JScrollPane implements GameObserver{
 	private ImageIcon greenPlayer;
 	
 	
-	JPanel pn;
 	JLabel playerIcon;
 	
 	private ArrayList<JButton> botones;
@@ -98,17 +97,13 @@ public class FichasPanel extends JScrollPane implements GameObserver{
 	
 	
 	private void initGUI(int jugador) {
-		
-		pn = new JPanel();
-		JScrollPane s = new JScrollPane(pn, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		s.setPreferredSize(new Dimension(0,200));
-		
+				
 		botones = new ArrayList<JButton>();
 		
         
         playerIcon = new JLabel(icons.get(jugador));
 		
-		pn.add(playerIcon);
+		this.add(playerIcon);
 		
 		for(int i=0; i<_ctrl.remaining(); i++) {
 			
@@ -117,10 +112,9 @@ public class FichasPanel extends JScrollPane implements GameObserver{
 			b.addActionListener(new FichaButtonListener(i));
 			
 			botones.add(b);
-			pn.add(b);
+			this.add(b);
 		}
-		
-		this.add(s);
+
 	}
 	 	    
         
@@ -155,14 +149,16 @@ public class FichasPanel extends JScrollPane implements GameObserver{
 	@Override
 	public void update(Jugador jugador) {
 
-		int id = jugador.getId();
+		_gamePanel.cargarFichasJugador(this);
 		
-		playerIcon.setIcon(icons.get(id));
-
-		for(int i=0; i<jugador.getNumFichas(); i++) {
-			botones.get(i).setIcon(colors.get(id).get(i));
-			pn.add(botones.get(i));
-		}
+//		int id = jugador.getId();
+//		
+//		playerIcon.setIcon(icons.get(id));
+//
+//		for(int i=0; i<jugador.getNumFichas(); i++) {
+//			botones.get(i).setIcon(colors.get(id).get(i));
+//			this.add(botones.get(i));
+//		}
 		
 	}
 	

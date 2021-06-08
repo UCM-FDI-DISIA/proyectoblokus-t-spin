@@ -25,6 +25,8 @@ public class GamePanel extends JPanel implements GameObserver {
 	private JPanel pFichas;
 	private Controller _ctrl;
 	
+	private JScrollPane scrollPane;
+	
 	
 	
 	public GamePanel(Controller _ctrl) {
@@ -43,6 +45,9 @@ public class GamePanel extends JPanel implements GameObserver {
 		pFichas = new JPanel();
 		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
 		
+		scrollPane = new JScrollPane(pFichas, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setPreferredSize(new Dimension(0,200));
+		
 		JPanel eastPanel = new JPanel();
 		eastPanel.setLayout(new BorderLayout(0, 0));
 		eastPanel.setPreferredSize(new Dimension(420,500));
@@ -50,16 +55,15 @@ public class GamePanel extends JPanel implements GameObserver {
 		eastPanel.add(move, BorderLayout.SOUTH);
 	
 		this.add(eastPanel, BorderLayout.EAST);
-		this.add(pFichas, BorderLayout.SOUTH);
-		//this.add(pFichas.inf(__ctrl.getCurrentPlayer()), BorderLayout.SOUTH);
+		this.add(scrollPane, BorderLayout.SOUTH);
 		this.add(tablero, BorderLayout.CENTER);
 	}
 	
-	public void cargarFichasJugador(JScrollPane previousPanel) {
+	public void cargarFichasJugador(JPanel previousPanel) {
+		
 		previousPanel.setVisible(false);
 		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
-		pFichas.setVisible(true);
-		
+		pFichas.setVisible(true);	
 	}
 
 	@Override
