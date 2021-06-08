@@ -60,25 +60,30 @@ public class Game{
      
     public void update() {  
     	
+    	
     	currentPlayer++;
     	if(currentPlayer > jugadores.size()-1) {
+    		
+    		primeraRonda = false;
 			currentPlayer = 0;
-			primeraRonda = false;
 			turno++;
 		}
     	
-       	
+    	if(jugadores.get(currentPlayer).computerAction(this)) {  
+    		update();
+    	} 	
+       
     	for(GameObserver o : go) {
     		o.update(jugadores.get(currentPlayer));
 			//o.update(null);
 		}
     	
     	
-    	if(jugadores.get(currentPlayer).computerAction(this)) {    		
-        	update();
-    	} 	
+    	
     }
   
+    
+    
     public boolean casillaVacia(int x, int y) {
     	boolean ok=true;
     	Integer[] posicion = {0,0};
@@ -121,7 +126,6 @@ public class Game{
     			posicion[0] = ficha.getFichaX(i);
     			posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
-    			
     			for(GameObserver o : go) {// TODO ficha.getEquipo()
     				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, jugadores.get(currentPlayer));
     				// TODO currentPlayer
@@ -146,6 +150,8 @@ public class Game{
      * @param ficha
      * @return
      */
+    
+    
     public boolean checkEsquinas(Ficha ficha) {// comprueba que la ficha se coloca en alguna de las esquinas
 		Integer[] esquina1 = { 0, 0 }, esquina2 = { DIM_BOARD - 1, 0 }, esquina3 = { 0, DIM_BOARD - 1 },
 				esquina4 = { DIM_BOARD - 1, DIM_BOARD - 1 };
@@ -165,6 +171,7 @@ public class Game{
 		}
 		return false;
 	}
+    
     //------------
  
     /**
@@ -173,12 +180,14 @@ public class Game{
      * @param jugador
      * @return jugador.puedeJugar()
      */
+    
     public boolean jugadorPuedeColocar(int jugador) {
     	//llama a jugador para ver si tiene piezas y ver si puede colocar
     	return jugadores.get(jugador).puedeJugar();
     }
     
     public boolean anadirFicha(int f, int y, int x) {
+    	System.out.println("Entra en añadirficha");
     	Ficha ficha;
     	ficha = jugadores.get(currentPlayer).getFicha(f);
     	ficha.moverFicha(x, y);
@@ -191,7 +200,7 @@ public class Game{
     			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
     			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
-    				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, null);
+    				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, jugadores.get(currentPlayer));
     			}
     		}
     		//Llamar a jugador para quitarle la ficha que acaba de colocar
@@ -205,6 +214,7 @@ public class Game{
     	else {
     		throw new GameException("Posición no válida.\n");
     	}
+			
     	return fichaAnadida;
     }
     

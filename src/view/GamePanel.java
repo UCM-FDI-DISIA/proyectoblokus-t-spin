@@ -29,6 +29,7 @@ public class GamePanel extends JPanel implements GameObserver {
 	
 	
 	
+	
 	public GamePanel(Controller _ctrl) {
 		super(new BorderLayout());
 		this._ctrl = _ctrl;
@@ -64,6 +65,7 @@ public class GamePanel extends JPanel implements GameObserver {
 		previousPanel.setVisible(false);
 		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
 		pFichas.setVisible(true);	
+		
 	}
 
 	@Override
@@ -76,13 +78,14 @@ public class GamePanel extends JPanel implements GameObserver {
 	@Override
 	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Auto-generated method stub
+
 		
 	}
 
 
 	@Override
 	public void update(Jugador jugador) {
-		// TODO Auto-generated method stub
+
 		
 	}
 	

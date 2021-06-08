@@ -90,11 +90,11 @@ public class PanelJugadores extends JPanel implements GameObserver {
 	@Override
 	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Auto-generated method stub
-		
 		int id = jugador.getId()+1;
 		int puntuacion = jugador.getPuntuacion();
 		
-		ju0.setText("Jugador " + id +" : " + Integer.toString(puntuacion));
+		
+		js.get(id-1).setText("Jugador " + id +" : " + Integer.toString(puntuacion));
 					
 	}
 

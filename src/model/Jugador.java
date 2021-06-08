@@ -42,7 +42,7 @@ public class Jugador {
     		}
     	}
     	
-    	return puntuacion;
+    	return Math.abs(puntuacion);
     }
     
     public void puntUltimoCuadrado() {
