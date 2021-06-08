@@ -149,7 +149,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 	@Override
 	public void update(Jugador jugador) {
 
-		_gamePanel.cargarFichasJugador(this);
+		_gamePanel.cargarFichasJugador(this, _ctrl);
 		
 //		int id = jugador.getId();
 //		
