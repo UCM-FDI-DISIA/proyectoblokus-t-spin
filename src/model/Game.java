@@ -182,9 +182,12 @@ public class Game{
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
 <<<<<<< HEAD
+<<<<<<< HEAD
     	
     	boolean fichaAnadida = cumpleReglas(ficha);
 =======
+=======
+>>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
     	boolean fichaAnadida = false;
 >>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
     	    	

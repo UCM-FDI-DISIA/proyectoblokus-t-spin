@@ -94,8 +94,12 @@ public class GamePanel extends JPanel implements GameObserver {
 		
 		previousPanel.setVisible(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		pFichas.removeAll();
 		pFichas.add(new FichasPanel(ctrl, pFichas, this, colors));
+=======
+		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
+>>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
 =======
 		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
 >>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
