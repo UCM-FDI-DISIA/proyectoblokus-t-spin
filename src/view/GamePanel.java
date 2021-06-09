@@ -90,9 +90,10 @@ public class GamePanel extends JPanel implements GameObserver {
 		
 	}
 	
-	public void cargarFichasJugador(JPanel previousPanel) {
+	public void cargarFichasJugador(JPanel previousPanel, Controller ctrl) {
 		
 		previousPanel.setVisible(false);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		pFichas.removeAll();
@@ -103,8 +104,12 @@ public class GamePanel extends JPanel implements GameObserver {
 =======
 		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
 >>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
+=======
+		pFichas.removeAll();
+		pFichas.add(new FichasPanel(ctrl, pFichas, this, colors));
+>>>>>>> parent of f4d3678 (versión anterior)
 		pFichas.setVisible(true);	
-		
+		pFichas.revalidate();
 	}
 
 	@Override
