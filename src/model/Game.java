@@ -16,7 +16,12 @@ public class Game{
 	private boolean juegoTerminado;
     private List<Jugador> jugadores;  
     private HashMap<String, Integer> mapaCasillas;
-    private List<GameObserver> go; 
+    private List<GameObserver> go;
+
+    // TODO Borrar 
+    // private Jugador currentPlayer;
+    // private Ficha currentFicha;
+    
     
     private int currentPlayer = 0;
     private int currentFicha = 0;
@@ -55,6 +60,7 @@ public class Game{
      
     public void update() {  
     	
+    	
     	currentPlayer++;
     	if(currentPlayer > jugadores.size()-1) {
     		
@@ -72,6 +78,8 @@ public class Game{
 			//o.update(null);
 		}
     	
+    	
+    	
     }
   
     
@@ -85,7 +93,9 @@ public class Game{
 			ok=false;
 		}
     	return ok;
+    	
     }
+    
     
     
     public boolean jugarPrimeraRonda(int f, int y, int x) {
@@ -115,9 +125,11 @@ public class Game{
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);
     			posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(currentPlayer));
+    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {// TODO ficha.getEquipo()
     				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, jugadores.get(currentPlayer));
+    				// TODO currentPlayer
+//    				o.onFichaAnadida(currentPlayer, ficha.getFichaX(i), ficha.getFichaY(i), f);
     			}
     		}
     		jugadores.get(currentPlayer).borrarPieza(f);
@@ -160,6 +172,7 @@ public class Game{
 		return false;
 	}
     
+    //------------
  
     /**
      * jugadorPuedeColocar:
@@ -179,27 +192,13 @@ public class Game{
     	ficha = jugadores.get(currentPlayer).getFicha(f);
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    	
-    	boolean fichaAnadida = cumpleReglas(ficha);
-=======
-=======
->>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
     	boolean fichaAnadida = false;
->>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
-=======
-    	
-    	boolean fichaAnadida = cumpleReglas(ficha);
->>>>>>> parent of f4d3678 (versión anterior)
     	    	
-    	if(fichaAnadida && jugadorPuedeColocar(currentPlayer)) {   
+    	if(fichaAnadida = cumpleReglas(ficha)) {   
     		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
-    			posicion[0] = ficha.getFichaX(i);
-    			posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(currentPlayer));
+    			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
+    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
     				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, jugadores.get(currentPlayer));
     			}
@@ -221,29 +220,29 @@ public class Game{
     
     public boolean cumpleReglas(Ficha ficha) {
     	Integer[] pos = {0,0};
+    	Integer equipo = ficha.getEquipo();
     	boolean casillaValida = false;
     	//checkea si vacia y contiguas
     	
     	for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
     		
-    		pos[0] = Integer.valueOf(ficha.getFichaX(i));
-    		pos[1] = Integer.valueOf(ficha.getFichaY(i));
+    		pos[0] = Integer.valueOf(ficha.getFichaX(i)); pos[1] = Integer.valueOf(ficha.getFichaY(i));
     		
     		if(pos[0] < 0 || pos[0] > DIM_BOARD-1 || pos[1] < 0 || pos[1] > DIM_BOARD-1) {    			    			
     			
     			return false;
     		}
     		
-    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si esta ocupada    			    			
+    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si está ocupada    			    			
     			
     			return false;
     		}
     		
-    		if(checkDiagonal(pos, currentPlayer)) { //Si no tiene casillas del equipo en diagonal    			
+    		if(checkDiagonal(pos, equipo)) { //Si no tiene casillas del equipo en diagonal    			
     			casillaValida = true;    			
     		}
     		
-    		if(!checkContiguaNoDiagonal(pos, currentPlayer)) { //Si tiene casillas del equipo contiguas no diagonales    		
+    		if(!checkContiguaNoDiagonal(pos, equipo)) { //Si tiene casillas del equipo contiguas no diagonales    		
     			
     			return false;
     		}

@@ -149,23 +149,7 @@ public class FichasPanel extends JPanel implements GameObserver{
 	@Override
 	public void update(Jugador jugador) {
 
-<<<<<<< HEAD
 		_gamePanel.cargarFichasJugador(this);
-<<<<<<< HEAD
-=======
-		
-//		int id = jugador.getId();
-//		
-//		playerIcon.setIcon(icons.get(id));
-//
-//		for(int i=0; i<jugador.getNumFichas(); i++) {
-//			botones.get(i).setIcon(colors.get(id).get(i));
-//			this.add(botones.get(i));
-//		}
->>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
-=======
-		_gamePanel.cargarFichasJugador(this, _ctrl);
->>>>>>> parent of f4d3678 (versión anterior)
 		
 //		int id = jugador.getId();
 //		
