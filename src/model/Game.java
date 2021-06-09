@@ -115,9 +115,11 @@ public class Game{
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);
     			posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(currentPlayer));
+    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {// TODO ficha.getEquipo()
     				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, jugadores.get(currentPlayer));
+    				// TODO currentPlayer
+//    				o.onFichaAnadida(currentPlayer, ficha.getFichaX(i), ficha.getFichaY(i), f);
     			}
     		}
     		jugadores.get(currentPlayer).borrarPieza(f);
@@ -179,15 +181,18 @@ public class Game{
     	ficha = jugadores.get(currentPlayer).getFicha(f);
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
+<<<<<<< HEAD
     	
     	boolean fichaAnadida = cumpleReglas(ficha);
+=======
+    	boolean fichaAnadida = false;
+>>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
     	    	
     	if(fichaAnadida && jugadorPuedeColocar(currentPlayer)) {   
     		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
-    			posicion[0] = ficha.getFichaX(i);
-    			posicion[1] = ficha.getFichaY(i);
-    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(currentPlayer));
+    			posicion[0] = ficha.getFichaX(i);posicion[1] = ficha.getFichaY(i);
+    			mapaCasillas.put(Arrays.toString(posicion), Integer.valueOf(ficha.getEquipo()));
     			for(GameObserver o : go) {
     				o.onFichaAnadida(ficha.getFichaX(i), ficha.getFichaY(i), f, jugadores.get(currentPlayer));
     			}
@@ -209,13 +214,13 @@ public class Game{
     
     public boolean cumpleReglas(Ficha ficha) {
     	Integer[] pos = {0,0};
+    	Integer equipo = ficha.getEquipo();
     	boolean casillaValida = false;
     	//checkea si vacia y contiguas
     	
     	for(int i = 0; i < ficha.getNumCasillas(); i++) {    		
     		
-    		pos[0] = Integer.valueOf(ficha.getFichaX(i));
-    		pos[1] = Integer.valueOf(ficha.getFichaY(i));
+    		pos[0] = Integer.valueOf(ficha.getFichaX(i)); pos[1] = Integer.valueOf(ficha.getFichaY(i));
     		
     		if(pos[0] < 0 || pos[0] > DIM_BOARD-1 || pos[1] < 0 || pos[1] > DIM_BOARD-1) {    			    			
     			
@@ -227,11 +232,11 @@ public class Game{
     			return false;
     		}
     		
-    		if(checkDiagonal(pos, currentPlayer)) { //Si no tiene casillas del equipo en diagonal    			
+    		if(checkDiagonal(pos, equipo)) { //Si no tiene casillas del equipo en diagonal    			
     			casillaValida = true;    			
     		}
     		
-    		if(!checkContiguaNoDiagonal(pos, currentPlayer)) { //Si tiene casillas del equipo contiguas no diagonales    		
+    		if(!checkContiguaNoDiagonal(pos, equipo)) { //Si tiene casillas del equipo contiguas no diagonales    		
     			
     			return false;
     		}

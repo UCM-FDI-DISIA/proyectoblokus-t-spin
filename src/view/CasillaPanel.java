@@ -14,8 +14,6 @@ import model.Jugador;
 
 public class CasillaPanel extends JButton implements GameObserver{
 	private static final long serialVersionUID = 1L;
-	
-	
 	private int _x, _y;
 	
 	public CasillaPanel(int x, int y) {
@@ -68,16 +66,7 @@ public class CasillaPanel extends JButton implements GameObserver{
 	@Override
 	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Auto-generated method stub
-		
-		int id = jugador.getId();
-		
-		switch (id) {
-			case 0: toggle(Color.red); break; 
-			case 1: toggle(Color.blue); break;
-			case 2: toggle(Color.yellow); break;
-			case 3: toggle(Color.green); break;
-			default: break;
-		}
+		toggle(Color.red);
 	}
 
 	@Override

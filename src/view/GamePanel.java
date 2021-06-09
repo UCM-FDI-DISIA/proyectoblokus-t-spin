@@ -90,13 +90,17 @@ public class GamePanel extends JPanel implements GameObserver {
 		
 	}
 	
-	public void cargarFichasJugador(JPanel previousPanel, Controller ctrl) {
+	public void cargarFichasJugador(JPanel previousPanel) {
 		
 		previousPanel.setVisible(false);
+<<<<<<< HEAD
 		pFichas.removeAll();
 		pFichas.add(new FichasPanel(ctrl, pFichas, this, colors));
+=======
+		pFichas.add(new FichasPanel(_ctrl, pFichas, this));
+>>>>>>> parent of 2a258a4 (FichasPanel actualiza los botones)
 		pFichas.setVisible(true);	
-		pFichas.revalidate();
+		
 	}
 
 	@Override
