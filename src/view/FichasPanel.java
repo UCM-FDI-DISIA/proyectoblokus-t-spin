@@ -42,20 +42,19 @@ public class FichasPanel extends JPanel implements GameObserver{
 	
 	private ArrayList<JButton> botones;
 	
-	private ArrayList<ImageIcon> redFichas;
-	private ArrayList<ImageIcon> blueFichas;
-	private ArrayList<ImageIcon> yellowFichas;
-	private ArrayList<ImageIcon> greenFichas;
+	
 	
 	private ArrayList<ArrayList<ImageIcon>> colors;
 	private ArrayList<ImageIcon> icons;
 	
 	
-	public FichasPanel(Controller ctrl, JPanel previousPanel, GamePanel gamePanel) {		
+	public FichasPanel(Controller ctrl, JPanel previousPanel, GamePanel gamePanel, ArrayList<ArrayList<ImageIcon>> colors) {		
 		_ctrl = ctrl;
 		_ctrl.addObserver(this);
 		_previousPanel = previousPanel;
 		_gamePanel = gamePanel;
+		
+		this.colors = new ArrayList<ArrayList<ImageIcon>>(colors);
 		
 		initIcons();
 		initGUI(_ctrl.getCurrentPlayer());
@@ -68,24 +67,6 @@ public class FichasPanel extends JPanel implements GameObserver{
 		yellowPlayer = new ImageIcon(((new ImageIcon("resources/icons/YellowPLayer.png")).getImage()).getScaledInstance(80, 65, java.awt.Image.SCALE_SMOOTH));
 		greenPlayer = new ImageIcon(((new ImageIcon("resources/icons/GreenPLayer.png")).getImage()).getScaledInstance(80, 65, java.awt.Image.SCALE_SMOOTH));
 		
-		redFichas = new ArrayList<ImageIcon>();
-		blueFichas = new ArrayList<ImageIcon>();
-		yellowFichas = new ArrayList<ImageIcon>();
-		greenFichas = new ArrayList<ImageIcon>();
-		
-		for (int i=0;i<21;i++) { // TODO check if remaining is equal to 21 when we call it here
-			
-			redFichas.add(new ImageIcon(((new ImageIcon("resources/FichasRojas/"+i+".png")).getImage()).getScaledInstance(100, 90, Image.SCALE_DEFAULT)));
-			blueFichas.add(new ImageIcon(((new ImageIcon("resources/FichasAzules/"+i+".png")).getImage()).getScaledInstance(100, 90, Image.SCALE_DEFAULT)));
-			yellowFichas.add(new ImageIcon(((new ImageIcon("resources/FichasAmarillas/"+i+".png")).getImage()).getScaledInstance(100, 90, Image.SCALE_DEFAULT)));
-			greenFichas.add(new ImageIcon(((new ImageIcon("resources/FichasVerdes/"+i+".png")).getImage()).getScaledInstance(100, 90, Image.SCALE_DEFAULT)));
-		}
-		
-		colors = new ArrayList<ArrayList<ImageIcon>>();
-		colors.add(redFichas);
-		colors.add(blueFichas);
-		colors.add(yellowFichas);
-		colors.add(greenFichas);
 		
 		icons = new ArrayList<ImageIcon>();
 		icons.add(redPlayer);
@@ -143,22 +124,13 @@ public class FichasPanel extends JPanel implements GameObserver{
 	@Override
 	public void onFichaAnadida(int x, int y, int f, Jugador jugador) {
 		// TODO Elimino la ficha f de la lista color
-		colors.get(jugador.getId()).remove(f);
+		
 	}
 	
 	@Override
 	public void update(Jugador jugador) {
 
 		_gamePanel.cargarFichasJugador(this, _ctrl);
-		
-//		int id = jugador.getId();
-//		
-//		playerIcon.setIcon(icons.get(id));
-//
-//		for(int i=0; i<jugador.getNumFichas(); i++) {
-//			botones.get(i).setIcon(colors.get(id).get(i));
-//			this.add(botones.get(i));
-//		}
 		
 	}
 	

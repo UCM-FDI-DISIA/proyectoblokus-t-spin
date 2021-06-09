@@ -16,12 +16,7 @@ public class Game{
 	private boolean juegoTerminado;
     private List<Jugador> jugadores;  
     private HashMap<String, Integer> mapaCasillas;
-    private List<GameObserver> go;
-
-    // TODO Borrar 
-    // private Jugador currentPlayer;
-    // private Ficha currentFicha;
-    
+    private List<GameObserver> go; 
     
     private int currentPlayer = 0;
     private int currentFicha = 0;
@@ -60,7 +55,6 @@ public class Game{
      
     public void update() {  
     	
-    	
     	currentPlayer++;
     	if(currentPlayer > jugadores.size()-1) {
     		
@@ -78,8 +72,6 @@ public class Game{
 			//o.update(null);
 		}
     	
-    	
-    	
     }
   
     
@@ -93,9 +85,7 @@ public class Game{
 			ok=false;
 		}
     	return ok;
-    	
     }
-    
     
     
     public boolean jugarPrimeraRonda(int f, int y, int x) {
@@ -170,7 +160,6 @@ public class Game{
 		return false;
 	}
     
-    //------------
  
     /**
      * jugadorPuedeColocar:
@@ -191,9 +180,9 @@ public class Game{
     	ficha.moverFicha(x, y);
     	Integer[] posicion = {0,0};
     	
-    	boolean fichaAnadida = false;
+    	boolean fichaAnadida = cumpleReglas(ficha);
     	    	
-    	if(fichaAnadida = cumpleReglas(ficha)) {   
+    	if(fichaAnadida && jugadorPuedeColocar(currentPlayer)) {   
     		
     		for(int i = 0; i < ficha.getNumCasillas(); i++){
     			posicion[0] = ficha.getFichaX(i);
@@ -233,7 +222,7 @@ public class Game{
     			return false;
     		}
     		
-    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si está ocupada    			    			
+    		if(mapaCasillas.containsKey(Arrays.toString(pos))) { //Si esta ocupada    			    			
     			
     			return false;
     		}

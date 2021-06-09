@@ -22,50 +22,6 @@ public class Ficha {
 		}
 	}
 
-//	public void rotar(int rotacion) {
-//		switch (rotacion) {
-//		case 270:
-//			for (int i = 0; i < listaCasillas.size() - 1; i++) {
-//				if (forma[i][0] == 0) {
-//					forma[i][0] = -1;
-//				} else {
-//					forma[i][0] = 0;
-//				}
-//				if (forma[i][1] == 0) {
-//					forma[i][1] = -1;
-//				} else {
-//					forma[i][1] = 0;
-//				}
-//				if (forma[i][0] == 0 && forma[i][1] == 0) {
-//					forma[i][0] = 1;
-//					forma[i][1] = -1;
-//				}
-//			}
-//			break;
-//		case 180:
-//			for (int i = 0; i < listaCasillas.size() - 1; i++) {
-//				forma[i][0] = -forma[i][0];
-//				forma[i][1] = -forma[i][1];
-//			}
-//			break;
-//		case 90:
-//			for (int i = 0; i < listaCasillas.size() - 1; i++) {
-//				if (forma[i][0] == 0) {
-//					forma[i][0] = 1;
-//				} else {
-//					forma[i][0] = 0;
-//				}
-//				if (forma[i][1] == 0) {
-//					forma[i][1] = 1;
-//				} else {
-//					forma[i][1] = 0;
-//				}
-//			}
-//			break;
-//		}
-//
-//		setForma();
-//	}
 	
 	public void rotar(int rotacion) {
 		switch (rotacion) {
